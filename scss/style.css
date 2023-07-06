@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 1.25em;
+  background-color: #222;
+  color: #ccc;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1em;
+  font-weight: 400;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+}
+header h1 {
+  text-transform: lowercase;
+  font-size: 4.75em;
+  font-weight: 600;
+  line-height: 1;
+  background: #121fcf;
+  background: linear-gradient(to right, #121fcf 0%, #cf1512 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+header h2 {
+  font-size: 1.25em;
+  font-weight: 400;
+  color: #555;
+}
+header h2::first-letter {
+  padding: 0.07em 0.3em 0 0;
+  float: left;
+}/*# sourceMappingURL=style.css.map */

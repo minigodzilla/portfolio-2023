@@ -1,0 +1,24 @@
+{
+  "pages": [
+    {
+      "name": "Interactive Art",
+      "slug": "interactive-art",
+      "content": "Lorem ipsum"
+    },
+    {
+      "name": "Web Development",
+      "slug": "web-development",
+      "content": "Lorem ipsum"
+    },
+    {
+      "name": "Game Development",
+      "slug": "game-development",
+      "content": "Lorem ipsum"
+    },
+    {
+      "name": "Workshops &amp; Education",
+      "slug": "workshops-and-education",
+      "content": "Lorem ipsum"
+    }
+  ]
+}
