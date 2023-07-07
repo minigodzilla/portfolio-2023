@@ -1,3 +1,28 @@
+@font-face {
+    font-display: swap;
+    font-family: "JetBrains Mono";
+    font-weight: 200;
+    src: url("../assets/JetBrainsMono-200.woff2") format("woff2");
+}
+@font-face {
+    font-display: swap;
+    font-family: "JetBrains Mono";
+    font-weight: 400;
+    src: url("../assets/JetBrainsMono-400.woff2") format("woff2");
+}
+@font-face {
+    font-display: swap;
+    font-family: "JetBrains Mono";
+    font-weight: 600;
+    src: url("../assets/JetBrainsMono-600.woff2") format("woff2");
+}
+@font-face {
+    font-display: swap;
+    font-family: "JetBrains Mono";
+    font-weight: 800;
+    src: url("../assets/JetBrainsMono-800.woff2") format("woff2");
+}
+
 :root {
     --main-bg-color: #191919;
 }
