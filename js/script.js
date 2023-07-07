@@ -25,14 +25,17 @@ const data = {
 
 const body = document.querySelector("body");
 const nav = document.querySelector("nav");
+let lastPage = 0;
 
 function navigateTo(i) {
-  const nextURL = "/" + data.pages[i].slug;
+  const pageID = i - 1;
+  const nextURL = "/" + data.pages[pageID].slug;
   const nextTitle = "";
   const nextState = {};
 
   window.history.pushState(nextState, nextTitle, nextURL);
-  body.className = "navigated step-" + i;
+  body.className = "navigated show-page-" + i;
+  lastPage = i;
 }
 
 function navigateToHome() {
@@ -41,21 +44,25 @@ function navigateToHome() {
   const nextState = {};
 
   window.history.pushState(nextState, nextTitle, nextURL);
-  body.className = "";
+  body.className = "navigated-back from-page-" + lastPage;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  for (let i = 1; i < data.pages.length; i++) {
+  for (let i = 0; i < data.pages.length; i++) {
+    let pageID = i + 1;
     let div = document.createElement("div");
-    let span = document.createElement("span");
+    let container = document.createElement("div");
+    let label = document.createElement("span");
     let backBtn = document.createElement("span");
-    span.setAttribute("onclick", "navigateTo(" + i + ")");
+    label.setAttribute("onclick", "navigateTo(" + pageID + ")");
     backBtn.setAttribute("onclick", "navigateToHome()");
-    span.classList.add("label");
+    container.classList.add("container");
+    label.classList.add("label");
     backBtn.classList.add("back-btn");
-    span.innerHTML = data.pages[i].name;
+    label.innerHTML = data.pages[i].name;
     nav.appendChild(div).classList.add("nav-item");
-    div.appendChild(backBtn);
-    div.appendChild(span);
+    div.appendChild(container);
+    container.appendChild(backBtn);
+    container.appendChild(label);
   }
 });
