@@ -29,7 +29,8 @@ let lastPage = 0;
 
 function navigateTo(i) {
   const pageID = i - 1;
-  const nextURL = "/" + data.pages[pageID].slug;
+  //   const nextURL = "/" + data.pages[pageID].slug;
+  const nextURL = "/";
   const nextTitle = "";
   const nextState = {};
 

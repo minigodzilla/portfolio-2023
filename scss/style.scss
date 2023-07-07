@@ -200,6 +200,26 @@ header {
         transform: translateX(0);
     }
 }
+@keyframes show-page {
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes hide-page {
+    0% {
+        opacity: 1;
+    }
+}
+@keyframes show-article {
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes hide-article {
+    0% {
+        opacity: 1;
+    }
+}
 body.navigated header {
     h1,
     h2 {
@@ -259,30 +279,52 @@ body.navigated-back.from-page-4 header nav .nav-item:nth-child(4) {
         animation-fill-mode: both;
     }
 }
-@keyframes show-page {
-    100% {
-        opacity: 1;
-    }
-}
-@keyframes hide-page {
-    0% {
-        opacity: 1;
-    }
-}
 .page {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    top: 3.625em;
     opacity: 0;
-    margin-top: 3.625em;
-    padding: 1em;
+    pointer-events: none;
+
+    .article {
+        height: 56.25vw;
+        opacity: 0;
+        position: relative;
+
+        img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            bottom: 0;
+            object-fit: cover;
+            object-position: 50% 100%;
+        }
+    }
 }
 body.show-page-1 .page-1 {
     animation-name: show-page;
     animation-duration: 0ms;
     animation-delay: 1000ms;
     animation-fill-mode: both;
+    pointer-events: all;
+
+    .article {
+        animation-name: show-article;
+        animation-duration: 500ms;
+        animation-delay: 1500ms;
+        animation-fill-mode: both;
+    }
 }
 body.navigated-back.from-page-1 .page-1 {
     animation-name: hide-page;
     animation-duration: 0ms;
     animation-delay: 500ms;
     animation-fill-mode: both;
+
+    .article {
+        animation-name: hide-article;
+        animation-duration: 500ms;
+        animation-fill-mode: both;
+    }
 }
