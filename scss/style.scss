@@ -55,7 +55,7 @@ body {
 }
 
 body {
-    overflow-x: hidden;
+    overflow: hidden;
     margin: 0;
     background-color: var(--main-bg-color);
     color: var(--main-color);
@@ -308,11 +308,30 @@ body.navigated-back.from-page-4 header nav .nav-item:nth-child(4) {
 }
 .page {
     position: absolute;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     width: 100%;
     top: 3.45em;
+    bottom: 0;
     opacity: 0;
     pointer-events: none;
+
+    &::before {
+        content: "";
+        position: fixed;
+        z-index: 1;
+        top: 3.45em;
+        left: 0;
+        right: 0;
+        height: 2em;
+        background-image: linear-gradient(
+            180deg,
+            var(--main-bg-color),
+            transparent 100%
+        );
+        opacity: 0.75;
+        pointer-events: none;
+    }
 
     .article {
         height: 56.25vw;
