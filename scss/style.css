@@ -40,7 +40,6 @@ body {
 body {
   overflow-x: hidden;
   margin: 0;
-  padding: 1.25em;
   background-color: var(--main-bg-color);
   color: #ccc;
   font-family: "JetBrains Mono", monospace;
@@ -185,12 +184,12 @@ body.navigated header h1,
 body.navigated header h2 {
   animation-name: header-item-hide;
   animation-duration: 500ms;
-  animation-fill-mode: forwards;
+  animation-fill-mode: both;
 }
 body.navigated header nav .nav-item {
   animation-name: header-item-hide;
   animation-duration: 500ms;
-  animation-fill-mode: forwards;
+  animation-fill-mode: both;
 }
 
 body.navigated-back header h1,
@@ -241,5 +240,35 @@ body.navigated-back.from-page-3 header nav .nav-item:nth-child(3) .container,
 body.navigated-back.from-page-4 header nav .nav-item:nth-child(4) .container {
   animation-name: hide-back-btn;
   animation-duration: 500ms;
+  animation-fill-mode: both;
+}
+
+@keyframes show-page {
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes hide-page {
+  0% {
+    opacity: 1;
+  }
+}
+.page {
+  opacity: 0;
+  margin-top: 3.625em;
+  padding: 1em;
+}
+
+body.show-page-1 .page-1 {
+  animation-name: show-page;
+  animation-duration: 0ms;
+  animation-delay: 1000ms;
+  animation-fill-mode: both;
+}
+
+body.navigated-back.from-page-1 .page-1 {
+  animation-name: hide-page;
+  animation-duration: 0ms;
+  animation-delay: 500ms;
   animation-fill-mode: both;
 }/*# sourceMappingURL=style.css.map */
