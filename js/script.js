@@ -82,6 +82,7 @@ function navigateBack() {
     main.classList.add("show-" + lastPage);
   }
   main.classList.remove("show-" + thisPage);
+  document.querySelector("#" + thisPage).classList.add("visited");
   thisPage = lastPage;
   lastPage = "";
 
