@@ -50,14 +50,16 @@ function navigateTo(i) {
   thisPage = i;
 
   body.className = "";
+  main.className = "";
   header.classList.add("navigated");
   if (lastPage) {
-    body.classList.remove("navigated-back");
-    body.classList.add("show-page-lv2");
+    main.classList.add("show-lv2");
   } else {
+    nav.className = "";
     nav.classList.add("show-" + thisPage);
+    main.classList.add("show-lv1");
   }
-  body.classList.add("show-" + thisPage);
+  main.classList.add("show-" + thisPage);
 
   console.log("thisPage: " + thisPage + ", lastPage: " + lastPage);
 }
@@ -69,17 +71,20 @@ function navigateBack() {
 
   window.history.pushState(nextState, nextTitle, nextURL);
 
-  body.classList.add("show-" + lastPage);
-  body.classList.remove("show-" + thisPage);
-  body.classList.remove("show-page-lv2");
   if (!lastPage) {
     header.classList.remove("navigated");
-    body.classList.add("navigated-back");
-    body.classList.add("from-" + thisPage);
     nav.className = "";
+    nav.classList.add("from-" + thisPage);
+    main.classList.remove("show-lv1");
+  } else {
+    main.classList.remove("show-lv2");
+    main.classList.add("show-lv1", "from-lv2");
+    main.classList.add("show-" + lastPage);
   }
+  main.classList.remove("show-" + thisPage);
   thisPage = lastPage;
   lastPage = "";
+
   console.log("thisPage: " + thisPage + ", lastPage: " + lastPage);
 }
 
@@ -89,7 +94,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof data[key] === "object") {
         for (let nestedKey in data[key]) {
           if (data[key].hasOwnProperty(nestedKey)) {
-            // console.log(nestedKey + ": " + data[key][nestedKey].name);
             let name = data[key][nestedKey].name;
             let div = document.createElement("div");
             let container = document.createElement("div");
@@ -108,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         }
       } else {
-        console.log(key + ": " + data[key]);
+        console.log(key + ": " + data[key]); // ???
       }
     }
   }

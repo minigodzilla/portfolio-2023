@@ -35,148 +35,7 @@
     );
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-h1,
-h2,
-h3,
-h4 {
-    font-size: inherit;
-    font-weight: inherit;
-}
-
-html,
-body {
-    height: 100%;
-}
-
-body {
-    overflow: hidden;
-    margin: 0;
-    background-color: var(--main-bg-color);
-    color: var(--main-color);
-    font-family: "JetBrains Mono", monospace;
-    font-size: 1em;
-    font-weight: 400;
-}
-
-header {
-    overflow: hidden;
-    position: fixed;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    padding: 0 1em;
-
-    h1,
-    h2 {
-        position: absolute;
-    }
-
-    h1 {
-        top: 50%;
-        width: 3.5em;
-        margin-top: -2.45em;
-        margin-bottom: 0.25em;
-        text-transform: lowercase;
-        font-size: 4.75em;
-        font-weight: 600;
-        letter-spacing: -0.05em;
-        line-height: 1;
-        background: rgb(205, 64, 143);
-        background-position: 50% 45%;
-        background-image: var(--gradient-pink-blue);
-        background-size: 100vw 100vh;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    h2 {
-        top: 50%;
-        margin-top: -0.75em;
-        margin-bottom: 2em;
-        font-size: 1.25em;
-        font-weight: 400;
-        color: #555;
-
-        &::first-letter {
-            padding: 0.07em 0.3em 0 0;
-            float: left;
-        }
-    }
-    nav {
-        color: var(--full-white);
-
-        .nav-item {
-            position: absolute;
-            width: 100%;
-            left: 0;
-            line-height: 3.45em;
-            margin-bottom: 0.125em;
-            background-color: var(--main-bg-color);
-            background-image: linear-gradient(
-                135deg,
-                rgba(205, 64, 143, 0.5) 25%,
-                rgba(9, 79, 195, 0.5) 75%
-            );
-            background-position: 50% 75%;
-            background-repeat: no-repeat;
-            background-size: 100vw 100vh;
-
-            &:nth-child(1) {
-                top: calc(50% + 3em);
-                background-position: 50% 70%;
-            }
-
-            &:nth-child(2) {
-                top: calc(50% + 3em + 3.625em);
-                background-position: 50% calc(70% - 3.65em);
-            }
-
-            &:nth-child(3) {
-                top: calc(50% + 3em + (3.625em * 2));
-                background-position: 50% calc(70% - (3.65em * 2));
-            }
-
-            &:nth-child(4) {
-                top: calc(50% + 3em + (3.625em * 3));
-                background-position: 50% calc(70% - (3.65em * 3));
-            }
-
-            .container {
-                transform: translateX(-3.625em);
-                display: flex;
-                width: calc(100% + 3.625em);
-            }
-
-            .back-btn {
-                width: 3.625em;
-                border-right: 0.1875em solid var(--main-bg-color);
-                margin-right: 1em;
-                background-image: url("../assets/arrow-l.svg");
-                background-position: 50% 50%;
-                background-repeat: no-repeat;
-                background-size: 1.25em;
-            }
-
-            .label {
-                flex-grow: 1;
-                font-size: 1.25em;
-                text-transform: lowercase;
-            }
-        }
-    }
-}
 @keyframes header-item-hide {
-    0% {
-        opacity: 1;
-    }
     100% {
         opacity: 0;
     }
@@ -184,9 +43,6 @@ header {
 @keyframes header-item-show {
     0% {
         opacity: 0;
-    }
-    100% {
-        opacity: 1;
     }
 }
 @keyframes nav-item-to-top {
@@ -232,72 +88,215 @@ header {
     0% {
         opacity: 1;
     }
-    100% {
-        opacity: 0;
-    }
 }
 @keyframes show-article {
     0% {
         opacity: 0;
     }
 }
-@keyframes hide-article {
-    100% {
-        opacity: 0;
-    }
 }
-header.navigated {
-    animation-name: header-shrink;
-    animation-duration: 0ms;
-    animation-fill-mode: both;
-    animation-delay: 1000ms;
-    h1,
-    h2 {
-        animation-name: header-item-hide;
-        animation-duration: 500ms;
-        animation-fill-mode: both;
-    }
-    nav .nav-item {
-        animation-name: header-item-hide;
-        animation-duration: 500ms;
-        animation-fill-mode: both;
-    }
-}
-body.navigated-back header {
-    h1,
-    h2 {
-        animation-name: header-item-show;
-        animation-delay: 1000ms;
-        animation-duration: 500ms;
-        animation-fill-mode: both;
-    }
-    nav .nav-item {
-        animation-name: header-item-show;
-        animation-delay: 1000ms;
-        animation-duration: 500ms;
-        animation-fill-mode: both;
-    }
-}
-nav.show-interactive-art .nav-item:nth-child(1),
-nav.show-web-development .nav-item:nth-child(2),
-nav.show-game-development .nav-item:nth-child(3),
-nav.show-workshops-and-education .nav-item:nth-child(4) {
-    animation-name: nav-item-to-top;
-    animation-duration: 500ms;
-    animation-fill-mode: both;
-    animation-delay: 500ms;
 
-    .container {
-        animation-name: show-back-btn;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+    margin: 0;
+    background-color: var(--main-bg-color);
+    color: var(--main-color);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 1em;
+    font-weight: 400;
+}
+
+header {
+    overflow: hidden;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 0 1em;
+    user-select: none;
+
+    h1,
+    h2,
+    nav .nav-item {
+        animation-name: header-item-show;
         animation-duration: 500ms;
         animation-fill-mode: both;
+    }
+
+    h1,
+    h2 {
+        position: absolute;
+        top: 50%;
+    }
+
+    h1 {
+        width: 3.5em;
+        margin-top: -2.45em;
+        margin-bottom: 0.25em;
+        text-transform: lowercase;
+        font-size: 4.75em;
+        font-weight: 600;
+        letter-spacing: -0.05em;
+        line-height: 1;
+        background: rgb(205, 64, 143);
+        background-position: 50% 45%;
+        background-image: var(--gradient-pink-blue);
+        background-size: 100vw 100vh;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         animation-delay: 1000ms;
     }
+
+    h2 {
+        margin-top: -0.75em;
+        margin-bottom: 2em;
+        font-size: 1.25em;
+        font-weight: 400;
+        color: #555;
+        animation-delay: 1100ms;
+
+        &::first-letter {
+            padding: 0.07em 0.3em 0 0;
+            float: left;
+        }
+    }
+    nav {
+        color: var(--full-white);
+
+        .nav-item {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            line-height: 3.45em;
+            margin-bottom: 0.125em;
+            background-color: var(--main-bg-color);
+            background-image: linear-gradient(
+                135deg,
+                rgba(205, 64, 143, 0.5) 25%,
+                rgba(9, 79, 195, 0.5) 75%
+            );
+            background-position: 50% 75%;
+            background-repeat: no-repeat;
+            background-size: 100vw 100vh;
+            animation-name: header-item-show;
+            animation-duration: 500ms;
+            animation-fill-mode: both;
+
+            &:nth-child(1) {
+                top: calc(50% + 3em);
+                background-position: 50% 70%;
+                animation-delay: 1200ms;
+            }
+
+            &:nth-child(2) {
+                top: calc(50% + 3em + 3.625em);
+                background-position: 50% calc(70% - 3.65em);
+                animation-delay: 1300ms;
+            }
+
+            &:nth-child(3) {
+                top: calc(50% + 3em + (3.625em * 2));
+                background-position: 50% calc(70% - (3.65em * 2));
+                animation-delay: 1400ms;
+            }
+
+            &:nth-child(4) {
+                top: calc(50% + 3em + (3.625em * 3));
+                background-position: 50% calc(70% - (3.65em * 3));
+                animation-delay: 1500ms;
+            }
+
+            .container {
+                transform: translateX(-3.625em);
+                display: flex;
+                width: calc(100% + 3.625em);
+            }
+
+            .back-btn {
+                width: 3.625em;
+                border-right: 0.1875em solid var(--main-bg-color);
+                margin-right: 1em;
+                background-image: url("../assets/arrow-l.svg");
+                background-position: 50% 50%;
+                background-repeat: no-repeat;
+                background-size: 1.25em;
+            }
+
+            .label {
+                flex-grow: 1;
+                font-size: 1.25em;
+                text-transform: lowercase;
+            }
+        }
+    }
+
+    &.navigated {
+        animation-name: header-shrink;
+        animation-duration: 0ms;
+        animation-fill-mode: both;
+        animation-delay: 1000ms;
+        h1,
+        h2 {
+            animation-name: header-item-hide;
+            animation-delay: 0ms;
+            animation-duration: 500ms;
+            animation-fill-mode: both;
+        }
+        nav .nav-item {
+            &:nth-child(1),
+            &:nth-child(2),
+            &:nth-child(3),
+            &:nth-child(4) {
+                animation-name: header-item-hide;
+                animation-delay: 0ms;
+                animation-duration: 500ms;
+                animation-fill-mode: both;
+            }
+            .label {
+                pointer-events: none;
+            }
+        }
+        nav.show-interactive-art .nav-item:nth-child(1),
+        nav.show-web-development .nav-item:nth-child(2),
+        nav.show-game-development .nav-item:nth-child(3),
+        nav.show-workshops-and-education .nav-item:nth-child(4) {
+            animation-name: nav-item-to-top;
+            animation-delay: 500ms;
+
+            .container {
+                animation-name: show-back-btn;
+                animation-duration: 500ms;
+                animation-fill-mode: both;
+                animation-delay: 1000ms;
+            }
+        }
+    }
 }
-body.navigated-back.from-interactive-art header nav .nav-item:nth-child(1),
-body.navigated-back.from-page-2 header nav .nav-item:nth-child(2),
-body.navigated-back.from-page-3 header nav .nav-item:nth-child(3),
-body.navigated-back.from-page-4 header nav .nav-item:nth-child(4) {
+header nav.from-interactive-art .nav-item:nth-child(1),
+header nav.from-web-development .nav-item:nth-child(2),
+header nav.from-game-development .nav-item:nth-child(3),
+header nav.from-workshops-and-education .nav-item:nth-child(4) {
     animation-name: nav-item-back;
     animation-duration: 500ms;
     animation-fill-mode: both;
@@ -338,7 +337,6 @@ body.navigated-back.from-page-4 header nav .nav-item:nth-child(4) {
 
     .article {
         height: 56.25vw;
-        // opacity: 0;
         position: relative;
         display: flex;
         flex-direction: column;
@@ -394,36 +392,14 @@ body.navigated-back.from-page-4 header nav .nav-item:nth-child(4) {
         }
     }
 }
+.page-lv1 {
+    z-index: 1;
+}
 .page-lv2 {
     z-index: 0;
 }
-body.show-ancestors-gate .ancestors-gate {
-    animation-name: show-page;
-    animation-duration: 0ms;
-    animation-delay: 0ms;
-    animation-fill-mode: both;
-    pointer-events: all;
-
-    .article {
-        animation-name: show-article;
-        animation-duration: 500ms;
-        animation-fill-mode: both;
-
-        &:nth-child(1) {
-            animation-delay: 1500ms;
-        }
-        &:nth-child(2) {
-            animation-delay: 1600ms;
-        }
-        &:nth-child(3) {
-            animation-delay: 1700ms;
-        }
-        &:nth-child(4) {
-            animation-delay: 1800ms;
-        }
-    }
-}
-body.show-interactive-art .interactive-art {
+main.show-interactive-art .interactive-art,
+main.show-ancestors-gate .ancestors-gate {
     animation-name: show-page;
     animation-duration: 0ms;
     animation-delay: 1000ms;
@@ -449,10 +425,49 @@ body.show-interactive-art .interactive-art {
         }
     }
 }
-body.navigated-back.from-interactive-art .interactive-art,
-body.navigated-back.from-ancestors-gate .ancestors-gate,
-body.navigated-back.from-page-2 .page-2,
-body.show-page-lv2 .interactive-art {
+main.show-interactive-art .interactive-art {
+    animation-delay: 1000ms;
+
+    .article {
+        &:nth-child(1) {
+            animation-delay: 1500ms;
+        }
+        &:nth-child(2) {
+            animation-delay: 1600ms;
+        }
+        &:nth-child(3) {
+            animation-delay: 1700ms;
+        }
+        &:nth-child(4) {
+            animation-delay: 1800ms;
+        }
+    }
+}
+main.show-ancestors-gate .ancestors-gate,
+main.from-lv2.show-interactive-art .interactive-art {
+    animation-delay: 0ms;
+    animation-duration: 500ms;
+
+    .article {
+        &:nth-child(1) {
+            animation-delay: 0ms;
+            animation-duration: 0ms;
+        }
+        &:nth-child(2) {
+            animation-delay: 0ms;
+            animation-duration: 0ms;
+        }
+        &:nth-child(3) {
+            animation-delay: 0ms;
+            animation-duration: 0ms;
+        }
+        &:nth-child(4) {
+            animation-delay: 0ms;
+            animation-duration: 0ms;
+        }
+    }
+}
+.page {
     animation-name: hide-page;
     animation-duration: 500ms;
     animation-delay: 0ms;
@@ -462,5 +477,32 @@ body.show-page-lv2 .interactive-art {
         // animation-name: hide-article;
         // animation-duration: 500ms;
         // animation-fill-mode: both;
+    }
+}
+body.preload {
+    header {
+        h1 {
+            animation-delay: 500ms;
+        }
+        h2 {
+            animation-delay: 600ms;
+        }
+        nav .nav-item {
+            &:nth-child(1) {
+                animation-delay: 700ms;
+            }
+            &:nth-child(2) {
+                animation-delay: 800ms;
+            }
+            &:nth-child(3) {
+                animation-delay: 900ms;
+            }
+            &:nth-child(4) {
+                animation-delay: 1000ms;
+            }
+        }
+    }
+    .page {
+        animation-duration: 0s;
     }
 }
