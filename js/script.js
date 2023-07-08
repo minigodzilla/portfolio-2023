@@ -82,7 +82,8 @@ function navigateBack() {
     main.classList.add("show-" + lastPage);
   }
   main.classList.remove("show-" + thisPage);
-  document.querySelector("#" + thisPage).classList.add("visited");
+  //   document.querySelector("#" + thisPage).classList.add("visited");
+
   thisPage = lastPage;
   lastPage = "";
 
@@ -90,31 +91,27 @@ function navigateBack() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  for (let key in data) {
-    if (data.hasOwnProperty(key)) {
-      if (typeof data[key] === "object") {
-        for (let nestedKey in data[key]) {
-          if (data[key].hasOwnProperty(nestedKey)) {
-            let name = data[key][nestedKey].name;
-            let div = document.createElement("div");
-            let container = document.createElement("div");
-            let label = document.createElement("span");
-            let backBtn = document.createElement("span");
-            label.setAttribute("onclick", "navigateTo('" + nestedKey + "')");
-            container.classList.add("container");
-            label.classList.add("label");
-            backBtn.classList.add("back-btn");
-            backBtn.setAttribute("onclick", "navigateBack()");
-            label.innerHTML = name;
-            nav.appendChild(div).classList.add("nav-item");
-            div.appendChild(container);
-            container.appendChild(backBtn);
-            container.appendChild(label);
-          }
-        }
-      } else {
-        console.log(key + ": " + data[key]); // ???
-      }
+  for (const key in data.pages) {
+    if (Object.prototype.hasOwnProperty.call(data.pages, key)) {
+      const { name } = data.pages[key];
+      const div = document.createElement("div");
+      const container = document.createElement("div");
+      const label = document.createElement("span");
+      const backBtn = document.createElement("span");
+
+      label.addEventListener("click", () => navigateTo(key));
+      backBtn.addEventListener("click", navigateBack);
+
+      container.classList.add("container");
+      label.classList.add("label");
+      backBtn.classList.add("back-btn");
+
+      label.innerHTML = name;
+
+      nav.appendChild(div).classList.add("nav-item");
+      div.appendChild(container);
+      container.appendChild(backBtn);
+      container.appendChild(label);
     }
   }
 });

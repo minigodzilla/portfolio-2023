@@ -94,6 +94,10 @@
         opacity: 0;
     }
 }
+@keyframes hide-article {
+    100% {
+        opacity: 0;
+    }
 }
 
 * {
@@ -401,8 +405,6 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) {
 main.show-interactive-art .interactive-art,
 main.show-ancestors-gate .ancestors-gate {
     animation-name: show-page;
-    animation-duration: 0ms;
-    animation-delay: 1000ms;
     animation-fill-mode: both;
     pointer-events: all;
 
@@ -427,6 +429,7 @@ main.show-ancestors-gate .ancestors-gate {
 }
 main.show-interactive-art .interactive-art {
     animation-delay: 1000ms;
+    animation-duration: 0ms;
 
     .article {
         &:nth-child(1) {
