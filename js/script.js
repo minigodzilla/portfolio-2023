@@ -1,69 +1,115 @@
 const data = {
-  pages: [
-    {
+  pages: {
+    "interactive-art": {
       name: "Interactive Art",
-      slug: "interactive-art",
-      content: "Lorem ipsum",
+      pages: {
+        "ancestors-gate": {
+          name: "Ancestors' Gate",
+          year: "2023",
+          tags: [
+            "crt",
+            "projection",
+            "microcontroller",
+            "vintage tech",
+            "indigenous",
+          ],
+          content: "Lorem ipsum",
+        },
+      },
     },
-    {
+    "web-development": {
       name: "Web Development",
-      slug: "web-development",
       content: "Lorem ipsum",
     },
-    {
+    "game-development": {
       name: "Game Development",
-      slug: "game-development",
       content: "Lorem ipsum",
     },
-    {
+    "workshops-and-education": {
       name: "Workshops + Education",
-      slug: "workshops-and-education",
       content: "Lorem ipsum",
     },
-  ],
+  },
 };
 
 const body = document.querySelector("body");
+const header = document.querySelector("header");
 const nav = document.querySelector("nav");
-let lastPage = 0;
+const main = document.querySelector("main");
+let thisPage = "";
+let lastPage = "";
 
 function navigateTo(i) {
-  const pageID = i - 1;
-  //   const nextURL = "/" + data.pages[pageID].slug;
   const nextURL = "/";
   const nextTitle = "";
   const nextState = {};
 
   window.history.pushState(nextState, nextTitle, nextURL);
-  body.className = "navigated show-page-" + i;
-  lastPage = i;
+
+  lastPage = thisPage;
+  thisPage = i;
+
+  body.className = "";
+  header.classList.add("navigated");
+  if (lastPage) {
+    body.classList.remove("navigated-back");
+    body.classList.add("show-page-lv2");
+  } else {
+    nav.classList.add("show-" + thisPage);
+  }
+  body.classList.add("show-" + thisPage);
+
+  console.log("thisPage: " + thisPage + ", lastPage: " + lastPage);
 }
 
-function navigateToHome() {
+function navigateBack() {
   const nextURL = "/";
   const nextTitle = "";
   const nextState = {};
 
   window.history.pushState(nextState, nextTitle, nextURL);
-  body.className = "navigated-back from-page-" + lastPage;
+
+  body.classList.add("show-" + lastPage);
+  body.classList.remove("show-" + thisPage);
+  body.classList.remove("show-page-lv2");
+  if (!lastPage) {
+    header.classList.remove("navigated");
+    body.classList.add("navigated-back");
+    body.classList.add("from-" + thisPage);
+    nav.className = "";
+  }
+  thisPage = lastPage;
+  lastPage = "";
+  console.log("thisPage: " + thisPage + ", lastPage: " + lastPage);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  for (let i = 0; i < data.pages.length; i++) {
-    let pageID = i + 1;
-    let div = document.createElement("div");
-    let container = document.createElement("div");
-    let label = document.createElement("span");
-    let backBtn = document.createElement("span");
-    label.setAttribute("onclick", "navigateTo(" + pageID + ")");
-    backBtn.setAttribute("onclick", "navigateToHome()");
-    container.classList.add("container");
-    label.classList.add("label");
-    backBtn.classList.add("back-btn");
-    label.innerHTML = data.pages[i].name;
-    nav.appendChild(div).classList.add("nav-item");
-    div.appendChild(container);
-    container.appendChild(backBtn);
-    container.appendChild(label);
+  for (let key in data) {
+    if (data.hasOwnProperty(key)) {
+      if (typeof data[key] === "object") {
+        for (let nestedKey in data[key]) {
+          if (data[key].hasOwnProperty(nestedKey)) {
+            // console.log(nestedKey + ": " + data[key][nestedKey].name);
+            let name = data[key][nestedKey].name;
+            let div = document.createElement("div");
+            let container = document.createElement("div");
+            let label = document.createElement("span");
+            let backBtn = document.createElement("span");
+            label.setAttribute("onclick", "navigateTo('" + nestedKey + "')");
+            container.classList.add("container");
+            label.classList.add("label");
+            backBtn.classList.add("back-btn");
+            backBtn.setAttribute("onclick", "navigateBack()");
+            label.innerHTML = name;
+            nav.appendChild(div).classList.add("nav-item");
+            div.appendChild(container);
+            container.appendChild(backBtn);
+            container.appendChild(label);
+          }
+        }
+      } else {
+        console.log(key + ": " + data[key]);
+      }
+    }
   }
 });
