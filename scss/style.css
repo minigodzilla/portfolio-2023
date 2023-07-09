@@ -617,4 +617,9 @@ body.preload .page {
   .page#ancestors-gate .article {
     height: 25em;
   }
+}
+@media screen and (min-width: 1200px) {
+  body {
+    font-size: 1em;
+  }
 }/*# sourceMappingURL=style.css.map */
