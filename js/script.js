@@ -4,7 +4,7 @@ const data = {
       name: "Interactive Art",
       pages: {
         "ancestors-gate": {
-          name: "Ancestors' Gate",
+          name: "Ancestors’ Gate",
           year: "2023",
           tags: [
             "crt",
@@ -114,4 +114,14 @@ document.addEventListener("DOMContentLoaded", () => {
       container.appendChild(label);
     }
   }
+});
+
+const page = document.querySelector("#ancestors-gate");
+
+page.addEventListener("scroll", function () {
+  const distance = page.scrollTop;
+  if (distance < 0) distance = 0;
+  document.querySelector(".article video").style.transform = `translateY(${
+    distance * 0.5
+  }px)`;
 });
