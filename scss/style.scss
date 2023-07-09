@@ -59,11 +59,15 @@
     100% {
         top: 0;
         opacity: 1;
+        left: 0%;
+        right: 0%;
     }
 }
 @keyframes nav-item-back {
     0% {
         top: 0;
+        left: 0%;
+        right: 0%;
     }
 }
 @keyframes show-back-btn {
@@ -132,7 +136,7 @@ body {
     background-color: var(--main-bg-color);
     color: var(--main-color);
     font-family: "JetBrains Mono", monospace;
-    font-size: 1em;
+    font-size: 3.875vw;
     font-weight: 400;
     line-height: 1.5;
 }
@@ -142,7 +146,7 @@ h1 {
     font-size: 3.5em;
     font-weight: 600;
     letter-spacing: -0.05em;
-    line-height: 1;
+    line-height: 1.05;
     background: rgb(205, 64, 143);
     background-position: 50% 45%;
     background-image: var(--gradient-pink-blue);
@@ -212,8 +216,9 @@ header {
 
         .nav-item {
             position: absolute;
-            width: 100%;
             left: 0;
+            right: 0;
+            height: 3.45em;
             line-height: 3.45em;
             margin-bottom: 0.125em;
             background-color: var(--main-bg-color);
@@ -336,8 +341,10 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) {
     overflow-y: auto;
     width: 100%;
     top: 3.45em;
+    left: 0;
     bottom: 0;
     opacity: 0;
+    font-size: 1em;
     pointer-events: none;
 
     &::before {
@@ -356,7 +363,15 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) {
         opacity: 0.75;
         pointer-events: none;
     }
-
+    .year {
+        position: relative;
+        padding: 0.125em 0.5em;
+        background-color: rgb(205, 64, 143);
+        background-image: var(--gradient-pink-blue);
+        background-position: 50% 40%;
+        background-size: 40vw 40vh;
+        font-weight: 600;
+    }
     .article {
         height: 56.25vw;
         position: relative;
@@ -389,19 +404,12 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) {
             left: 0;
             bottom: 0;
             object-fit: cover;
-            object-position: 50% 100%;
+            object-position: 50% 50%;
         }
         .year {
-            position: relative;
             margin-top: auto;
             margin-bottom: 0.5em;
-            padding: 0.125em 0.5em;
-            background: rgb(205, 64, 143);
-            background-position: 50% 45%;
-            background-image: var(--gradient-pink-blue-half);
-            background-size: 100vw 100vh;
             font-size: 0.875em;
-            font-weight: 600;
             color: var(--full-white);
         }
         .label {
@@ -441,14 +449,7 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) {
             margin-top: -1.45em;
             margin-right: auto;
             margin-bottom: 1em;
-            padding: 0.125em 0.5em;
-            background: rgb(205, 64, 143);
-            background-position: 50% 45%;
-            background-image: var(--gradient-pink-blue);
-            background-size: 100vw 100vh;
             font-size: 1.25em;
-            font-weight: 600;
-            line-height: 1.25;
             color: var(--main-bg-color);
         }
         .tags {
@@ -581,5 +582,78 @@ body.preload {
     }
     .page {
         animation-duration: 0s;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        font-size: 1.33333vw;
+        overflow-y: auto;
+    }
+    header,
+    .page {
+        width: 64em;
+        left: 50%;
+        margin-left: -32em;
+        bottom: auto;
+    }
+    header {
+        h1 {
+            top: 3em;
+            left: calc(25% + 0.5vw);
+        }
+        h2 {
+            top: 11.5em;
+            left: calc(25% + 1vw);
+        }
+        nav .nav-item {
+            left: 25%;
+            right: 25%;
+            overflow: hidden;
+
+            &:nth-child(1) {
+                top: 18em;
+            }
+            &:nth-child(2) {
+                top: calc(18em + (3.65em * 1));
+            }
+            &:nth-child(3) {
+                top: calc(18em + (3.65em * 2));
+            }
+            &:nth-child(4) {
+                top: calc(18em + (3.65em * 3));
+            }
+        }
+    }
+    .page .content {
+        padding: 2em;
+
+        h1 {
+            font-size: 6em;
+            width: 6em;
+        }
+        h2 {
+            font-size: 2.5em;
+            margin-top: -2.63em;
+            width: 50%;
+        }
+        .year {
+            margin-top: -1em;
+        }
+    }
+    .page#interactive-art {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .article {
+            width: 50%;
+            height: 18.4em;
+        }
+    }
+    .page#ancestors-gate {
+        .article {
+            height: 25em;
+        }
     }
 }

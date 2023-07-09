@@ -125,3 +125,11 @@ page.addEventListener("scroll", function () {
     distance * 0.5
   }px)`;
 });
+
+window.addEventListener("scroll", function () {
+  const distance = window.scrollY;
+  if (distance < 0) distance = 0;
+  document.querySelector(".article video").style.transform = `translateY(${
+    distance * 0.5
+  }px)`;
+});
