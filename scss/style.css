@@ -356,7 +356,7 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) .container {
   font-weight: 600;
 }
 .page .article {
-  height: 56.25vw;
+  height: 14.5em;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -553,6 +553,17 @@ body.preload .page {
   animation-duration: 0s;
 }
 
+@media screen and (min-width: 414px) {
+  body {
+    font-size: 1em;
+  }
+  header,
+  .page {
+    width: 25.875em;
+    left: 50%;
+    margin-left: -12.9375em;
+  }
+}
 @media screen and (min-width: 768px) {
   body {
     font-size: 1.33333vw;
@@ -561,9 +572,7 @@ body.preload .page {
   header,
   .page {
     width: 64em;
-    left: 50%;
     margin-left: -32em;
-    bottom: auto;
   }
   header h1 {
     top: 3em;
@@ -589,6 +598,9 @@ body.preload .page {
   }
   header nav .nav-item:nth-child(4) {
     top: 28.95em;
+  }
+  .page {
+    bottom: auto;
   }
   .page .content {
     padding: 2em;
