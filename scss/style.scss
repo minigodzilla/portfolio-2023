@@ -599,13 +599,14 @@ body.preload {
 
 @media screen and (min-width: 768px) {
     body {
-        font-size: 1.33333vw;
+        font-size: 1.5625vw;
         overflow-y: auto;
     }
     header,
     .page {
-        width: 64em;
-        margin-left: -32em;
+        width: 100%;
+        left: 0;
+        margin-left: 0;
     }
     header {
         h1 {
@@ -671,8 +672,14 @@ body.preload {
     }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1025px) {
     body {
         font-size: 1em;
+    }
+    header,
+    .page {
+        width: 64em;
+        left: 50%;
+        margin-left: -32em;
     }
 }
