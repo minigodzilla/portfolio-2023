@@ -111,8 +111,6 @@ function navigateBack() {
 
   thisPage = lastPage;
   lastPage = "";
-
-  console.log("thisPage: " + thisPage + ", lastPage: " + lastPage);
 }
 
 function createIndexPages(pages, container, parent) {
@@ -146,9 +144,11 @@ function createPages(pages) {
       const page = pages[pageId];
       const pageName = page.name;
       const div = document.createElement("div");
+      div.id = pageId;
 
       if (page.pages) {
         div.className = "page page-lv1 " + pageId;
+        createPages(page.pages);
         createIndexPages(page.pages, div, pageId);
       } else {
         div.className = "page page-lv2 " + pageId;
