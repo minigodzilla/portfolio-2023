@@ -240,25 +240,28 @@ function createNav() {
   }
 }
 
+function addEventListeners() {
+  const page = document.querySelector("#ancestors-gate");
+
+  page.addEventListener("scroll", function () {
+    const distance = page.scrollTop;
+    if (distance < 0) distance = 0;
+    document.querySelector(".hero .img").style.transform = `translateY(${
+      distance * 0.5
+    }px)`;
+  });
+
+  window.addEventListener("scroll", function () {
+    const distance = window.scrollY;
+    if (distance < 0) distance = 0;
+    document.querySelector(".hero .img").style.transform = `translateY(${
+      distance * 0.5
+    }px)`;
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   createPages(data.pages);
   createNav();
-});
-
-const page = document.querySelector("#ancestors-gate");
-
-page.addEventListener("scroll", function () {
-  const distance = page.scrollTop;
-  if (distance < 0) distance = 0;
-  document.querySelector(".hero .img").style.transform = `translateY(${
-    distance * 0.5
-  }px)`;
-});
-
-window.addEventListener("scroll", function () {
-  const distance = window.scrollY;
-  if (distance < 0) distance = 0;
-  document.querySelector(".hero .img").style.transform = `translateY(${
-    distance * 0.5
-  }px)`;
+  addEventListeners();
 });
