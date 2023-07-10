@@ -204,6 +204,7 @@ function createPages(pages, parent) {
         article.appendChild(h1);
         article.appendChild(h2);
         article.appendChild(year);
+        article.appendChild(tags);
         article.appendChild(content);
         div.appendChild(hero);
         div.appendChild(article);
