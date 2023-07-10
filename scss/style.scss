@@ -100,12 +100,12 @@
         opacity: 1;
     }
 }
-@keyframes show-article {
+@keyframes show-hero {
     0% {
         opacity: 0;
     }
 }
-@keyframes hide-article {
+@keyframes hide-hero {
     100% {
         opacity: 0;
     }
@@ -372,7 +372,7 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) {
         background-size: 40vw 40vh;
         font-weight: 600;
     }
-    .article {
+    .hero {
         height: 14.5em;
         position: relative;
         overflow: hidden;
@@ -405,6 +405,10 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) {
             bottom: 0;
             object-fit: cover;
             object-position: 50% 50%;
+
+            &.desktop {
+                display: none;
+            }
         }
         .year {
             margin-top: auto;
@@ -424,7 +428,7 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) {
         }
     }
 
-    .content {
+    .article {
         padding: 1em;
         display: flex;
         flex-direction: column;
@@ -466,8 +470,12 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) {
                 color: var(--light-gray);
             }
         }
-        p {
-            margin-bottom: 1em;
+        .content {
+            padding-right: 2em;
+
+            p {
+                margin-bottom: 1em;
+            }
         }
     }
 }
@@ -483,8 +491,8 @@ main.show-ancestors-gate .ancestors-gate {
     animation-fill-mode: both;
     pointer-events: all;
 
-    .article {
-        animation-name: show-article;
+    .hero {
+        animation-name: show-hero;
         animation-duration: 500ms;
         animation-fill-mode: both;
 
@@ -506,7 +514,7 @@ main.show-interactive-art .interactive-art {
     animation-delay: 1000ms;
     animation-duration: 0ms;
 
-    .article {
+    .hero {
         &:nth-child(1) {
             animation-delay: 1500ms;
         }
@@ -526,7 +534,7 @@ main.from-lv2.show-interactive-art .interactive-art {
     animation-delay: 0ms;
     animation-duration: 500ms;
 
-    .article {
+    .hero {
         &:nth-child(1) {
             animation-delay: 0ms;
             animation-duration: 0ms;
@@ -551,8 +559,8 @@ main.from-lv2.show-interactive-art .interactive-art {
     animation-delay: 0ms;
     animation-fill-mode: forwards;
 
-    .article {
-        // animation-name: hide-article;
+    .hero {
+        // animation-name: hide-hero;
         // animation-duration: 500ms;
         // animation-fill-mode: both;
     }
@@ -638,8 +646,18 @@ body.preload {
     }
     .page {
         bottom: auto;
+
+        .hero video,
+        .hero img {
+            &.mobile {
+                display: none;
+            }
+            &.desktop {
+                display: block;
+            }
+        }
     }
-    .page .content {
+    .page .article {
         padding: 2em;
 
         h1 {
@@ -660,19 +678,19 @@ body.preload {
         flex-direction: row;
         flex-wrap: wrap;
 
-        .article {
+        .hero {
             width: 50%;
             height: 18.4em;
         }
     }
     .page#ancestors-gate {
-        .article {
+        .hero {
             height: 25em;
         }
     }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1024px) {
     body {
         font-size: 1em;
     }
