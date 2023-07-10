@@ -1,10 +1,11 @@
 const data = {
   pages: {
     "interactive-art": {
-      name: "Interactive Art",
+      title: "Interactive Art",
       pages: {
         "ancestors-gate": {
-          name: "Ancestors’ Gate",
+          title: "Ancestors’ Gate",
+          subtitle: "A portal for past generations to speak to us",
           year: "2023",
           tags: [
             "crt",
@@ -14,24 +15,27 @@ const data = {
             "indigenous",
           ],
           content:
-            "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
+            "<p>The story of Indigenous language and cultural near-extinction, and later renaissance, has played out in parallel among Indigenous tribes, nations and peoples in North and South America, Australia and the Pacific, and elsewhere around the world. We can all point to a past generation of our respective peoples, within memory, who spoke our languages maternally.</p><p>Imagine yourself as one of the people of that generation -- perhaps someone in your own family who you knew, or know about, or someone in the Native community where you're from, or even their ancestors beyond that.</p><p>Imagine you're gifted with a time portal they can use to send something through to this generation. A way to communicate directly with us.</p><p>What kind of story, song, message or knowledge would you send?</p>",
         },
         "dancing-light-lanterns": {
-          name: "Dancing Light Lanterns",
+          title: "Dancing Light Lanterns",
+          subtitle: "A portal for past generations to speak to us",
           year: "2022",
           tags: ["microcontroller", "indigenous"],
           content:
             "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
         },
         "indigital-arcade": {
-          name: "inDigital Arcade",
+          title: "inDigital Arcade",
+          subtitle: "A portal for past generations to speak to us",
           year: "2021",
           tags: ["retro gaming", "indigenous"],
           content:
             "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
         },
         "trivia-phone": {
-          name: "Trivia Phone",
+          title: "Trivia Phone",
+          subtitle: "A portal for past generations to speak to us",
           year: "2021",
           tags: ["projection", "microcontroller", "vintage tech"],
           content:
@@ -40,17 +44,17 @@ const data = {
       },
     },
     "web-development": {
-      name: "Web Development",
+      title: "Web Development",
       content:
         "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
     },
     "game-development": {
-      name: "Game Development",
+      title: "Game Development",
       content:
         "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
     },
     "workshops-and-education": {
-      name: "Workshops + Education",
+      title: "Workshops + Education",
       content:
         "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
     },
@@ -128,7 +132,7 @@ function createIndexPages(pages, container, parent) {
 
       img.setAttribute("src", "assets/" + parent + "/" + pageId + ".jpg");
       year.innerText = page.year;
-      label.innerHTML = page.name;
+      label.innerHTML = page.title;
 
       div.appendChild(img);
       div.appendChild(year);
@@ -153,6 +157,8 @@ function createPages(pages, parent) {
         createPages(page.pages, pageId);
         createIndexPages(page.pages, div, pageId);
       } else {
+        div.className = "page page-lv2 " + pageId;
+
         const hero = document.createElement("div");
         const videoMobile = document.createElement("video");
         const videoDesktop = document.createElement("video");
@@ -164,7 +170,6 @@ function createPages(pages, parent) {
         const tag = document.createElement("span");
         const content = document.createElement("div");
 
-        div.className = "page page-lv2 " + pageId;
         hero.className = "hero";
         videoMobile.className = "img mobile";
         videoMobile.setAttribute(
@@ -185,10 +190,12 @@ function createPages(pages, parent) {
         videoDesktop.setAttribute("loop", "true");
         videoDesktop.setAttribute("playsinline", "true");
         article.className = "article";
-        h1.innerText = page.name;
-        h2.innerText = page.name;
+        h1.innerText = page.title;
+        h2.innerText = page.subtitle;
         tags.className = "tags";
         tag.className = "tag";
+        year.className = "year";
+        year.innerText = page.year;
         content.className = "content";
         content.innerHTML = page.content;
 
@@ -200,8 +207,6 @@ function createPages(pages, parent) {
         article.appendChild(content);
         div.appendChild(hero);
         div.appendChild(article);
-
-        // div.innerText = page.name;
       }
 
       main.appendChild(div);
@@ -225,7 +230,7 @@ function createNav() {
       label.classList.add("label");
       backBtn.classList.add("back-btn");
 
-      label.innerText = page.name;
+      label.innerText = page.title;
 
       nav.appendChild(div).classList.add("nav-item");
       div.appendChild(container);

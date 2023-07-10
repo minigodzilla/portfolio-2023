@@ -461,73 +461,154 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) .container {
 }
 
 main.show-interactive-art .interactive-art,
-main.show-ancestors-gate .ancestors-gate {
+main.show-ancestors-gate .ancestors-gate,
+main.show-dancing-light-lanterns .dancing-light-lanterns,
+main.show-indigital-arcade .indigital-arcade,
+main.show-trivia-phone .trivia-phone,
+main.show-web-development .web-development,
+main.show-game-development .game-development,
+main.show-workshops-and-education .workshops-and-education {
   animation-name: show-page;
   animation-fill-mode: both;
   pointer-events: all;
 }
 main.show-interactive-art .interactive-art .hero,
-main.show-ancestors-gate .ancestors-gate .hero {
+main.show-ancestors-gate .ancestors-gate .hero,
+main.show-dancing-light-lanterns .dancing-light-lanterns .hero,
+main.show-indigital-arcade .indigital-arcade .hero,
+main.show-trivia-phone .trivia-phone .hero,
+main.show-web-development .web-development .hero,
+main.show-game-development .game-development .hero,
+main.show-workshops-and-education .workshops-and-education .hero {
   animation-name: show-hero;
   animation-duration: 500ms;
   animation-fill-mode: both;
 }
 main.show-interactive-art .interactive-art .hero:nth-child(1),
-main.show-ancestors-gate .ancestors-gate .hero:nth-child(1) {
+main.show-ancestors-gate .ancestors-gate .hero:nth-child(1),
+main.show-dancing-light-lanterns .dancing-light-lanterns .hero:nth-child(1),
+main.show-indigital-arcade .indigital-arcade .hero:nth-child(1),
+main.show-trivia-phone .trivia-phone .hero:nth-child(1),
+main.show-web-development .web-development .hero:nth-child(1),
+main.show-game-development .game-development .hero:nth-child(1),
+main.show-workshops-and-education .workshops-and-education .hero:nth-child(1) {
   animation-delay: 1500ms;
 }
 main.show-interactive-art .interactive-art .hero:nth-child(2),
-main.show-ancestors-gate .ancestors-gate .hero:nth-child(2) {
+main.show-ancestors-gate .ancestors-gate .hero:nth-child(2),
+main.show-dancing-light-lanterns .dancing-light-lanterns .hero:nth-child(2),
+main.show-indigital-arcade .indigital-arcade .hero:nth-child(2),
+main.show-trivia-phone .trivia-phone .hero:nth-child(2),
+main.show-web-development .web-development .hero:nth-child(2),
+main.show-game-development .game-development .hero:nth-child(2),
+main.show-workshops-and-education .workshops-and-education .hero:nth-child(2) {
   animation-delay: 1600ms;
 }
 main.show-interactive-art .interactive-art .hero:nth-child(3),
-main.show-ancestors-gate .ancestors-gate .hero:nth-child(3) {
+main.show-ancestors-gate .ancestors-gate .hero:nth-child(3),
+main.show-dancing-light-lanterns .dancing-light-lanterns .hero:nth-child(3),
+main.show-indigital-arcade .indigital-arcade .hero:nth-child(3),
+main.show-trivia-phone .trivia-phone .hero:nth-child(3),
+main.show-web-development .web-development .hero:nth-child(3),
+main.show-game-development .game-development .hero:nth-child(3),
+main.show-workshops-and-education .workshops-and-education .hero:nth-child(3) {
   animation-delay: 1700ms;
 }
 main.show-interactive-art .interactive-art .hero:nth-child(4),
-main.show-ancestors-gate .ancestors-gate .hero:nth-child(4) {
+main.show-ancestors-gate .ancestors-gate .hero:nth-child(4),
+main.show-dancing-light-lanterns .dancing-light-lanterns .hero:nth-child(4),
+main.show-indigital-arcade .indigital-arcade .hero:nth-child(4),
+main.show-trivia-phone .trivia-phone .hero:nth-child(4),
+main.show-web-development .web-development .hero:nth-child(4),
+main.show-game-development .game-development .hero:nth-child(4),
+main.show-workshops-and-education .workshops-and-education .hero:nth-child(4) {
   animation-delay: 1800ms;
 }
 
-main.show-interactive-art .interactive-art {
+main.show-interactive-art .interactive-art,
+main.show-web-development .web-development,
+main.show-game-development .game-development,
+main.show-workshops-and-education .workshops-and-education {
   animation-delay: 1000ms;
   animation-duration: 0ms;
 }
-main.show-interactive-art .interactive-art .hero:nth-child(1) {
+main.show-interactive-art .interactive-art .hero:nth-child(1),
+main.show-web-development .web-development .hero:nth-child(1),
+main.show-game-development .game-development .hero:nth-child(1),
+main.show-workshops-and-education .workshops-and-education .hero:nth-child(1) {
   animation-delay: 1500ms;
 }
-main.show-interactive-art .interactive-art .hero:nth-child(2) {
+main.show-interactive-art .interactive-art .hero:nth-child(2),
+main.show-web-development .web-development .hero:nth-child(2),
+main.show-game-development .game-development .hero:nth-child(2),
+main.show-workshops-and-education .workshops-and-education .hero:nth-child(2) {
   animation-delay: 1600ms;
 }
-main.show-interactive-art .interactive-art .hero:nth-child(3) {
+main.show-interactive-art .interactive-art .hero:nth-child(3),
+main.show-web-development .web-development .hero:nth-child(3),
+main.show-game-development .game-development .hero:nth-child(3),
+main.show-workshops-and-education .workshops-and-education .hero:nth-child(3) {
   animation-delay: 1700ms;
 }
-main.show-interactive-art .interactive-art .hero:nth-child(4) {
+main.show-interactive-art .interactive-art .hero:nth-child(4),
+main.show-web-development .web-development .hero:nth-child(4),
+main.show-game-development .game-development .hero:nth-child(4),
+main.show-workshops-and-education .workshops-and-education .hero:nth-child(4) {
   animation-delay: 1800ms;
 }
 
 main.show-ancestors-gate .ancestors-gate,
-main.from-lv2.show-interactive-art .interactive-art {
+main.show-dancing-light-lanterns .dancing-light-lanterns,
+main.show-indigital-arcade .indigital-arcade,
+main.show-trivia-phone .trivia-phone,
+main.from-lv2.show-interactive-art .interactive-art,
+main.from-lv2.show-web-development .web-development,
+main.from-lv2.show-game-development .game-development,
+main.from-lv2.show-workshops-and-education .workshops-and-education {
   animation-delay: 0ms;
   animation-duration: 500ms;
 }
 main.show-ancestors-gate .ancestors-gate .hero:nth-child(1),
-main.from-lv2.show-interactive-art .interactive-art .hero:nth-child(1) {
+main.show-dancing-light-lanterns .dancing-light-lanterns .hero:nth-child(1),
+main.show-indigital-arcade .indigital-arcade .hero:nth-child(1),
+main.show-trivia-phone .trivia-phone .hero:nth-child(1),
+main.from-lv2.show-interactive-art .interactive-art .hero:nth-child(1),
+main.from-lv2.show-web-development .web-development .hero:nth-child(1),
+main.from-lv2.show-game-development .game-development .hero:nth-child(1),
+main.from-lv2.show-workshops-and-education .workshops-and-education .hero:nth-child(1) {
   animation-delay: 0ms;
   animation-duration: 0ms;
 }
 main.show-ancestors-gate .ancestors-gate .hero:nth-child(2),
-main.from-lv2.show-interactive-art .interactive-art .hero:nth-child(2) {
+main.show-dancing-light-lanterns .dancing-light-lanterns .hero:nth-child(2),
+main.show-indigital-arcade .indigital-arcade .hero:nth-child(2),
+main.show-trivia-phone .trivia-phone .hero:nth-child(2),
+main.from-lv2.show-interactive-art .interactive-art .hero:nth-child(2),
+main.from-lv2.show-web-development .web-development .hero:nth-child(2),
+main.from-lv2.show-game-development .game-development .hero:nth-child(2),
+main.from-lv2.show-workshops-and-education .workshops-and-education .hero:nth-child(2) {
   animation-delay: 0ms;
   animation-duration: 0ms;
 }
 main.show-ancestors-gate .ancestors-gate .hero:nth-child(3),
-main.from-lv2.show-interactive-art .interactive-art .hero:nth-child(3) {
+main.show-dancing-light-lanterns .dancing-light-lanterns .hero:nth-child(3),
+main.show-indigital-arcade .indigital-arcade .hero:nth-child(3),
+main.show-trivia-phone .trivia-phone .hero:nth-child(3),
+main.from-lv2.show-interactive-art .interactive-art .hero:nth-child(3),
+main.from-lv2.show-web-development .web-development .hero:nth-child(3),
+main.from-lv2.show-game-development .game-development .hero:nth-child(3),
+main.from-lv2.show-workshops-and-education .workshops-and-education .hero:nth-child(3) {
   animation-delay: 0ms;
   animation-duration: 0ms;
 }
 main.show-ancestors-gate .ancestors-gate .hero:nth-child(4),
-main.from-lv2.show-interactive-art .interactive-art .hero:nth-child(4) {
+main.show-dancing-light-lanterns .dancing-light-lanterns .hero:nth-child(4),
+main.show-indigital-arcade .indigital-arcade .hero:nth-child(4),
+main.show-trivia-phone .trivia-phone .hero:nth-child(4),
+main.from-lv2.show-interactive-art .interactive-art .hero:nth-child(4),
+main.from-lv2.show-web-development .web-development .hero:nth-child(4),
+main.from-lv2.show-game-development .game-development .hero:nth-child(4),
+main.from-lv2.show-workshops-and-education .workshops-and-education .hero:nth-child(4) {
   animation-delay: 0ms;
   animation-duration: 0ms;
 }
@@ -633,12 +714,18 @@ body.preload .page {
   .page .article .year {
     margin-top: -1em;
   }
-  .page#interactive-art {
+  .page.interactive-art,
+  .page.web-development,
+  .page.game-development,
+  .page.workshops-and-education {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
   }
-  .page#interactive-art .hero {
+  .page.interactive-art .hero,
+  .page.web-development .hero,
+  .page.game-development .hero,
+  .page.workshops-and-education .hero {
     width: 50%;
     height: 18.4em;
   }

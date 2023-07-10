@@ -486,7 +486,13 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) {
     z-index: 0;
 }
 main.show-interactive-art .interactive-art,
-main.show-ancestors-gate .ancestors-gate {
+main.show-ancestors-gate .ancestors-gate,
+main.show-dancing-light-lanterns .dancing-light-lanterns,
+main.show-indigital-arcade .indigital-arcade,
+main.show-trivia-phone .trivia-phone,
+main.show-web-development .web-development,
+main.show-game-development .game-development,
+main.show-workshops-and-education .workshops-and-education {
     animation-name: show-page;
     animation-fill-mode: both;
     pointer-events: all;
@@ -510,7 +516,10 @@ main.show-ancestors-gate .ancestors-gate {
         }
     }
 }
-main.show-interactive-art .interactive-art {
+main.show-interactive-art .interactive-art,
+main.show-web-development .web-development,
+main.show-game-development .game-development,
+main.show-workshops-and-education .workshops-and-education {
     animation-delay: 1000ms;
     animation-duration: 0ms;
 
@@ -530,7 +539,13 @@ main.show-interactive-art .interactive-art {
     }
 }
 main.show-ancestors-gate .ancestors-gate,
-main.from-lv2.show-interactive-art .interactive-art {
+main.show-dancing-light-lanterns .dancing-light-lanterns,
+main.show-indigital-arcade .indigital-arcade,
+main.show-trivia-phone .trivia-phone,
+main.from-lv2.show-interactive-art .interactive-art,
+main.from-lv2.show-web-development .web-development,
+main.from-lv2.show-game-development .game-development,
+main.from-lv2.show-workshops-and-education .workshops-and-education {
     animation-delay: 0ms;
     animation-duration: 500ms;
 
@@ -673,7 +688,10 @@ body.preload {
             margin-top: -1em;
         }
     }
-    .page#interactive-art {
+    .page.interactive-art,
+    .page.web-development,
+    .page.game-development,
+    .page.workshops-and-education {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
