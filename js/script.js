@@ -133,26 +133,75 @@ function createIndexPages(pages, container, parent) {
       div.appendChild(img);
       div.appendChild(year);
       div.appendChild(label);
+      div.addEventListener("click", () => navigateTo(pageId));
+
       container.appendChild(div);
     }
   }
 }
 
-function createPages(pages) {
+function createPages(pages, parent) {
   for (const pageId in pages) {
     if (pages.hasOwnProperty(pageId)) {
       const page = pages[pageId];
-      const pageName = page.name;
       const div = document.createElement("div");
+
       div.id = pageId;
 
       if (page.pages) {
         div.className = "page page-lv1 " + pageId;
-        createPages(page.pages);
+        createPages(page.pages, pageId);
         createIndexPages(page.pages, div, pageId);
       } else {
+        const hero = document.createElement("div");
+        const videoMobile = document.createElement("video");
+        const videoDesktop = document.createElement("video");
+        const article = document.createElement("div");
+        const h1 = document.createElement("h1");
+        const h2 = document.createElement("h2");
+        const year = document.createElement("div");
+        const tags = document.createElement("div");
+        const tag = document.createElement("span");
+        const content = document.createElement("div");
+
         div.className = "page page-lv2 " + pageId;
-        div.innerText = pageName;
+        hero.className = "hero";
+        videoMobile.className = "img mobile";
+        videoMobile.setAttribute(
+          "src",
+          "assets/" + parent + "/" + pageId + "-mobile.mp4"
+        );
+        videoMobile.setAttribute("muted", "true");
+        videoMobile.setAttribute("autoplay", "true");
+        videoMobile.setAttribute("loop", "true");
+        videoMobile.setAttribute("playsinline", "true");
+        videoDesktop.className = "img desktop";
+        videoDesktop.setAttribute(
+          "src",
+          "assets/" + parent + "/" + pageId + "-desktop.mp4"
+        );
+        videoDesktop.setAttribute("muted", "true");
+        videoDesktop.setAttribute("autoplay", "true");
+        videoDesktop.setAttribute("loop", "true");
+        videoDesktop.setAttribute("playsinline", "true");
+        article.className = "article";
+        h1.innerText = page.name;
+        h2.innerText = page.name;
+        tags.className = "tags";
+        tag.className = "tag";
+        content.className = "content";
+        content.innerHTML = page.content;
+
+        hero.appendChild(videoMobile);
+        hero.appendChild(videoDesktop);
+        article.appendChild(h1);
+        article.appendChild(h2);
+        article.appendChild(year);
+        article.appendChild(content);
+        div.appendChild(hero);
+        div.appendChild(article);
+
+        // div.innerText = page.name;
       }
 
       main.appendChild(div);
