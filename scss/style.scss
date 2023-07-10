@@ -485,14 +485,7 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) {
 .page-lv2 {
     z-index: 0;
 }
-main.show-interactive-art .interactive-art,
-main.show-ancestors-gate .ancestors-gate,
-main.show-dancing-light-lanterns .dancing-light-lanterns,
-main.show-indigital-arcade .indigital-arcade,
-main.show-trivia-phone .trivia-phone,
-main.show-web-development .web-development,
-main.show-game-development .game-development,
-main.show-workshops-and-education .workshops-and-education {
+main .page.active {
     animation-name: show-page;
     animation-fill-mode: both;
     pointer-events: all;
@@ -516,10 +509,7 @@ main.show-workshops-and-education .workshops-and-education {
         }
     }
 }
-main.show-interactive-art .interactive-art,
-main.show-web-development .web-development,
-main.show-game-development .game-development,
-main.show-workshops-and-education .workshops-and-education {
+main .page.page-lv1.active {
     animation-delay: 1000ms;
     animation-duration: 0ms;
 
@@ -538,14 +528,10 @@ main.show-workshops-and-education .workshops-and-education {
         }
     }
 }
-main.show-ancestors-gate .ancestors-gate,
-main.show-dancing-light-lanterns .dancing-light-lanterns,
-main.show-indigital-arcade .indigital-arcade,
-main.show-trivia-phone .trivia-phone,
-main.from-lv2.show-interactive-art .interactive-art,
-main.from-lv2.show-web-development .web-development,
-main.from-lv2.show-game-development .game-development,
-main.from-lv2.show-workshops-and-education .workshops-and-education {
+main .page.page-lv2.active,
+main.from-lv2 .page.page-lv1.active {
+    // instant fade-in, no animated elements
+
     animation-delay: 0ms;
     animation-duration: 500ms;
 
@@ -688,10 +674,7 @@ body.preload {
             margin-top: -1em;
         }
     }
-    .page.interactive-art,
-    .page.web-development,
-    .page.game-development,
-    .page.workshops-and-education {
+    .page.page-lv1 {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -701,7 +684,7 @@ body.preload {
             height: 18.4em;
         }
     }
-    .page#ancestors-gate {
+    .page.page-lv2 {
         .hero {
             height: 25em;
         }

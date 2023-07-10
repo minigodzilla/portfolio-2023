@@ -14,6 +14,7 @@ const data = {
             "vintage tech",
             "indigenous",
           ],
+          heroVideo: true,
           content:
             "<p>The story of Indigenous language and cultural near-extinction, and later renaissance, has played out in parallel among Indigenous tribes, nations and peoples in North and South America, Australia and the Pacific, and elsewhere around the world. We can all point to a past generation of our respective peoples, within memory, who spoke our languages maternally.</p><p>Imagine yourself as one of the people of that generation -- perhaps someone in your own family who you knew, or know about, or someone in the Native community where you're from, or even their ancestors beyond that.</p><p>Imagine you're gifted with a time portal they can use to send something through to this generation. A way to communicate directly with us.</p><p>What kind of story, song, message or knowledge would you send?</p>",
         },
@@ -22,6 +23,7 @@ const data = {
           subtitle: "A portal for past generations to speak to us",
           year: "2022",
           tags: ["microcontroller", "indigenous"],
+          heroVideo: false,
           content:
             "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
         },
@@ -30,6 +32,7 @@ const data = {
           subtitle: "A portal for past generations to speak to us",
           year: "2021",
           tags: ["retro gaming", "indigenous"],
+          heroVideo: false,
           content:
             "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
         },
@@ -38,6 +41,7 @@ const data = {
           subtitle: "A portal for past generations to speak to us",
           year: "2021",
           tags: ["projection", "microcontroller", "vintage tech"],
+          heroVideo: false,
           content:
             "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
         },
@@ -45,8 +49,62 @@ const data = {
     },
     "web-development": {
       title: "Web Development",
-      content:
-        "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
+      pages: {
+        "red-nucleus": {
+          title: "Red Nucleus",
+          subtitle: "A portal for past generations to speak to us",
+          year: "2022",
+          tags: ["microcontroller", "indigenous"],
+          heroVideo: false,
+          content:
+            "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
+        },
+        "klick-health": {
+          title: "Klick Health",
+          subtitle: "A portal for past generations to speak to us",
+          year: "2021",
+          tags: ["retro gaming", "indigenous"],
+          heroVideo: false,
+          content:
+            "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
+        },
+        stackadapt: {
+          title: "StackAdapt",
+          subtitle: "A portal for past generations to speak to us",
+          year: "2019",
+          tags: ["projection", "microcontroller", "vintage tech"],
+          heroVideo: false,
+          content:
+            "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
+        },
+        diply: {
+          title: "Diply",
+          subtitle: "A portal for past generations to speak to us",
+          year: "2017",
+          tags: ["projection", "microcontroller", "vintage tech"],
+          heroVideo: false,
+          content:
+            "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
+        },
+        infusion: {
+          title: "Infusion",
+          subtitle: "A portal for past generations to speak to us",
+          year: "2016",
+          tags: ["projection", "microcontroller", "vintage tech"],
+          heroVideo: false,
+          content:
+            "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
+        },
+        nventive: {
+          title: "nventive",
+          subtitle: "A portal for past generations to speak to us",
+          year: "2013",
+          tags: ["projection", "microcontroller", "vintage tech"],
+          heroVideo: false,
+          content:
+            "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
+        },
+      },
     },
     "game-development": {
       title: "Game Development",
@@ -90,7 +148,11 @@ function navigateTo(page) {
     nav.classList.add("show-" + thisPage);
     main.classList.add("show-lv1");
   }
-  main.classList.add("show-" + thisPage);
+  if (lastPage) {
+    document.querySelector("#" + lastPage).classList.remove("active");
+    document.querySelector("#" + lastPage).classList.add("visited");
+  }
+  document.querySelector("#" + thisPage).classList.add("active");
 }
 
 function navigateBack() {
@@ -109,9 +171,10 @@ function navigateBack() {
   } else {
     main.classList.remove("show-lv2");
     main.classList.add("show-lv1", "from-lv2");
-    main.classList.add("show-" + lastPage);
+    document.querySelector("#" + lastPage).classList.add("active");
   }
-  main.classList.remove("show-" + thisPage);
+  document.querySelector("#" + thisPage).classList.remove("active");
+  document.querySelector("#" + thisPage).classList.add("visited");
 
   thisPage = lastPage;
   lastPage = "";
