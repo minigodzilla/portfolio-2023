@@ -128,8 +128,7 @@ let thisPage = "";
 let lastPage = "";
 
 function navigateTo(page) {
-  //   const nextURL = "/" + page;
-  const nextURL = "/";
+  const nextURL = "/" + page;
   const nextTitle = "";
   const nextState = {};
 
@@ -156,8 +155,7 @@ function navigateTo(page) {
 }
 
 function navigateBack() {
-  //   const nextURL = "/" + lastPage;
-  const nextURL = "/";
+  const nextURL = "/" + lastPage;
   const nextTitle = "";
   const nextState = {};
 
@@ -309,8 +307,21 @@ function addEventListeners() {
   });
 }
 
+function urlCheck() {
+  const urlParam = new URLSearchParams(window.location.search)
+    .toString()
+    .split("=")[0];
+
+  if (urlParam) {
+    console.log("URL parameter is present. Parameter key: " + urlParam);
+  } else {
+    console.log("URL parameter is not present.");
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   createPages(data.pages);
   createNav();
+  urlCheck();
   addEventListeners();
 });
