@@ -222,65 +222,40 @@ function createPages(pages, parent) {
       } else {
         div.className = "page page-lv2 " + pageId;
 
-        const hero = document.createElement("div");
-        const img = document.createElement("img");
-        const videos = document.createElement("div");
-        const videoMobile = document.createElement("video");
-        const videoDesktop = document.createElement("video");
-        const article = document.createElement("div");
-        const h1 = document.createElement("h1");
-        const h2 = document.createElement("h2");
-        const year = document.createElement("div");
-        const tags = document.createElement("div");
-        const tag = document.createElement("span");
-        const content = document.createElement("div");
-
-        hero.className = "hero";
-        img.className = "img";
-        img.setAttribute("src", "assets/" + parent + "/" + pageId + ".jpg");
-        videos.className = "videos";
-        videoMobile.className = "img mobile";
-        videoMobile.setAttribute(
-          "src",
-          "assets/" + parent + "/" + pageId + "-mobile.mp4"
-        );
-        videoMobile.setAttribute("muted", "true");
-        videoMobile.setAttribute("autoplay", "true");
-        videoMobile.setAttribute("loop", "true");
-        videoMobile.setAttribute("playsinline", "true");
-        videoDesktop.className = "img desktop";
-        videoDesktop.setAttribute(
-          "src",
-          "assets/" + parent + "/" + pageId + "-desktop.mp4"
-        );
-        videoDesktop.setAttribute("muted", "true");
-        videoDesktop.setAttribute("autoplay", "true");
-        videoDesktop.setAttribute("loop", "true");
-        videoDesktop.setAttribute("playsinline", "true");
-        article.className = "article";
-        h1.innerText = page.title;
-        h2.innerText = page.subtitle;
-        tags.className = "tags";
-        tag.className = "tag";
-        year.className = "year";
-        year.innerText = page.year;
-        content.className = "content";
-        content.innerHTML = page.content;
-
         if (page.heroVideo) {
-          videos.appendChild(videoMobile);
-          videos.appendChild(videoDesktop);
-          hero.appendChild(videos);
+          hero = `
+            <div class="hero">
+              <video class="img mobile" src="assets/${parent}/${pageId}.mp4" muted autoplay loop playsinline></video>
+              <video class="img desktop" src="assets/${parent}/${pageId}-desktop.mp4" muted autoplay loop playsinline></video>
+            </div>
+            `;
         } else {
-          hero.appendChild(img);
+          hero = `
+            <div class="hero">
+              <img class="img" src="assets/${parent}/${pageId}.jpg" />
+            </div>
+            `;
         }
-        article.appendChild(h1);
-        article.appendChild(h2);
-        article.appendChild(year);
-        article.appendChild(tags);
-        article.appendChild(content);
-        div.appendChild(hero);
-        div.appendChild(article);
+
+        const article = `
+          <div class="article">
+            <h1>${page.title}</h1>
+            <h2>${page.subtitle}</h2>
+            <div class="year">${page.year}</div>
+            <div class="tags">
+              <span class="tag">crt</span>
+              <span class="tag">projector</span>
+              <span class="tag">microcontroller</span>
+              <span class="tag">vintage tech</span>
+              <span class="tag">indigenous</span>
+            </div>
+            <div class="content">
+              ${page.content}
+            </div>
+          </div>
+        `;
+        div.insertAdjacentHTML("afterbegin", hero);
+        div.insertAdjacentHTML("beforeend", article);
       }
 
       main.appendChild(div);
