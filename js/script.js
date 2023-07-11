@@ -223,6 +223,8 @@ function createPages(pages, parent) {
         div.className = "page page-lv2 " + pageId;
 
         const hero = document.createElement("div");
+        const img = document.createElement("img");
+        const videos = document.createElement("div");
         const videoMobile = document.createElement("video");
         const videoDesktop = document.createElement("video");
         const article = document.createElement("div");
@@ -234,6 +236,9 @@ function createPages(pages, parent) {
         const content = document.createElement("div");
 
         hero.className = "hero";
+        img.className = "img";
+        img.setAttribute("src", "assets/" + parent + "/" + pageId + ".jpg");
+        videos.className = "videos";
         videoMobile.className = "img mobile";
         videoMobile.setAttribute(
           "src",
@@ -262,8 +267,13 @@ function createPages(pages, parent) {
         content.className = "content";
         content.innerHTML = page.content;
 
-        hero.appendChild(videoMobile);
-        hero.appendChild(videoDesktop);
+        if (page.heroVideo) {
+          videos.appendChild(videoMobile);
+          videos.appendChild(videoDesktop);
+          hero.appendChild(videos);
+        } else {
+          hero.appendChild(img);
+        }
         article.appendChild(h1);
         article.appendChild(h2);
         article.appendChild(year);
