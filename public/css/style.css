@@ -550,6 +550,17 @@ body.preload .page {
   animation-duration: 0s;
 }
 
+body.ext-ref header,
+body.ext-ref header h1,
+body.ext-ref header h2,
+body.ext-ref header nav .nav-item,
+body.ext-ref header nav .nav-item .container,
+body.ext-ref .page,
+body.ext-ref .page .hero {
+  animation-delay: 0ms !important;
+  animation-duration: 0ms !important;
+}
+
 @media screen and (min-width: 414px) {
   body {
     font-size: 1em;

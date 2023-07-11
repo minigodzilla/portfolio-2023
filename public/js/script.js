@@ -152,6 +152,8 @@ function navigateTo(page) {
     document.querySelector("#" + lastPage).classList.add("visited");
   }
   document.querySelector("#" + thisPage).classList.add("active");
+  console.log("thisPage:", thisPage);
+  console.log("lastPage:", lastPage);
 }
 
 function navigateBack() {
@@ -161,6 +163,7 @@ function navigateBack() {
 
   window.history.pushState(nextState, nextTitle, nextURL);
 
+  body.className = "";
   if (!lastPage) {
     header.classList.remove("navigated");
     nav.className = "";
@@ -173,6 +176,9 @@ function navigateBack() {
   }
   document.querySelector("#" + thisPage).classList.remove("active");
   document.querySelector("#" + thisPage).classList.add("visited");
+
+  console.log("thisPage:", thisPage);
+  console.log("lastPage:", lastPage);
 
   thisPage = lastPage;
   lastPage = "";
@@ -313,9 +319,52 @@ function urlCheck() {
     .split("=")[0];
 
   if (urlParam) {
-    console.log("URL parameter is present. Parameter key: " + urlParam);
-  } else {
-    console.log("URL parameter is not present.");
+    let lv1Page;
+    let lv2Page;
+    body.className = "ext-ref";
+
+    function findMatchingPage(pages, urlParam) {
+      if (pages.hasOwnProperty(urlParam)) {
+        lv1Page = urlParam;
+        thisPage = lv1Page;
+        return;
+      }
+
+      for (const key in pages) {
+        const page = pages[key];
+        if (typeof page === "object" && page.pages) {
+          if (page.pages.hasOwnProperty(urlParam)) {
+            lv1Page = key;
+            lv2Page = urlParam;
+            thisPage = lv2Page;
+            lastPage = lv1Page;
+            return;
+          }
+
+          findMatchingPage(page.pages, urlParam, key);
+        }
+      }
+    }
+
+    findMatchingPage(data.pages, urlParam);
+
+    console.log("lv1Page:", lv1Page);
+    console.log("lv2Page:", lv2Page);
+    console.log("thisPage:", thisPage);
+    console.log("lastPage:", lastPage);
+
+    // replace address bar URL
+    const nextURL = "/" + urlParam;
+    const nextTitle = "";
+    const nextState = {};
+
+    window.history.replaceState(nextState, nextTitle, nextURL);
+
+    // populate all appropriate classes
+    header.classList.add("navigated");
+    nav.classList.add("show-" + lv1Page);
+    main.classList.add("show-lv2");
+    document.querySelector("#" + urlParam).classList.add("active");
   }
 }
 

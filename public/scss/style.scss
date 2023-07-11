@@ -594,6 +594,19 @@ body.preload {
     }
 }
 
+body.ext-ref {
+    header,
+    header h1,
+    header h2,
+    header nav .nav-item,
+    header nav .nav-item .container,
+    .page,
+    .page .hero {
+        animation-delay: 0ms !important;
+        animation-duration: 0ms !important;
+    }
+}
+
 @media screen and (min-width: 414px) {
     body {
         font-size: 1em;
