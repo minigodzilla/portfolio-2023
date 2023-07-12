@@ -130,63 +130,6 @@ let lv2Page = "";
 let thisPage = "";
 let lastPage = "";
 
-// function navigateTo(page) {
-//   const nextURL = "/" + page;
-//   const nextTitle = "";
-//   const nextState = {};
-
-//   window.history.pushState(nextState, nextTitle, nextURL);
-
-//   lastPage = thisPage;
-//   thisPage = page;
-
-//   body.className = "";
-//   main.className = "";
-//   header.classList.add("navigated");
-//   if (lastPage) {
-//     main.classList.add("show-lv2");
-//   } else {
-//     nav.className = "";
-//     nav.classList.add("show-" + thisPage);
-//     main.classList.add("show-lv1");
-//   }
-//   if (lastPage) {
-//     document.querySelector("#" + lastPage).classList.remove("active");
-//     document.querySelector("#" + lastPage).classList.add("visited");
-//   }
-//   document.querySelector("#" + thisPage).classList.add("active");
-//   console.log("thisPage:", thisPage);
-//   console.log("lastPage:", lastPage);
-// }
-
-// function navigateBack() {
-//   const nextURL = "/" + lastPage;
-//   const nextTitle = "";
-//   const nextState = {};
-
-//   window.history.pushState(nextState, nextTitle, nextURL);
-
-//   body.className = "";
-//   if (!lastPage) {
-//     header.classList.remove("navigated");
-//     nav.className = "";
-//     nav.classList.add("from-" + thisPage);
-//     main.classList.remove("show-lv1");
-//   } else {
-//     main.classList.remove("show-lv2");
-//     main.classList.add("show-lv1", "from-lv2");
-//     document.querySelector("#" + lastPage).classList.add("active");
-//   }
-//   document.querySelector("#" + thisPage).classList.remove("active");
-//   document.querySelector("#" + thisPage).classList.add("visited");
-
-//   console.log("thisPage:", thisPage);
-//   console.log("lastPage:", lastPage);
-
-//   thisPage = lastPage;
-//   lastPage = "";
-// }
-
 function createIndexPages(pages, container, parent) {
   for (const pageId in pages) {
     if (pages.hasOwnProperty(pageId)) {
@@ -287,20 +230,12 @@ function createNav() {
       const backBtn = document.createElement("a");
 
       label.setAttribute("href", "#" + pageId);
-
       label.addEventListener("click", (e) => {
-        e.preventDefault();
         userClicked = true;
-        const pageId = label.getAttribute("href").slice(1);
-        window.location.hash = pageId;
       });
-
       backBtn.setAttribute("href", "#");
-
       backBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        // userClicked = true;
-        history.back();
+        userClicked = true;
       });
 
       container.classList.add("container");
@@ -309,7 +244,9 @@ function createNav() {
 
       label.innerText = page.title;
 
-      nav.appendChild(div).classList.add("nav-item");
+      div.classList.add("nav-item");
+      div.classList.add(pageId);
+      nav.appendChild(div);
       div.appendChild(container);
       container.appendChild(backBtn);
       container.appendChild(label);
@@ -341,25 +278,23 @@ function urlCheck() {
   const hash = window.location.hash.slice(1);
 
   if (hash) {
-    let lv1Page;
-    let lv2Page;
     body.className = "ext-ref";
 
     findMatchingPage(data.pages, hash);
 
-    console.log("lv1Page:", lv1Page);
-    console.log("lv2Page:", lv2Page);
-    console.log("thisPage:", thisPage);
-    console.log("lastPage:", lastPage);
+    if (lastPage) {
+      const backBtn = document.querySelector(
+        ".nav-item." + lv1Page + " .back-btn"
+      );
+      backBtn.setAttribute("href", "#" + lastPage);
+    }
 
-    // replace address bar URL
     const nextURL = "/" + hash;
     const nextTitle = "";
     const nextState = {};
 
     window.history.replaceState(nextState, nextTitle, nextURL);
 
-    // populate all appropriate classes
     header.classList.add("navigated");
     nav.classList.add("show-" + lv1Page);
     main.classList.add("show-lv2");
@@ -370,7 +305,9 @@ function urlCheck() {
 function findMatchingPage(pages, hash) {
   if (pages.hasOwnProperty(hash)) {
     lv1Page = hash;
+    lv2Page = "";
     thisPage = lv1Page;
+    lastPage = "";
     return;
   }
 
@@ -388,47 +325,86 @@ function findMatchingPage(pages, hash) {
       findMatchingPage(page.pages, hash, key);
     }
   }
+  // home page
+  lv1Page = "";
+  lv2Page = "";
+  thisPage = "";
+  lastPage = "";
 }
 
 function showPage(pageId) {
-  console.log("showPage");
+  if (thisPage) {
+    const thisPageElement = document.querySelector("#" + thisPage);
+    thisPageElement.classList.remove("active");
+    thisPageElement.classList.add("visited");
+  }
+
   findMatchingPage(pages, pageId);
 
-  const pageElement = document.querySelector("#" + pageId);
+  const thisPageElement = document.querySelector("#" + thisPage);
+  const backBtn = document.querySelector(".nav-item." + lv1Page + " .back-btn");
+  backBtn.addEventListener("click", () => {
+    userClicked = true;
+  });
   body.classList = "";
   header.classList.add("navigated");
+  nav.className = "";
   nav.classList.add("show-" + lv1Page);
-  if (lv2Page) {
-    console.log("is a level 2 page");
+  if (lastPage) {
+    main.classList.remove("show-lv1");
     main.classList.add("show-lv2");
-    lastPageElement = document.querySelector("#" + lastPage);
-    lastPageElement.classList.remove("active");
+    backBtn.setAttribute("href", "#" + lastPage);
+  } else {
+    main.classList.remove("show-lv2");
+    main.classList.add("show-lv1");
+    backBtn.setAttribute("href", "#");
   }
-  pageElement.classList.add("active");
+  thisPageElement.classList.add("active");
+}
 
-  console.log("lv1Page:", lv1Page);
-  console.log("lv2Page:", lv2Page);
-  console.log("thisPage:", thisPage);
-  console.log("lastPage:", lastPage);
+function backToHome() {
+  if (thisPage) {
+    const thisPageElement = document.querySelector("#" + thisPage);
+    thisPageElement.classList.remove("active");
+    nav.className = "";
+    nav.classList.add("from-" + lv1Page);
+  }
+
+  findMatchingPage(pages, pageId);
+
+  header.classList.remove("navigated");
+  main.className = "";
+
+  const visitedPages = document.querySelectorAll(".visited");
+  visitedPages.forEach((page) => {
+    page.classList.remove("visited");
+  });
 }
 
 function handleHashChange() {
   pageId = window.location.hash.slice(1);
-  console.log("Hash changed:", pageId);
 
-  // replace address bar URL
   const nextURL = "/" + pageId;
   const nextTitle = "";
   const nextState = {};
 
   window.history.replaceState(nextState, nextTitle, nextURL);
-  showPage(pageId);
+  if (pageId) {
+    showPage(pageId);
+  } else {
+    backToHome();
+  }
 }
 
 function handlePopstate(event) {
   pageId = window.location.pathname.slice(1);
-  console.log("Pop state changed:", pageId);
-  if (!userClicked) showPage(pageId);
+  if (!userClicked) {
+    if (pageId) {
+      showPage(pageId);
+    } else {
+      backToHome();
+    }
+  }
   userClicked = false;
 }
 
