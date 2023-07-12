@@ -204,14 +204,16 @@ function createIndexPages(pages, container, parent) {
       year.innerText = page.year;
       label.innerHTML = page.title;
 
+      a.setAttribute("href", "#" + pageId);
+
       a.appendChild(img);
       a.appendChild(year);
       a.appendChild(label);
       a.addEventListener("click", (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         userClicked = true;
-        const pageId = this.getAttribute("href").slice(1);
-        // window.location.hash = pageId;
+        const pageId = a.getAttribute("href").slice(1);
+        window.location.hash = pageId;
       });
 
       container.appendChild(a);
@@ -388,14 +390,18 @@ function findMatchingPage(pages, hash) {
 
 function showPage(pageId) {
   console.log("showPage");
-  const pageElement = document.querySelector("#" + pageId);
-
   findMatchingPage(pages, pageId);
 
+  const pageElement = document.querySelector("#" + pageId);
   body.classList = "";
   header.classList.add("navigated");
   nav.classList.add("show-" + lv1Page);
-  main.classList.add("show-lv2");
+  if (lv2Page) {
+    console.log("is a level 2 page");
+    main.classList.add("show-lv2");
+    lastPageElement = document.querySelector("#" + lastPage);
+    lastPageElement.classList.remove("active");
+  }
   pageElement.classList.add("active");
 
   console.log("lv1Page:", lv1Page);
