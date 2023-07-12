@@ -182,7 +182,7 @@ function createPages(pages, parent) {
         if (page.heroVideo) {
           hero = `
             <div class="hero">
-              <video class="img mobile" src="assets/${parent}/${pageId}.mp4" muted autoplay loop playsinline></video>
+              <video class="img mobile" src="assets/${parent}/${pageId}-mobile.mp4" muted autoplay loop playsinline></video>
               <video class="img desktop" src="assets/${parent}/${pageId}-desktop.mp4" muted autoplay loop playsinline></video>
             </div>
             `;
@@ -283,10 +283,12 @@ function urlCheck() {
     findMatchingPage(data.pages, hash);
 
     if (lastPage) {
+      const lastPageElement = document.querySelector("#" + lv1Page);
       const backBtn = document.querySelector(
         ".nav-item." + lv1Page + " .back-btn"
       );
       backBtn.setAttribute("href", "#" + lastPage);
+      lastPageElement.classList.add("visited");
     }
 
     const nextURL = "/" + hash;
