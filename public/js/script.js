@@ -294,11 +294,13 @@ function createNav() {
         const pageId = label.getAttribute("href").slice(1);
         window.location.hash = pageId;
       });
+
+      backBtn.setAttribute("href", "#");
+
       backBtn.addEventListener("click", (e) => {
         e.preventDefault();
-        userClicked = true;
-        const pageId = backBtn.getAttribute("href").slice(1);
-        window.location.hash = pageId;
+        // userClicked = true;
+        history.back();
       });
 
       container.classList.add("container");
