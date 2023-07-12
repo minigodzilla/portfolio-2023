@@ -254,26 +254,6 @@ function createNav() {
   }
 }
 
-function addEventListeners() {
-  const page = document.querySelector("#ancestors-gate");
-
-  page.addEventListener("scroll", function () {
-    const distance = page.scrollTop;
-    if (distance < 0) distance = 0;
-    document.querySelector(".hero .img").style.transform = `translateY(${
-      distance * 0.5
-    }px)`;
-  });
-
-  window.addEventListener("scroll", function () {
-    const distance = window.scrollY;
-    if (distance < 0) distance = 0;
-    document.querySelector(".hero .img").style.transform = `translateY(${
-      distance * 0.5
-    }px)`;
-  });
-}
-
 function urlCheck() {
   const hash = window.location.hash.slice(1);
 
@@ -284,11 +264,14 @@ function urlCheck() {
 
     if (lastPage) {
       const lastPageElement = document.querySelector("#" + lv1Page);
+      const thisPageElement = document.querySelector("#" + thisPage);
       const backBtn = document.querySelector(
         ".nav-item." + lv1Page + " .back-btn"
       );
       backBtn.setAttribute("href", "#" + lastPage);
       lastPageElement.classList.add("visited");
+      thisPageElement.addEventListener("scroll", handlePageScroll);
+      window.addEventListener("scroll", handleWindowScroll);
     }
 
     const nextURL = "/" + hash;
@@ -339,6 +322,8 @@ function showPage(pageId) {
     const thisPageElement = document.querySelector("#" + thisPage);
     thisPageElement.classList.remove("active");
     thisPageElement.classList.add("visited");
+    thisPageElement.removeEventListener("scroll", handlePageScroll);
+    thisPageElement.removeEventListener("scroll", handleWindowScroll);
   }
 
   findMatchingPage(pages, pageId);
@@ -356,12 +341,31 @@ function showPage(pageId) {
     main.classList.remove("show-lv1");
     main.classList.add("show-lv2");
     backBtn.setAttribute("href", "#" + lastPage);
+    thisPageElement.addEventListener("scroll", handlePageScroll);
+    window.addEventListener("scroll", handleWindowScroll);
   } else {
     main.classList.remove("show-lv2");
     main.classList.add("show-lv1");
     backBtn.setAttribute("href", "#");
   }
   thisPageElement.classList.add("active");
+}
+
+function handleWindowScroll() {
+  const distance = window.scrollY;
+  if (distance < 0) distance = 0;
+  document.querySelector(
+    "#" + thisPage + ".page-lv2 .hero"
+  ).style.transform = `translateY(${distance * 0.5}px)`;
+}
+
+function handlePageScroll() {
+  const thisPageElement = document.querySelector("#" + thisPage);
+  const distance = thisPageElement.scrollTop;
+  if (distance < 0) distance = 0;
+  document.querySelector(
+    "#" + thisPage + ".page-lv2 .hero"
+  ).style.transform = `translateY(${distance * 0.5}px)`;
 }
 
 function backToHome() {
@@ -414,7 +418,6 @@ document.addEventListener("DOMContentLoaded", () => {
   createPages(data.pages);
   createNav();
   urlCheck();
-  addEventListeners();
 });
 
 window.addEventListener("hashchange", () => {
