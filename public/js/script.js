@@ -124,76 +124,79 @@ const body = document.querySelector("body");
 const header = document.querySelector("header");
 const nav = document.querySelector("nav");
 const main = document.querySelector("main");
+let userClicked = false;
+let lv1Page = "";
+let lv2Page = "";
 let thisPage = "";
 let lastPage = "";
 
-function navigateTo(page) {
-  const nextURL = "/" + page;
-  const nextTitle = "";
-  const nextState = {};
+// function navigateTo(page) {
+//   const nextURL = "/" + page;
+//   const nextTitle = "";
+//   const nextState = {};
 
-  window.history.pushState(nextState, nextTitle, nextURL);
+//   window.history.pushState(nextState, nextTitle, nextURL);
 
-  lastPage = thisPage;
-  thisPage = page;
+//   lastPage = thisPage;
+//   thisPage = page;
 
-  body.className = "";
-  main.className = "";
-  header.classList.add("navigated");
-  if (lastPage) {
-    main.classList.add("show-lv2");
-  } else {
-    nav.className = "";
-    nav.classList.add("show-" + thisPage);
-    main.classList.add("show-lv1");
-  }
-  if (lastPage) {
-    document.querySelector("#" + lastPage).classList.remove("active");
-    document.querySelector("#" + lastPage).classList.add("visited");
-  }
-  document.querySelector("#" + thisPage).classList.add("active");
-  console.log("thisPage:", thisPage);
-  console.log("lastPage:", lastPage);
-}
+//   body.className = "";
+//   main.className = "";
+//   header.classList.add("navigated");
+//   if (lastPage) {
+//     main.classList.add("show-lv2");
+//   } else {
+//     nav.className = "";
+//     nav.classList.add("show-" + thisPage);
+//     main.classList.add("show-lv1");
+//   }
+//   if (lastPage) {
+//     document.querySelector("#" + lastPage).classList.remove("active");
+//     document.querySelector("#" + lastPage).classList.add("visited");
+//   }
+//   document.querySelector("#" + thisPage).classList.add("active");
+//   console.log("thisPage:", thisPage);
+//   console.log("lastPage:", lastPage);
+// }
 
-function navigateBack() {
-  const nextURL = "/" + lastPage;
-  const nextTitle = "";
-  const nextState = {};
+// function navigateBack() {
+//   const nextURL = "/" + lastPage;
+//   const nextTitle = "";
+//   const nextState = {};
 
-  window.history.pushState(nextState, nextTitle, nextURL);
+//   window.history.pushState(nextState, nextTitle, nextURL);
 
-  body.className = "";
-  if (!lastPage) {
-    header.classList.remove("navigated");
-    nav.className = "";
-    nav.classList.add("from-" + thisPage);
-    main.classList.remove("show-lv1");
-  } else {
-    main.classList.remove("show-lv2");
-    main.classList.add("show-lv1", "from-lv2");
-    document.querySelector("#" + lastPage).classList.add("active");
-  }
-  document.querySelector("#" + thisPage).classList.remove("active");
-  document.querySelector("#" + thisPage).classList.add("visited");
+//   body.className = "";
+//   if (!lastPage) {
+//     header.classList.remove("navigated");
+//     nav.className = "";
+//     nav.classList.add("from-" + thisPage);
+//     main.classList.remove("show-lv1");
+//   } else {
+//     main.classList.remove("show-lv2");
+//     main.classList.add("show-lv1", "from-lv2");
+//     document.querySelector("#" + lastPage).classList.add("active");
+//   }
+//   document.querySelector("#" + thisPage).classList.remove("active");
+//   document.querySelector("#" + thisPage).classList.add("visited");
 
-  console.log("thisPage:", thisPage);
-  console.log("lastPage:", lastPage);
+//   console.log("thisPage:", thisPage);
+//   console.log("lastPage:", lastPage);
 
-  thisPage = lastPage;
-  lastPage = "";
-}
+//   thisPage = lastPage;
+//   lastPage = "";
+// }
 
 function createIndexPages(pages, container, parent) {
   for (const pageId in pages) {
     if (pages.hasOwnProperty(pageId)) {
       const page = pages[pageId];
-      const div = document.createElement("div");
+      const a = document.createElement("a");
       const img = document.createElement("img");
       const year = document.createElement("div");
       const label = document.createElement("h2");
 
-      div.className = "hero";
+      a.className = "hero";
       year.className = "year";
       label.className = "label";
 
@@ -201,12 +204,17 @@ function createIndexPages(pages, container, parent) {
       year.innerText = page.year;
       label.innerHTML = page.title;
 
-      div.appendChild(img);
-      div.appendChild(year);
-      div.appendChild(label);
-      div.addEventListener("click", () => navigateTo(pageId));
+      a.appendChild(img);
+      a.appendChild(year);
+      a.appendChild(label);
+      a.addEventListener("click", (e) => {
+        // e.preventDefault();
+        userClicked = true;
+        const pageId = this.getAttribute("href").slice(1);
+        // window.location.hash = pageId;
+      });
 
-      container.appendChild(div);
+      container.appendChild(a);
     }
   }
 }
@@ -273,11 +281,23 @@ function createNav() {
       const page = pages[pageId];
       const div = document.createElement("div");
       const container = document.createElement("div");
-      const label = document.createElement("span");
-      const backBtn = document.createElement("span");
+      const label = document.createElement("a");
+      const backBtn = document.createElement("a");
 
-      label.addEventListener("click", () => navigateTo(pageId));
-      backBtn.addEventListener("click", navigateBack);
+      label.setAttribute("href", "#" + pageId);
+
+      label.addEventListener("click", (e) => {
+        e.preventDefault();
+        userClicked = true;
+        const pageId = label.getAttribute("href").slice(1);
+        window.location.hash = pageId;
+      });
+      backBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        userClicked = true;
+        const pageId = backBtn.getAttribute("href").slice(1);
+        window.location.hash = pageId;
+      });
 
       container.classList.add("container");
       label.classList.add("label");
@@ -314,39 +334,14 @@ function addEventListeners() {
 }
 
 function urlCheck() {
-  const urlParam = new URLSearchParams(window.location.search)
-    .toString()
-    .split("=")[0];
+  const hash = window.location.hash.slice(1);
 
-  if (urlParam) {
+  if (hash) {
     let lv1Page;
     let lv2Page;
     body.className = "ext-ref";
 
-    function findMatchingPage(pages, urlParam) {
-      if (pages.hasOwnProperty(urlParam)) {
-        lv1Page = urlParam;
-        thisPage = lv1Page;
-        return;
-      }
-
-      for (const key in pages) {
-        const page = pages[key];
-        if (typeof page === "object" && page.pages) {
-          if (page.pages.hasOwnProperty(urlParam)) {
-            lv1Page = key;
-            lv2Page = urlParam;
-            thisPage = lv2Page;
-            lastPage = lv1Page;
-            return;
-          }
-
-          findMatchingPage(page.pages, urlParam, key);
-        }
-      }
-    }
-
-    findMatchingPage(data.pages, urlParam);
+    findMatchingPage(data.pages, hash);
 
     console.log("lv1Page:", lv1Page);
     console.log("lv2Page:", lv2Page);
@@ -354,7 +349,7 @@ function urlCheck() {
     console.log("lastPage:", lastPage);
 
     // replace address bar URL
-    const nextURL = "/" + urlParam;
+    const nextURL = "/" + hash;
     const nextTitle = "";
     const nextState = {};
 
@@ -364,8 +359,69 @@ function urlCheck() {
     header.classList.add("navigated");
     nav.classList.add("show-" + lv1Page);
     main.classList.add("show-lv2");
-    document.querySelector("#" + urlParam).classList.add("active");
+    document.querySelector("#" + hash).classList.add("active");
   }
+}
+
+function findMatchingPage(pages, hash) {
+  if (pages.hasOwnProperty(hash)) {
+    lv1Page = hash;
+    thisPage = lv1Page;
+    return;
+  }
+
+  for (const key in pages) {
+    const page = pages[key];
+    if (typeof page === "object" && page.pages) {
+      if (page.pages.hasOwnProperty(hash)) {
+        lv1Page = key;
+        lv2Page = hash;
+        thisPage = lv2Page;
+        lastPage = lv1Page;
+        return;
+      }
+
+      findMatchingPage(page.pages, hash, key);
+    }
+  }
+}
+
+function showPage(pageId) {
+  console.log("showPage");
+  const pageElement = document.querySelector("#" + pageId);
+
+  findMatchingPage(pages, pageId);
+
+  body.classList = "";
+  header.classList.add("navigated");
+  nav.classList.add("show-" + lv1Page);
+  main.classList.add("show-lv2");
+  pageElement.classList.add("active");
+
+  console.log("lv1Page:", lv1Page);
+  console.log("lv2Page:", lv2Page);
+  console.log("thisPage:", thisPage);
+  console.log("lastPage:", lastPage);
+}
+
+function handleHashChange() {
+  pageId = window.location.hash.slice(1);
+  console.log("Hash changed:", pageId);
+
+  // replace address bar URL
+  const nextURL = "/" + pageId;
+  const nextTitle = "";
+  const nextState = {};
+
+  window.history.replaceState(nextState, nextTitle, nextURL);
+  showPage(pageId);
+}
+
+function handlePopstate(event) {
+  pageId = window.location.pathname.slice(1);
+  console.log("Pop state changed:", pageId);
+  if (!userClicked) showPage(pageId);
+  userClicked = false;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -373,4 +429,11 @@ document.addEventListener("DOMContentLoaded", () => {
   createNav();
   urlCheck();
   addEventListeners();
+});
+
+window.addEventListener("hashchange", () => {
+  handleHashChange();
+});
+window.addEventListener("popstate", () => {
+  handlePopstate();
 });

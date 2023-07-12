@@ -16,7 +16,7 @@ app.get("*", (req, res) => {
     // Pass through to the next middleware or route handler
   }
 
-  const rewrittenUrl = `/?${req.url.substring(1)}`;
+  const rewrittenUrl = `/#${req.url.substring(1)}`;
   res.redirect(rewrittenUrl);
 });
 
