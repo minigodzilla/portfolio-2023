@@ -310,11 +310,17 @@ function findMatchingPage(pages, hash) {
       findMatchingPage(page.pages, hash, key);
     }
   }
-  // home page
-  lv1Page = "";
-  lv2Page = "";
-  thisPage = "";
-  lastPage = "";
+  if (!hash) {
+    // home page
+    lv1Page = "";
+    lv2Page = "";
+    thisPage = "";
+    lastPage = "";
+    return;
+  }
+  // 404 condition
+  console.log("404");
+  return;
 }
 
 function showPage(pageId) {
@@ -354,18 +360,22 @@ function showPage(pageId) {
 function handleWindowScroll() {
   const distance = window.scrollY;
   if (distance < 0) distance = 0;
-  document.querySelector(
-    "#" + thisPage + ".page-lv2 .hero"
-  ).style.transform = `translateY(${distance * 0.5}px)`;
+  if (thisPage) {
+    document.querySelector(
+      "#" + thisPage + ".page-lv2 .hero"
+    ).style.transform = `translateY(${distance * 0.5}px)`;
+  }
 }
 
 function handlePageScroll() {
   const thisPageElement = document.querySelector("#" + thisPage);
   const distance = thisPageElement.scrollTop;
   if (distance < 0) distance = 0;
-  document.querySelector(
-    "#" + thisPage + ".page-lv2 .hero"
-  ).style.transform = `translateY(${distance * 0.5}px)`;
+  if (thisPage) {
+    document.querySelector(
+      "#" + thisPage + ".page-lv2 .hero"
+    ).style.transform = `translateY(${distance * 0.5}px)`;
+  }
 }
 
 function backToHome() {
