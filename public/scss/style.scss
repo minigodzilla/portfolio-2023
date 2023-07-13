@@ -343,7 +343,7 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) {
 .page {
     position: absolute;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
     width: 100%;
     top: 0;
     left: 0;
@@ -464,6 +464,7 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) {
             color: var(--main-bg-color);
         }
         .tags {
+            position: relative;
             display: flex;
             flex-wrap: wrap;
             margin-bottom: 1em;
@@ -493,6 +494,8 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) {
     z-index: 0;
 }
 main .page.active {
+    overflow-y: auto;
+
     animation-name: show-page;
     animation-fill-mode: both;
     pointer-events: all;
