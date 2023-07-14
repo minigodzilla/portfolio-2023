@@ -421,8 +421,14 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) {
             object-fit: cover;
             object-position: 50% 50%;
 
+            &.mobile {
+                display: block;
+            }
             &.desktop {
                 display: none;
+            }
+            &.mobile.desktop {
+                display: block;
             }
         }
         .year {
@@ -536,7 +542,7 @@ main .page.active {
             transform: translateY(-50%);
             animation-name: show-lv2-hero;
             animation-delay: 100ms;
-            animation-duration: 500ms;
+            animation-duration: 250ms;
             animation-fill-mode: both;
             animation-timing-function: steps(12, end);
         }
@@ -725,6 +731,9 @@ body.ext-ref {
                 display: none;
             }
             &.desktop {
+                display: block;
+            }
+            &.mobile.desktop {
                 display: block;
             }
         }
