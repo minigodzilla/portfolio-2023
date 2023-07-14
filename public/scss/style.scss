@@ -493,12 +493,8 @@ header {
                 color: var(--light-gray);
             }
         }
-        .content {
-            padding-right: 2em;
-
-            p {
-                margin-bottom: 1em;
-            }
+        .content p {
+            margin-bottom: 1em;
         }
     }
 }
