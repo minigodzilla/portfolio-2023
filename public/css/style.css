@@ -117,6 +117,14 @@
     transform: translateY(0);
   }
 }
+@keyframes unblur-lv2-hero-img {
+  0% {
+    filter: blur(1em);
+  }
+  100% {
+    filter: blur(0);
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -314,7 +322,6 @@ header.navigated nav.show-workshops-and-education .nav-item:nth-child(4) .contai
   animation-fill-mode: both;
   animation-delay: 1000ms;
 }
-
 header nav.from-interactive-art .nav-item:nth-child(1),
 header nav.from-web-development .nav-item:nth-child(2),
 header nav.from-game-development .nav-item:nth-child(3),
@@ -500,7 +507,7 @@ main .page.active.page-lv2 h1,
 main .page.active.page-lv2 h2,
 main .page.active.page-lv2 .year,
 main .page.active.page-lv2 .tags,
-main .page.active.page-lv2 .content {
+main .page.active.page-lv2 .content p {
   animation-name: show-hero;
   animation-duration: 500ms;
   animation-fill-mode: both;
@@ -517,6 +524,13 @@ main .page.active.page-lv2 .hero:nth-child(1) {
   animation-delay: 0ms;
   animation-duration: 0ms;
 }
+main .page.active.page-lv2 .hero:nth-child(1) .img {
+  animation-name: unblur-lv2-hero-img;
+  animation-delay: 100ms;
+  animation-duration: 1000ms;
+  animation-fill-mode: both;
+  animation-timing-function: steps(48, end);
+}
 main .page.active.page-lv2 h1 {
   animation-delay: 400ms;
 }
@@ -531,6 +545,24 @@ main .page.active.page-lv2 .tags {
 }
 main .page.active.page-lv2 .content {
   animation-delay: 800ms;
+}
+main .page.active.page-lv2 .content p:nth-child(1) {
+  animation-delay: 800ms;
+}
+main .page.active.page-lv2 .content p:nth-child(2) {
+  animation-delay: 900ms;
+}
+main .page.active.page-lv2 .content p:nth-child(3) {
+  animation-delay: 1000ms;
+}
+main .page.active.page-lv2 .content p:nth-child(4) {
+  animation-delay: 1100ms;
+}
+main .page.active.page-lv2 .content p:nth-child(5) {
+  animation-delay: 1200ms;
+}
+main .page.active.page-lv2 .content p:nth-child(6) {
+  animation-delay: 1300ms;
 }
 
 main .page.page-lv1.active {
@@ -558,23 +590,46 @@ main .page.page-lv1.visited .hero:nth-child(4) {
   animation-delay: 0ms;
 }
 
-main.from-lv2 .page.page-lv1.visited.active {
+main.from-lv2 .page.page-lv1.visited.active,
+main .page.page-lv2.visited.active {
   animation-delay: 0ms;
   animation-duration: 500ms;
 }
-main.from-lv2 .page.page-lv1.visited.active .hero:nth-child(1) {
+main.from-lv2 .page.page-lv1.visited.active .hero:nth-child(1)::before,
+main .page.page-lv2.visited.active .hero:nth-child(1)::before {
   animation-delay: 0ms;
   animation-duration: 0ms;
 }
-main.from-lv2 .page.page-lv1.visited.active .hero:nth-child(2) {
+main.from-lv2 .page.page-lv1.visited.active .hero:nth-child(2)::before,
+main .page.page-lv2.visited.active .hero:nth-child(2)::before {
   animation-delay: 0ms;
   animation-duration: 0ms;
 }
-main.from-lv2 .page.page-lv1.visited.active .hero:nth-child(3) {
+main.from-lv2 .page.page-lv1.visited.active .hero:nth-child(3)::before,
+main .page.page-lv2.visited.active .hero:nth-child(3)::before {
   animation-delay: 0ms;
   animation-duration: 0ms;
 }
-main.from-lv2 .page.page-lv1.visited.active .hero:nth-child(4) {
+main.from-lv2 .page.page-lv1.visited.active .hero:nth-child(4)::before,
+main .page.page-lv2.visited.active .hero:nth-child(4)::before {
+  animation-delay: 0ms;
+  animation-duration: 0ms;
+}
+main.from-lv2 .page.page-lv1.visited.active .hero .img,
+main .page.page-lv2.visited.active .hero .img {
+  animation-delay: 0ms;
+  animation-duration: 0ms;
+}
+main.from-lv2 .page.page-lv1.visited.active h1,
+main.from-lv2 .page.page-lv1.visited.active h2,
+main.from-lv2 .page.page-lv1.visited.active .year,
+main.from-lv2 .page.page-lv1.visited.active .tags,
+main.from-lv2 .page.page-lv1.visited.active .content p,
+main .page.page-lv2.visited.active h1,
+main .page.page-lv2.visited.active h2,
+main .page.page-lv2.visited.active .year,
+main .page.page-lv2.visited.active .tags,
+main .page.page-lv2.visited.active .content p {
   animation-delay: 0ms;
   animation-duration: 0ms;
 }
@@ -585,6 +640,7 @@ main.from-lv2 .page.page-lv1.visited.active .hero:nth-child(4) {
   animation-delay: 0ms;
   animation-fill-mode: forwards;
 }
+
 body.preload header h1 {
   animation-delay: 500ms;
 }

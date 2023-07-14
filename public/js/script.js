@@ -120,6 +120,9 @@ const data = {
   },
 };
 
+// TODO: move data functions up here, use lv1Array and lv2Array to create pages and nav, as well as for findMatchingPage
+// TODO: simplify how userClicked is used, create one event listener for all a tags
+
 // DOM elements
 const pages = data.pages;
 const body = document.querySelector("body");
