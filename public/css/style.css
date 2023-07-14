@@ -117,14 +117,6 @@
     transform: translateY(0);
   }
 }
-@keyframes unblur-lv2-hero-img {
-  0% {
-    filter: blur(1em);
-  }
-  100% {
-    filter: blur(0);
-  }
-}
 * {
   margin: 0;
   padding: 0;
@@ -524,13 +516,6 @@ main .page.active.page-lv2 .hero:nth-child(1) {
   animation-delay: 0ms;
   animation-duration: 0ms;
 }
-main .page.active.page-lv2 .hero:nth-child(1) .img {
-  animation-name: unblur-lv2-hero-img;
-  animation-delay: 100ms;
-  animation-duration: 1000ms;
-  animation-fill-mode: both;
-  animation-timing-function: steps(48, end);
-}
 main .page.active.page-lv2 h1 {
   animation-delay: 400ms;
 }
@@ -612,11 +597,6 @@ main .page.page-lv2.visited.active .hero:nth-child(3)::before {
 }
 main.from-lv2 .page.page-lv1.visited.active .hero:nth-child(4)::before,
 main .page.page-lv2.visited.active .hero:nth-child(4)::before {
-  animation-delay: 0ms;
-  animation-duration: 0ms;
-}
-main.from-lv2 .page.page-lv1.visited.active .hero .img,
-main .page.page-lv2.visited.active .hero .img {
   animation-delay: 0ms;
   animation-duration: 0ms;
 }
