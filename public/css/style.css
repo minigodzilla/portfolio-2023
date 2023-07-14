@@ -109,6 +109,14 @@
     opacity: 0;
   }
 }
+@keyframes show-lv2-hero {
+  100% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -373,9 +381,10 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) .container {
   position: absolute;
   top: 0;
   left: 0;
-  bottom: 0;
-  right: 0;
-  background-image: linear-gradient(0deg, var(--main-bg-color), transparent 50%);
+  width: 100%;
+  height: 200%;
+  background-image: linear-gradient(0deg, var(--main-bg-color) 50%, transparent 75%);
+  transform: translateY(0);
 }
 .page .hero img,
 .page .hero video {
@@ -456,14 +465,6 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) .container {
   margin-bottom: 1em;
 }
 
-.page-lv1 {
-  z-index: 1;
-}
-
-.page-lv2 {
-  z-index: 0;
-}
-
 main .page.active {
   overflow-y: auto;
   animation-name: show-page;
@@ -475,17 +476,53 @@ main .page.active .hero {
   animation-duration: 500ms;
   animation-fill-mode: both;
 }
-main .page.active .hero:nth-child(1) {
+main .page.active.page-lv1 .hero:nth-child(1) {
   animation-delay: 1500ms;
 }
-main .page.active .hero:nth-child(2) {
+main .page.active.page-lv1 .hero:nth-child(2) {
   animation-delay: 1600ms;
 }
-main .page.active .hero:nth-child(3) {
+main .page.active.page-lv1 .hero:nth-child(3) {
   animation-delay: 1700ms;
 }
-main .page.active .hero:nth-child(4) {
+main .page.active.page-lv1 .hero:nth-child(4) {
   animation-delay: 1800ms;
+}
+main .page.active.page-lv2 h1,
+main .page.active.page-lv2 h2,
+main .page.active.page-lv2 .year,
+main .page.active.page-lv2 .tags,
+main .page.active.page-lv2 .content {
+  animation-name: show-hero;
+  animation-duration: 500ms;
+  animation-fill-mode: both;
+}
+main .page.active.page-lv2 .hero::before {
+  transform: translateY(-50%);
+  animation-name: show-lv2-hero;
+  animation-delay: 100ms;
+  animation-duration: 500ms;
+  animation-fill-mode: both;
+  animation-timing-function: steps(12, end);
+}
+main .page.active.page-lv2 .hero:nth-child(1) {
+  animation-delay: 0ms;
+  animation-duration: 0ms;
+}
+main .page.active.page-lv2 h1 {
+  animation-delay: 400ms;
+}
+main .page.active.page-lv2 h2 {
+  animation-delay: 500ms;
+}
+main .page.active.page-lv2 .year {
+  animation-delay: 600ms;
+}
+main .page.active.page-lv2 .tags {
+  animation-delay: 700ms;
+}
+main .page.active.page-lv2 .content {
+  animation-delay: 800ms;
 }
 
 main .page.page-lv1.active {
@@ -513,27 +550,22 @@ main .page.page-lv1.visited .hero:nth-child(4) {
   animation-delay: 0ms;
 }
 
-main .page.page-lv2.active,
 main.from-lv2 .page.page-lv1.visited.active {
   animation-delay: 0ms;
   animation-duration: 500ms;
 }
-main .page.page-lv2.active .hero:nth-child(1),
 main.from-lv2 .page.page-lv1.visited.active .hero:nth-child(1) {
   animation-delay: 0ms;
   animation-duration: 0ms;
 }
-main .page.page-lv2.active .hero:nth-child(2),
 main.from-lv2 .page.page-lv1.visited.active .hero:nth-child(2) {
   animation-delay: 0ms;
   animation-duration: 0ms;
 }
-main .page.page-lv2.active .hero:nth-child(3),
 main.from-lv2 .page.page-lv1.visited.active .hero:nth-child(3) {
   animation-delay: 0ms;
   animation-duration: 0ms;
 }
-main .page.page-lv2.active .hero:nth-child(4),
 main.from-lv2 .page.page-lv1.visited.active .hero:nth-child(4) {
   animation-delay: 0ms;
   animation-duration: 0ms;
@@ -573,7 +605,7 @@ body.ext-ref header h2,
 body.ext-ref header nav .nav-item,
 body.ext-ref header nav .nav-item .container,
 body.ext-ref .page,
-body.ext-ref .page .hero {
+body.ext-ref .page.page-lv1 .hero {
   animation-delay: 0ms !important;
   animation-duration: 0ms !important;
 }

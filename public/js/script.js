@@ -1,3 +1,4 @@
+// data object of the site's content
 const data = {
   pages: {
     "interactive-art": {
@@ -119,17 +120,21 @@ const data = {
   },
 };
 
+// DOM elements
 const pages = data.pages;
 const body = document.querySelector("body");
 const header = document.querySelector("header");
 const nav = document.querySelector("nav");
 const main = document.querySelector("main");
+
+// state variables
 let userClicked = false;
 let lv1Page = "";
 let lv2Page = "";
 let thisPage = "";
 let lastPage = "";
 
+// creates index pages
 function createIndexPages(pages, container, parent) {
   for (const pageId in pages) {
     if (pages.hasOwnProperty(pageId)) {
@@ -153,10 +158,10 @@ function createIndexPages(pages, container, parent) {
       a.appendChild(year);
       a.appendChild(label);
       a.addEventListener("click", (e) => {
-        e.preventDefault();
+        //e.preventDefault();
         userClicked = true;
-        const pageId = a.getAttribute("href").slice(1);
-        window.location.hash = pageId;
+        //const pageId = a.getAttribute("href").slice(1);
+        //window.location.hash = pageId;
       });
 
       container.appendChild(a);
@@ -189,7 +194,7 @@ function createPages(pages, parent) {
         } else {
           hero = `
             <div class="hero">
-              <img class="img" src="assets/${parent}/${pageId}.jpg" />
+              <img class="img mobile desktop" src="assets/${parent}/${pageId}.jpg" />
             </div>
             `;
         }
@@ -362,7 +367,7 @@ function handleWindowScroll() {
   if (distance < 0) distance = 0;
   if (thisPage) {
     document.querySelector(
-      "#" + thisPage + ".page-lv2 .hero"
+      "#" + thisPage + ".page-lv2 .hero .img.desktop"
     ).style.transform = `translateY(${distance * 0.5}px)`;
   }
 }
@@ -373,7 +378,7 @@ function handlePageScroll() {
   if (distance < 0) distance = 0;
   if (thisPage) {
     document.querySelector(
-      "#" + thisPage + ".page-lv2 .hero"
+      "#" + thisPage + ".page-lv2 .hero .img.mobile"
     ).style.transform = `translateY(${distance * 0.5}px)`;
   }
 }

@@ -110,6 +110,14 @@
         opacity: 0;
     }
 }
+@keyframes show-lv2-hero {
+    100% {
+        transform: translateY(-50%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
 
 * {
     margin: 0;
@@ -392,13 +400,14 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) {
             position: absolute;
             top: 0;
             left: 0;
-            bottom: 0;
-            right: 0;
+            width: 100%;
+            height: 200%;
             background-image: linear-gradient(
                 0deg,
-                var(--main-bg-color),
-                transparent 50%
+                var(--main-bg-color) 50%,
+                transparent 75%
             );
+            transform: translateY(0);
         }
 
         img,
@@ -487,12 +496,6 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) {
         }
     }
 }
-.page-lv1 {
-    z-index: 1;
-}
-.page-lv2 {
-    z-index: 0;
-}
 main .page.active {
     overflow-y: auto;
 
@@ -504,7 +507,8 @@ main .page.active {
         animation-name: show-hero;
         animation-duration: 500ms;
         animation-fill-mode: both;
-
+    }
+    &.page-lv1 .hero {
         &:nth-child(1) {
             animation-delay: 1500ms;
         }
@@ -516,6 +520,44 @@ main .page.active {
         }
         &:nth-child(4) {
             animation-delay: 1800ms;
+        }
+    }
+    &.page-lv2 {
+        h1,
+        h2,
+        .year,
+        .tags,
+        .content {
+            animation-name: show-hero;
+            animation-duration: 500ms;
+            animation-fill-mode: both;
+        }
+        .hero::before {
+            transform: translateY(-50%);
+            animation-name: show-lv2-hero;
+            animation-delay: 100ms;
+            animation-duration: 500ms;
+            animation-fill-mode: both;
+            animation-timing-function: steps(12, end);
+        }
+        .hero:nth-child(1) {
+            animation-delay: 0ms;
+            animation-duration: 0ms;
+        }
+        h1 {
+            animation-delay: 400ms;
+        }
+        h2 {
+            animation-delay: 500ms;
+        }
+        .year {
+            animation-delay: 600ms;
+        }
+        .tags {
+            animation-delay: 700ms;
+        }
+        .content {
+            animation-delay: 800ms;
         }
     }
 }
@@ -545,7 +587,6 @@ main .page.page-lv1.visited .hero:nth-child(3),
 main .page.page-lv1.visited .hero:nth-child(4) {
     animation-delay: 0ms;
 }
-main .page.page-lv2.active,
 main.from-lv2 .page.page-lv1.visited.active {
     // instant fade-in, no animated elements
 
@@ -618,7 +659,7 @@ body.ext-ref {
     header nav .nav-item,
     header nav .nav-item .container,
     .page,
-    .page .hero {
+    .page.page-lv1 .hero {
         animation-delay: 0ms !important;
         animation-duration: 0ms !important;
     }
