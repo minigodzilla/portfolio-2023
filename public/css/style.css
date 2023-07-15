@@ -752,5 +752,10 @@ body.ext-ref .page.page-lv1 .hero {
     margin-left: -32em;
   }
 }
+@media screen and (min-width: 1536px) {
+  body {
+    font-size: 1.041665vw;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
