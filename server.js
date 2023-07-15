@@ -2,7 +2,20 @@ const express = require("express");
 const path = require("path");
 
 const app = express();
-const PORT = 3000;
+
+if (process.env.NODE_ENV === "development") {
+  const PORT = 3000;
+  app.listen(PORT, () => {
+    console.log(`Server is running in development mode on port ${PORT}`);
+  });
+}
+
+if (process.env.NODE_ENV === "production") {
+  const PORT = 80;
+  app.listen(PORT, () => {
+    console.log(`Server is running in production mode on port ${PORT}`);
+  });
+}
 
 app.use(express.static("public"));
 
