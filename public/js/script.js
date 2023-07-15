@@ -74,7 +74,7 @@ const data = {
           subtitle: "A portal for past generations to speak to us",
           year: "2019",
           tags: ["projection", "microcontroller", "vintage tech"],
-          heroVideo: false,
+          heroVideo: true,
           content:
             "<p>StackAdapt is one of the fastest-growing tech startups in Toronto, with an innovative native advertising platform that enables brands to accelerate customer engagement and acquisition.</p><p>At their rate of growth, they saw a need to build a digital marketing team and elevate their online presence. In 2017, they hired me as a Front End Engineer to give much-needed focus to their homepage and blog.</p><p>I worked closely with the newly-created Design and Marketing teams to revamp the company homepage, introduce new product pages and industry pages tailored to specific verticals, an interactive Ad Format Showcase, and make many other additions and tweaks along the way.</p><p>I overhauled their lead generation form at the bottom of each page, enabling A/B testing with measurable performance comparison, adding new layers of in-browser validation and anti-spam measures, and improving the integration with Slack API and Pardot that powers their pipeline from user signup to lead qualification and live product demo.</p><p>I set up a new WordPress installation, migrated their old blog posts, and developed a custom WordPress theme that integrates seamlessly with their homepage.</p><p>StackAdapt's rapid market growth over my time there was the product of a cross-team effort&mdash;but the projects I executed to expand their online reach, and the technical capacity gained by having a developer like myself on their marketing team, helped to deliver tangible results.</p>",
         },
