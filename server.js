@@ -3,14 +3,14 @@ const path = require("path");
 
 const app = express();
 
-if (process.env.NODE_ENV === "development") {
+if (NODE_ENV === "development") {
   const PORT = 3000;
   app.listen(PORT, () => {
     console.log(`Server is running in development mode on port ${PORT}`);
   });
 }
 
-if (process.env.NODE_ENV === "production") {
+if (NODE_ENV === "production") {
   const PORT = 80;
   app.listen(PORT, () => {
     console.log(`Server is running in production mode on port ${PORT}`);
