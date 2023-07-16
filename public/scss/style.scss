@@ -395,6 +395,15 @@ header {
         align-items: start;
         padding: 1em;
 
+        &.hero-interactive-art {
+            background-color: var(--main-bg-color);
+            background-image: linear-gradient(
+                165deg,
+                #414141,
+                var(--full-black)
+            );
+        }
+
         &::before {
             content: "";
             position: absolute;
@@ -511,17 +520,10 @@ main .page.active {
         animation-fill-mode: both;
     }
     &.page-lv1 .hero {
-        &:nth-child(1) {
-            animation-delay: 1500ms;
-        }
-        &:nth-child(2) {
-            animation-delay: 1600ms;
-        }
-        &:nth-child(3) {
-            animation-delay: 1700ms;
-        }
-        &:nth-child(4) {
-            animation-delay: 1800ms;
+        @for $i from 1 through 8 {
+            &:nth-child(#{$i}) {
+                animation-delay: #{1500 + (($i - 1) * 100)}ms;
+            }
         }
     }
     &.page-lv2 {
@@ -559,25 +561,10 @@ main .page.active {
             animation-delay: 700ms;
         }
         .content {
-            animation-delay: 800ms;
-
-            p:nth-child(1) {
-                animation-delay: 800ms;
-            }
-            p:nth-child(2) {
-                animation-delay: 900ms;
-            }
-            p:nth-child(3) {
-                animation-delay: 1000ms;
-            }
-            p:nth-child(4) {
-                animation-delay: 1100ms;
-            }
-            p:nth-child(5) {
-                animation-delay: 1200ms;
-            }
-            p:nth-child(6) {
-                animation-delay: 1300ms;
+            @for $i from 1 through 8 {
+                p:nth-child(#{$i}) {
+                    animation-delay: #{800 + (($i - 1) * 100)}ms;
+                }
             }
         }
     }
@@ -585,21 +572,6 @@ main .page.active {
 main .page.page-lv1.active {
     animation-delay: 1000ms;
     animation-duration: 0ms;
-
-    .hero {
-        &:nth-child(1) {
-            animation-delay: 1500ms;
-        }
-        &:nth-child(2) {
-            animation-delay: 1600ms;
-        }
-        &:nth-child(3) {
-            animation-delay: 1700ms;
-        }
-        &:nth-child(4) {
-            animation-delay: 1800ms;
-        }
-    }
 }
 main .page.page-lv1.visited,
 main .page.page-lv1.visited .hero:nth-child(1),
@@ -616,21 +588,11 @@ main .page.page-lv2.visited.active {
     animation-duration: 500ms;
 
     .hero {
-        &:nth-child(1)::before {
-            animation-delay: 0ms;
-            animation-duration: 0ms;
-        }
-        &:nth-child(2)::before {
-            animation-delay: 0ms;
-            animation-duration: 0ms;
-        }
-        &:nth-child(3)::before {
-            animation-delay: 0ms;
-            animation-duration: 0ms;
-        }
-        &:nth-child(4)::before {
-            animation-delay: 0ms;
-            animation-duration: 0ms;
+        @for $i from 1 through 8 {
+            &:nth-child(#{$i}) {
+                animation-delay: 0ms;
+                animation-duration: 0ms;
+            }
         }
     }
     h1,

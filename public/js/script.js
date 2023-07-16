@@ -187,7 +187,29 @@ function createPages(pages, parent) {
       } else {
         div.className = "page page-lv2 " + pageId;
 
-        if (page.heroVideo) {
+        if (parent === "web-development") {
+          hero = `
+            <div class="hero hero-interactive-art">
+                <div class="bezel-container">
+                    <div class="bezel bezel-1 bezel-laptop">
+                        <img class="svg" src="assets/bezel-laptop.svg" />
+                        <video class="screen-content screen-content-video" muted autoplay loop playsinline src="assets/web-development/old/sa-desktop.mp4" type="video/mp4"></video>
+                        <div class="overlay">
+                            <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35">
+                                <use xlink:href="#play-btn" />
+                            </svg>
+                            <svg class="svg svg-icon svg-pause-icon" viewBox="0 0 40 35">
+                                <use xlink:href="#pause-btn" />
+                            </svg>
+                            <svg class="svg svg-icon svg-loading" viewBox="0 0 80 80">
+                                <use xlink:href="#spinner" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `;
+        } else if (page.heroVideo) {
           hero = `
             <div class="hero">
               <video class="img mobile" src="assets/${parent}/${pageId}-mobile.mp4" muted autoplay loop playsinline></video>
