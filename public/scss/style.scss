@@ -573,35 +573,13 @@ main .page.page-lv1.active {
     animation-delay: 1000ms;
     animation-duration: 0ms;
 }
-main .page.page-lv1.visited,
-main .page.page-lv1.visited .hero:nth-child(1),
-main .page.page-lv1.visited .hero:nth-child(2),
-main .page.page-lv1.visited .hero:nth-child(3),
-main .page.page-lv1.visited .hero:nth-child(4) {
+main .page.page-lv1.visited {
     animation-delay: 0ms;
-}
-main.from-lv2 .page.page-lv1.visited.active,
-main .page.page-lv2.visited.active {
-    // instant fade-in, no animated elements
 
-    animation-delay: 0ms;
-    animation-duration: 500ms;
-
-    .hero {
-        @for $i from 1 through 8 {
-            &:nth-child(#{$i}) {
-                animation-delay: 0ms;
-                animation-duration: 0ms;
-            }
+    @for $i from 1 through 8 {
+        .hero:nth-child(#{$i}) {
+            animation-delay: #{0 + (($i - 1) * 100)}ms;
         }
-    }
-    h1,
-    h2,
-    .year,
-    .tags,
-    .content p {
-        animation-delay: 0ms;
-        animation-duration: 0ms;
     }
 }
 .page {

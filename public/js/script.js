@@ -187,7 +187,7 @@ function createPages(pages, parent) {
       } else {
         div.className = "page page-lv2 " + pageId;
 
-        if (parent === "web-development") {
+        if (parent === "steamed-hams") {
           hero = `
             <div class="hero hero-interactive-art">
                 <div class="bezel-container">

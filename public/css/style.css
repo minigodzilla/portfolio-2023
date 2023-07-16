@@ -571,71 +571,32 @@ main .page.page-lv1.active {
   animation-duration: 0ms;
 }
 
-main .page.page-lv1.visited,
-main .page.page-lv1.visited .hero:nth-child(1),
-main .page.page-lv1.visited .hero:nth-child(2),
-main .page.page-lv1.visited .hero:nth-child(3),
+main .page.page-lv1.visited {
+  animation-delay: 0ms;
+}
+main .page.page-lv1.visited .hero:nth-child(1) {
+  animation-delay: 0ms;
+}
+main .page.page-lv1.visited .hero:nth-child(2) {
+  animation-delay: 100ms;
+}
+main .page.page-lv1.visited .hero:nth-child(3) {
+  animation-delay: 200ms;
+}
 main .page.page-lv1.visited .hero:nth-child(4) {
-  animation-delay: 0ms;
+  animation-delay: 300ms;
 }
-
-main.from-lv2 .page.page-lv1.visited.active,
-main .page.page-lv2.visited.active {
-  animation-delay: 0ms;
-  animation-duration: 500ms;
+main .page.page-lv1.visited .hero:nth-child(5) {
+  animation-delay: 400ms;
 }
-main.from-lv2 .page.page-lv1.visited.active .hero:nth-child(1),
-main .page.page-lv2.visited.active .hero:nth-child(1) {
-  animation-delay: 0ms;
-  animation-duration: 0ms;
+main .page.page-lv1.visited .hero:nth-child(6) {
+  animation-delay: 500ms;
 }
-main.from-lv2 .page.page-lv1.visited.active .hero:nth-child(2),
-main .page.page-lv2.visited.active .hero:nth-child(2) {
-  animation-delay: 0ms;
-  animation-duration: 0ms;
+main .page.page-lv1.visited .hero:nth-child(7) {
+  animation-delay: 600ms;
 }
-main.from-lv2 .page.page-lv1.visited.active .hero:nth-child(3),
-main .page.page-lv2.visited.active .hero:nth-child(3) {
-  animation-delay: 0ms;
-  animation-duration: 0ms;
-}
-main.from-lv2 .page.page-lv1.visited.active .hero:nth-child(4),
-main .page.page-lv2.visited.active .hero:nth-child(4) {
-  animation-delay: 0ms;
-  animation-duration: 0ms;
-}
-main.from-lv2 .page.page-lv1.visited.active .hero:nth-child(5),
-main .page.page-lv2.visited.active .hero:nth-child(5) {
-  animation-delay: 0ms;
-  animation-duration: 0ms;
-}
-main.from-lv2 .page.page-lv1.visited.active .hero:nth-child(6),
-main .page.page-lv2.visited.active .hero:nth-child(6) {
-  animation-delay: 0ms;
-  animation-duration: 0ms;
-}
-main.from-lv2 .page.page-lv1.visited.active .hero:nth-child(7),
-main .page.page-lv2.visited.active .hero:nth-child(7) {
-  animation-delay: 0ms;
-  animation-duration: 0ms;
-}
-main.from-lv2 .page.page-lv1.visited.active .hero:nth-child(8),
-main .page.page-lv2.visited.active .hero:nth-child(8) {
-  animation-delay: 0ms;
-  animation-duration: 0ms;
-}
-main.from-lv2 .page.page-lv1.visited.active h1,
-main.from-lv2 .page.page-lv1.visited.active h2,
-main.from-lv2 .page.page-lv1.visited.active .year,
-main.from-lv2 .page.page-lv1.visited.active .tags,
-main.from-lv2 .page.page-lv1.visited.active .content p,
-main .page.page-lv2.visited.active h1,
-main .page.page-lv2.visited.active h2,
-main .page.page-lv2.visited.active .year,
-main .page.page-lv2.visited.active .tags,
-main .page.page-lv2.visited.active .content p {
-  animation-delay: 0ms;
-  animation-duration: 0ms;
+main .page.page-lv1.visited .hero:nth-child(8) {
+  animation-delay: 700ms;
 }
 
 .page {
