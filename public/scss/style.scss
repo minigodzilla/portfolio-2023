@@ -475,6 +475,90 @@ header {
                     }
                     .overlay {
                         position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        display: flex;
+                        justify-content: center;
+
+                        pointer-events: none;
+
+                        @keyframes svg-loading-anim {
+                            to {
+                                transform: rotate(360deg);
+                            }
+                        }
+
+                        .svg {
+                            position: absolute;
+                            fill: #fff;
+                            width: 15%;
+                            transition: opacity 200ms ease;
+                        }
+
+                        .svg-play-icon {
+                            opacity: 1;
+                        }
+
+                        .svg-pause-icon {
+                            opacity: 0;
+                        }
+
+                        .svg-loading {
+                            animation-name: svg-loading-anim;
+                            animation-duration: 1.5s;
+                            animation-timing-function: steps(12);
+                            animation-iteration-count: infinite;
+                            opacity: 0;
+                        }
+                    }
+                    // TODO: fix specificity issues here
+                    &.loading {
+                        .overlay .svg-play-icon {
+                            opacity: 0;
+                        }
+
+                        .overlay .svg-pause-icon {
+                            opacity: 0;
+                        }
+
+                        .overlay .svg-loading {
+                            opacity: 1;
+                        }
+                    }
+
+                    &.playing {
+                        .screen-content-image,
+                        .screen-content-video {
+                            filter: brightness(98%) contrast(98%);
+                        }
+
+                        .overlay .svg-play-icon {
+                            opacity: 0;
+                        }
+
+                        .overlay .svg-pause-icon {
+                            opacity: 0;
+                        }
+
+                        .overlay .svg-loading {
+                            opacity: 0;
+                        }
+                    }
+
+                    &.paused {
+                        .overlay .svg-play-icon {
+                            opacity: 0;
+                        }
+
+                        .overlay .svg-pause-icon {
+                            opacity: 1;
+                        }
+
+                        .overlay .svg-loading {
+                            opacity: 0;
+                        }
                     }
                 }
             }

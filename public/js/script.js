@@ -192,9 +192,9 @@ function createPages(pages, parent) {
             hero = `
                 <div class="hero hero-interactive-art">
                     <div class="bezel-container">
-                        <div class="bezel bezel-1 bezel-${page.bezel[0]}">
+                        <div class="bezel bezel-${page.bezel[0]}">
                             <img class="img" src="assets/bezel-${page.bezel[0]}.png" />
-                            <video class="screen-content screen-content-video" muted autoplay loop playsinline src="assets/web-development/${pageId}-${page.bezel[0]}.mp4" type="video/mp4"></video>
+                            <video class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}-${page.bezel[0]}.mp4" type="video/mp4"></video>
                             <div class="overlay">
                                 <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35">
                                     <use xlink:href="#play-btn" />
@@ -209,9 +209,9 @@ function createPages(pages, parent) {
                         </div>
                     </div>
                     <div class="bezel-container">
-                        <div class="bezel bezel-1 bezel-${page.bezel[1]}">
+                        <div class="bezel bezel-${page.bezel[1]}">
                             <img class="img" src="assets/bezel-${page.bezel[1]}.png" />
-                            <video class="screen-content screen-content-video" muted autoplay loop playsinline src="assets/web-development/${pageId}-${page.bezel[1]}.mp4" type="video/mp4"></video>
+                            <video class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}-${page.bezel[1]}.mp4" type="video/mp4"></video>
                             <div class="overlay">
                                 <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35">
                                     <use xlink:href="#play-btn" />
@@ -233,7 +233,7 @@ function createPages(pages, parent) {
                     <div class="bezel-container">
                         <div class="bezel bezel-1 bezel-${page.bezel}">
                             <img class="img" src="assets/bezel-${page.bezel}.png" />
-                            <video class="screen-content screen-content-video" muted autoplay loop playsinline src="assets/web-development/${pageId}.mp4" type="video/mp4"></video>
+                            <video class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}.mp4" type="video/mp4"></video>
                             <div class="overlay">
                                 <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35">
                                     <use xlink:href="#play-btn" />
@@ -428,6 +428,50 @@ function showPage(pageId) {
   thisPageElement.classList.add("active");
 }
 
+function setupVideo(video) {
+  console.log("setupVideo");
+  video.load();
+
+  video.removeEventListener("click", setupVideo);
+
+  video.addEventListener("canplaythrough", function () {
+    video.play();
+  });
+
+  video.addEventListener("click", function () {
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  });
+
+  video.addEventListener("loadstart", function () {
+    video.parentElement.classList.add("loading");
+    video.classList.add("loading");
+  });
+
+  video.addEventListener("play", function () {
+    video.parentElement.classList.remove("paused", "loading");
+    video.classList.remove("paused", "loading");
+    video.classList.add("playing");
+  });
+
+  video.addEventListener("pause", function () {
+    video.parentElement.classList.remove("playing");
+    video.classList.remove("playing");
+    video.classList.add("paused");
+  });
+}
+
+function videoHandler() {
+  var videos = document.querySelectorAll(".screen-content-video");
+
+  videos.forEach(function (video) {
+    video.addEventListener("click", setupVideo(video));
+  });
+}
+
 function handleWindowScroll() {
   const distance = window.scrollY;
   if (distance < 0) distance = 0;
@@ -499,6 +543,7 @@ document.addEventListener("DOMContentLoaded", () => {
   createPages(data.pages);
   createNav();
   urlCheck();
+  videoHandler();
 });
 
 window.addEventListener("hashchange", () => {
