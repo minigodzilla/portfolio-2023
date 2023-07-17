@@ -56,7 +56,7 @@ const data = {
           subtitle: "A portal for past generations to speak to us",
           year: "2022",
           tags: ["microcontroller", "indigenous"],
-          heroVideo: false,
+          bezel: "4ktv",
           content:
             "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
         },
@@ -65,7 +65,7 @@ const data = {
           subtitle: "A portal for past generations to speak to us",
           year: "2021",
           tags: ["retro gaming", "indigenous"],
-          heroVideo: false,
+          bezel: "ipad-pro-2020",
           content:
             "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
         },
@@ -74,7 +74,7 @@ const data = {
           subtitle: "A portal for past generations to speak to us",
           year: "2019",
           tags: ["projection", "microcontroller", "vintage tech"],
-          heroVideo: true,
+          bezel: ["macbook-pro-2016", "iphone-11"],
           content:
             "<p>StackAdapt is one of the fastest-growing tech startups in Toronto, with an innovative native advertising platform that enables brands to accelerate customer engagement and acquisition.</p><p>At their rate of growth, they saw a need to build a digital marketing team and elevate their online presence. In 2017, they hired me as a Front End Engineer to give much-needed focus to their homepage and blog.</p><p>I worked closely with the newly-created Design and Marketing teams to revamp the company homepage, introduce new product pages and industry pages tailored to specific verticals, an interactive Ad Format Showcase, and make many other additions and tweaks along the way.</p><p>I overhauled their lead generation form at the bottom of each page, enabling A/B testing with measurable performance comparison, adding new layers of in-browser validation and anti-spam measures, and improving the integration with Slack API and Pardot that powers their pipeline from user signup to lead qualification and live product demo.</p><p>I set up a new WordPress installation, migrated their old blog posts, and developed a custom WordPress theme that integrates seamlessly with their homepage.</p><p>StackAdapt's rapid market growth over my time there was the product of a cross-team effort&mdash;but the projects I executed to expand their online reach, and the technical capacity gained by having a developer like myself on their marketing team, helped to deliver tangible results.</p>",
         },
@@ -83,7 +83,7 @@ const data = {
           subtitle: "A portal for past generations to speak to us",
           year: "2017",
           tags: ["projection", "microcontroller", "vintage tech"],
-          heroVideo: false,
+          bezel: ["macbook-pro-2016", "iphone-7-plus"],
           content:
             "<p>Diply was one of the leading social news/entertainment websites in the world and among the top 20 most visited websites in Canada, publishing articles on internet culture, food, fashion, celebrity news, user-generated content and much more.</p><p>In 2016, they were in the early stages of creating self-publishing tools and user dashboard web applications, and experimenting with new designs for their homepage. In addition, they were growing their staff and opening a new Toronto office. They were growing and scaling, and betting big on a new design-focused direction for their products.</p><p>I was hired as a design technologist to augment their growing Design team. One of my first tasks was to work closely with the designers to develop rapid prototypes, which we used for user and stakeholder testing, internal demos and design review. A few of these prototypes are shown here.</p><p>Using a lightweight Node/SASS/JS tech stack, I produced high-fidelity prototypes to help realize a new look and feel for Diply's homepage, on both mobile and desktop, and helped refine the user flows and experience for their new self-publishing tools. I continued working on these interfaces and tools in the production environment, building and styling components in Angular for the final product.</p><p>Diply's new rapid iteration and prototype-driven design process enabled them to move quickly on experimental UI and evaluation, collecting feedback early in the process, and reducing the need for changes during development. Their newfound agility resulted in a more up-to-date user experience across all of their online offerings.</p>",
         },
@@ -92,7 +92,7 @@ const data = {
           subtitle: "A portal for past generations to speak to us",
           year: "2016",
           tags: ["projection", "microcontroller", "vintage tech"],
-          heroVideo: false,
+          bezel: "4ktv",
           content:
             "<p>Infusion (now Avanade) is a global engineering, design and digital strategy firm with an emphasis on solutions built with Microsoft technologies. Their clients included retail, education, healthcare, financial services, the energy sector and others. Their projects ranged from customer-facing digital experiences to enterprise-level application software.</p><p>In 2013, their client, Richtree Natural Markets, was developing a brand-new food court concept at the Toronto Eaton Centre. Infusion was tasked with providing digital ordering touch screens, overhead menus and interactive installations for the new food court space.</p><p>With my prior experience in XAML, I was hired to develop UI for the various Windows WPF applications that powered these experiences.</p><p>Later, as Infusion was incubating a digital marketing agency within the firm, I continued as a member of their Interactive Development team, a multidisciplinary group of design-aware, marketing-savvy creative technologists, developers and designers.</p><p>In my time there, I helped produce innovative and exciting digital experiences for various clients, pitch work, rapid prototypes, UX design, front end and UI development on various platforms including: Web, Windows, Android, Samsung Gear wearables, Unity, Microsoft Hololens and more.</p><p>Working at Infusion was a wonderful experience for me, as I got to learn and play with many new technologies and to build experiences on various platforms, particularly VR/AR.</p>",
         },
@@ -101,7 +101,7 @@ const data = {
           subtitle: "A portal for past generations to speak to us",
           year: "2013",
           tags: ["projection", "microcontroller", "vintage tech"],
-          heroVideo: false,
+          bezel: ["win-tablet", "win-phone"],
           content:
             "<p>nventive is an agile mobile and web application studio, which in 2012-2013 was designing and building apps on Windows Phone and Windows 8 devices.</p><p>At the time I started there, Microsoft was investing heavily in the Windows Phone app ecosystem, and nventive was one of the studios that produced full-featured Windows Phone and Windows 8 apps for clients such as ABC News, AllRecipes, Bloomberg, Expedia and others.</p><p>Their need for a Windows XAML front end developer was so urgent, and the hiring pool so small, that they hired me based on my skill level with HTML/CSS and started training me on XAML development on the first day.</p><p>After two weeks, I was competent enough to work on production codebases, and with the rest of my time there, I learned much more.</p><p>I introduced a practice of producing app-level style guides early in the design process, which outlined colour resources, font sizes and styles, etc. helping the Design and Development teams work together more effectively.</p>",
         },
@@ -187,28 +187,69 @@ function createPages(pages, parent) {
       } else {
         div.className = "page page-lv2 " + pageId;
 
-        if (parent === "steamed-hams") {
-          hero = `
-            <div class="hero hero-interactive-art">
-                <div class="bezel-container">
-                    <div class="bezel bezel-1 bezel-laptop">
-                        <img class="svg" src="assets/bezel-laptop.svg" />
-                        <video class="screen-content screen-content-video" muted autoplay loop playsinline src="assets/web-development/old/sa-desktop.mp4" type="video/mp4"></video>
-                        <div class="overlay">
-                            <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35">
-                                <use xlink:href="#play-btn" />
-                            </svg>
-                            <svg class="svg svg-icon svg-pause-icon" viewBox="0 0 40 35">
-                                <use xlink:href="#pause-btn" />
-                            </svg>
-                            <svg class="svg svg-icon svg-loading" viewBox="0 0 80 80">
-                                <use xlink:href="#spinner" />
-                            </svg>
+        if (parent === "web-development") {
+          if (Array.isArray(page.bezel)) {
+            hero = `
+                <div class="hero hero-interactive-art">
+                    <div class="bezel-container">
+                        <div class="bezel bezel-1 bezel-${page.bezel[0]}">
+                            <img class="img" src="assets/bezel-${page.bezel[0]}.png" />
+                            <video class="screen-content screen-content-video" muted autoplay loop playsinline src="assets/web-development/${pageId}-${page.bezel[0]}.mp4" type="video/mp4"></video>
+                            <div class="overlay">
+                                <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35">
+                                    <use xlink:href="#play-btn" />
+                                </svg>
+                                <svg class="svg svg-icon svg-pause-icon" viewBox="0 0 40 35">
+                                    <use xlink:href="#pause-btn" />
+                                </svg>
+                                <svg class="svg svg-icon svg-loading" viewBox="0 0 80 80">
+                                    <use xlink:href="#spinner" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bezel-container">
+                        <div class="bezel bezel-1 bezel-${page.bezel[1]}">
+                            <img class="img" src="assets/bezel-${page.bezel[1]}.png" />
+                            <video class="screen-content screen-content-video" muted autoplay loop playsinline src="assets/web-development/${pageId}-${page.bezel[1]}.mp4" type="video/mp4"></video>
+                            <div class="overlay">
+                                <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35">
+                                    <use xlink:href="#play-btn" />
+                                </svg>
+                                <svg class="svg svg-icon svg-pause-icon" viewBox="0 0 40 35">
+                                    <use xlink:href="#pause-btn" />
+                                </svg>
+                                <svg class="svg svg-icon svg-loading" viewBox="0 0 80 80">
+                                    <use xlink:href="#spinner" />
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             `;
+          } else {
+            hero = `
+                <div class="hero hero-interactive-art">
+                    <div class="bezel-container">
+                        <div class="bezel bezel-1 bezel-${page.bezel}">
+                            <img class="img" src="assets/bezel-${page.bezel}.png" />
+                            <video class="screen-content screen-content-video" muted autoplay loop playsinline src="assets/web-development/${pageId}.mp4" type="video/mp4"></video>
+                            <div class="overlay">
+                                <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35">
+                                    <use xlink:href="#play-btn" />
+                                </svg>
+                                <svg class="svg svg-icon svg-pause-icon" viewBox="0 0 40 35">
+                                    <use xlink:href="#pause-btn" />
+                                </svg>
+                                <svg class="svg svg-icon svg-loading" viewBox="0 0 80 80">
+                                    <use xlink:href="#spinner" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+          }
         } else if (page.heroVideo) {
           hero = `
             <div class="hero">

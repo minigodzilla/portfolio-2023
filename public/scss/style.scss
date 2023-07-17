@@ -364,7 +364,7 @@ header {
     &::before {
         content: "";
         position: fixed;
-        z-index: 1;
+        z-index: 3;
         top: 3.45em;
         left: 0;
         right: 0;
@@ -389,6 +389,7 @@ header {
     .hero {
         height: 14.5em;
         position: relative;
+        z-index: 2;
         overflow: hidden;
         display: flex;
         flex-direction: column;
@@ -396,17 +397,93 @@ header {
         padding: 1em;
 
         &.hero-interactive-art {
+            padding: 0 3em;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
             background-color: var(--main-bg-color);
             background-image: linear-gradient(
                 165deg,
                 #414141,
                 var(--full-black)
             );
+
+            .bezel-container {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &:nth-child(1) {
+                    transform: scale(1) translate(0%, -5%);
+                }
+
+                &:nth-child(2) {
+                    transform: scale(0.75) translate(30%, 13%);
+                }
+
+                .bezel {
+                    position: relative;
+                    margin: auto;
+                    width: 90%;
+                    height: 80%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    overflow: hidden;
+
+                    .img {
+                        z-index: 1;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                        pointer-events: none;
+                    }
+                    .screen-content {
+                        position: absolute;
+                    }
+                    &.bezel-4ktv .screen-content {
+                        width: 98.5%;
+                        height: 85.75%;
+                    }
+                    &.bezel-ipad-pro-2020 .screen-content {
+                        width: 98.5%;
+                        height: 85.75%;
+                    }
+                    &.bezel-iphone-11 .screen-content {
+                        width: 98.5%;
+                        height: 94.75%;
+                    }
+                    &.bezel-iphone-7-plus .screen-content {
+                        width: 98.5%;
+                        height: 79.75%;
+                    }
+                    &.bezel-macbook-pro-2016 .screen-content {
+                        width: 98.5%;
+                        height: 81.75%;
+                    }
+                    &.bezel-win-tablet .screen-content {
+                        width: 98.5%;
+                        height: 81.75%;
+                    }
+                    &.bezel-win-phone .screen-content {
+                        width: 98.5%;
+                        height: 70.75%;
+                    }
+                    .overlay {
+                        position: absolute;
+                    }
+                }
+            }
         }
 
         &::before {
             content: "";
             position: absolute;
+            z-index: 2;
             top: 0;
             left: 0;
             width: 100%;
@@ -417,10 +494,11 @@ header {
                 transparent 75%
             );
             transform: translateY(0);
+            pointer-events: none;
         }
 
-        img,
-        video {
+        > img,
+        > video {
             position: absolute;
             z-index: -1;
             width: 100%;
@@ -441,6 +519,8 @@ header {
             }
         }
         .year {
+            position: relative;
+            z-index: 2;
             margin-top: auto;
             margin-bottom: 0.5em;
             font-size: 0.875em;
@@ -448,6 +528,7 @@ header {
         }
         .label {
             position: relative;
+            z-index: 2;
             font-size: 1.5em;
             color: var(--full-white);
             // text-transform: lowercase;
@@ -465,10 +546,12 @@ header {
 
         h1 {
             position: relative;
+            z-index: 2;
             margin-top: -0.75em;
         }
         h2 {
             position: relative;
+            z-index: 2;
             margin-top: -1.25em;
             margin-left: auto;
             width: 57.5%;
@@ -683,8 +766,8 @@ body.ext-ref {
     .page {
         bottom: auto;
 
-        .hero video,
-        .hero img {
+        .hero > video,
+        .hero > img {
             &.mobile {
                 display: none;
             }
@@ -725,6 +808,9 @@ body.ext-ref {
     .page.page-lv2 {
         .hero {
             height: 30em;
+        }
+        .hero-interactive-art {
+            height: 36em;
         }
     }
 }
