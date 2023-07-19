@@ -527,7 +527,7 @@ function handleHashChange() {
   }
 }
 
-function handlePopstate(event) {
+function handlePopState(event) {
   pageId = window.location.pathname.slice(1);
   if (!userClicked) {
     if (pageId) {
@@ -550,5 +550,5 @@ window.addEventListener("hashchange", () => {
   handleHashChange();
 });
 window.addEventListener("popstate", () => {
-  handlePopstate();
+  handlePopState();
 });
