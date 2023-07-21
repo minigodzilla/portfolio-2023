@@ -353,13 +353,22 @@ header {
     overflow-x: hidden;
     overflow-y: hidden;
     width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
     bottom: 0;
+    // TODO: fix this because the scrollbar goes under the header
     padding-top: 3.45em;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
     opacity: 0;
     font-size: 1em;
     pointer-events: none;
+    animation-name: hide-page;
+    animation-duration: 500ms;
+    animation-delay: 0ms;
+    animation-fill-mode: forwards;
 
     &::before {
         content: "";
@@ -387,6 +396,7 @@ header {
         font-weight: 600;
     }
     .hero {
+        flex-shrink: 0;
         height: 14.5em;
         position: relative;
         z-index: 2;
@@ -663,6 +673,10 @@ header {
         }
     }
 
+    &.page-lv2.web-development .hero {
+        height: 20em;
+    }
+
     .article {
         padding: 1em;
         display: flex;
@@ -713,87 +727,82 @@ header {
             margin-bottom: 1em;
         }
     }
-}
-main .page.active {
-    overflow-y: auto;
 
-    animation-name: show-page;
-    animation-fill-mode: both;
-    pointer-events: all;
-
-    .hero {
-        animation-name: show-hero;
-        animation-duration: 500ms;
+    &.active {
+        overflow-y: auto;
+        height: auto;
+        animation-name: show-page;
         animation-fill-mode: both;
-    }
-    &.page-lv1 .hero {
-        @for $i from 1 through 8 {
-            &:nth-child(#{$i}) {
-                animation-delay: #{1500 + (($i - 1) * 100)}ms;
-            }
-        }
-    }
-    &.page-lv2 {
-        h1,
-        h2,
-        .year,
-        .tags,
-        .content p {
+        pointer-events: all;
+
+        .hero {
             animation-name: show-hero;
             animation-duration: 500ms;
             animation-fill-mode: both;
         }
-        .hero::before {
-            transform: translateY(-50%);
-            animation-name: show-lv2-hero;
-            animation-delay: 100ms;
-            animation-duration: 250ms;
-            animation-fill-mode: both;
-            animation-timing-function: steps(12, end);
-        }
-        .hero:nth-child(1) {
-            animation-delay: 0ms;
-            animation-duration: 0ms;
-        }
-        h1 {
-            animation-delay: 400ms;
-        }
-        h2 {
-            animation-delay: 500ms;
-        }
-        .year {
-            animation-delay: 600ms;
-        }
-        .tags {
-            animation-delay: 700ms;
-        }
-        .content {
+        &.page-lv1 .hero {
             @for $i from 1 through 8 {
-                p:nth-child(#{$i}) {
-                    animation-delay: #{800 + (($i - 1) * 100)}ms;
+                &:nth-child(#{$i}) {
+                    animation-delay: #{1500 + (($i - 1) * 100)}ms;
+                }
+            }
+        }
+        &.page-lv2 {
+            h1,
+            h2,
+            .year,
+            .tags,
+            .content p {
+                animation-name: show-hero;
+                animation-duration: 500ms;
+                animation-fill-mode: both;
+            }
+            .hero::before {
+                transform: translateY(-50%);
+                animation-name: show-lv2-hero;
+                animation-delay: 100ms;
+                animation-duration: 250ms;
+                animation-fill-mode: both;
+                animation-timing-function: steps(12, end);
+            }
+            .hero:nth-child(1) {
+                animation-delay: 0ms;
+                animation-duration: 0ms;
+            }
+            h1 {
+                animation-delay: 400ms;
+            }
+            h2 {
+                animation-delay: 500ms;
+            }
+            .year {
+                animation-delay: 600ms;
+            }
+            .tags {
+                animation-delay: 700ms;
+            }
+            .content {
+                @for $i from 1 through 8 {
+                    p:nth-child(#{$i}) {
+                        animation-delay: #{800 + (($i - 1) * 100)}ms;
+                    }
                 }
             }
         }
     }
-}
-main .page.page-lv1.active {
-    animation-delay: 1000ms;
-    animation-duration: 0ms;
-}
-main .page.page-lv1.visited {
-    animation-delay: 0ms;
+    &.page-lv1.active {
+        animation-delay: 1000ms;
+        animation-duration: 0ms;
+    }
+    &.page-lv1.visited {
+        animation-delay: 0ms;
 
-    @for $i from 1 through 8 {
-        .hero:nth-child(#{$i}) {
-            animation-delay: #{0 + (($i - 1) * 100)}ms;
+        @for $i from 1 through 8 {
+            .hero:nth-child(#{$i}) {
+                animation-delay: #{0 + (($i - 1) * 100)}ms;
+            }
         }
     }
-}
-.page {
-    animation-name: hide-page;
-    animation-duration: 500ms;
-    animation-delay: 0ms;
-    animation-fill-mode: forwards;
 }
 body.preload {
     header {
@@ -829,10 +838,16 @@ body.ext-ref {
     header h2,
     header nav .nav-item,
     header nav .nav-item .container,
-    .page,
-    .page.page-lv1 .hero {
+    .page {
         animation-delay: 0ms !important;
         animation-duration: 0ms !important;
+    }
+    .page.page-lv1 {
+        @for $i from 1 through 8 {
+            .hero:nth-child(#{$i}) {
+                animation-delay: #{0 + (($i - 1) * 100)}ms;
+            }
+        }
     }
 }
 
@@ -920,7 +935,6 @@ body.ext-ref {
         }
     }
     .page.page-lv1 {
-        display: flex;
         flex-direction: row;
         flex-wrap: wrap;
 
@@ -929,13 +943,11 @@ body.ext-ref {
             height: 18.4em;
         }
     }
-    .page.page-lv2 {
-        .hero {
-            height: 30em;
-        }
-        .hero-interactive-art {
-            height: 36em;
-        }
+    .page.page-lv2 .hero {
+        height: 30em;
+    }
+    .page.page-lv2.web-development .hero {
+        height: 36em;
     }
 }
 
