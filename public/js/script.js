@@ -244,38 +244,78 @@ function createPages(pages, parent) {
                 </div>
             `;
           }
-        } else if (page.heroVideo) {
-          hero = `
+          article = `
+            <div class="article">
+              <h1>${page.title}</h1>
+              <div class="year">${page.year}</div>
+              <div class="tags">
+                <span class="tag">crt</span>
+                <span class="tag">projector</span>
+                <span class="tag">microcontroller</span>
+                <span class="tag">vintage tech</span>
+                <span class="tag">indigenous</span>
+              </div>
+              <div class="content">
+                ${page.content}
+              </div>
+            </div>
+          `;
+        } else if (parent === "interactive-art") {
+          if (page.heroVideo) {
+            hero = `
             <div class="hero">
               <video class="img mobile" src="assets/${parent}/${pageId}-mobile.mp4" muted autoplay loop playsinline></video>
               <video class="img desktop" src="assets/${parent}/${pageId}-desktop.mp4" muted autoplay loop playsinline></video>
             </div>
             `;
-        } else {
-          hero = `
+          } else {
+            hero = `
             <div class="hero">
               <img class="img mobile desktop" src="assets/${parent}/${pageId}.jpg" />
             </div>
             `;
+          }
+          article = `
+            <div class="article">
+              <h1>${page.title}</h1>
+              <h2>${page.subtitle}</h2>
+              <div class="year">${page.year}</div>
+              <div class="tags">
+                <span class="tag">crt</span>
+                <span class="tag">projector</span>
+                <span class="tag">microcontroller</span>
+                <span class="tag">vintage tech</span>
+                <span class="tag">indigenous</span>
+              </div>
+              <div class="content">
+                ${page.content}
+              </div>
+            </div>
+          `;
+        } else {
+          hero = `
+          <div class="hero">
+            <img class="img mobile desktop" src="assets/${parent}/${pageId}.jpg" />
+          </div>
+          `;
+          article = `
+            <div class="article">
+              <h1>${page.title}</h1>
+              <div class="year">${page.year}</div>
+              <div class="tags">
+                <span class="tag">crt</span>
+                <span class="tag">projector</span>
+                <span class="tag">microcontroller</span>
+                <span class="tag">vintage tech</span>
+                <span class="tag">indigenous</span>
+              </div>
+              <div class="content">
+                ${page.content}
+              </div>
+            </div>
+          `;
         }
 
-        const article = `
-          <div class="article">
-            <h1>${page.title}</h1>
-            <h2>${page.subtitle}</h2>
-            <div class="year">${page.year}</div>
-            <div class="tags">
-              <span class="tag">crt</span>
-              <span class="tag">projector</span>
-              <span class="tag">microcontroller</span>
-              <span class="tag">vintage tech</span>
-              <span class="tag">indigenous</span>
-            </div>
-            <div class="content">
-              ${page.content}
-            </div>
-          </div>
-        `;
         div.insertAdjacentHTML("afterbegin", hero);
         div.insertAdjacentHTML("beforeend", article);
       }
