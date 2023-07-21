@@ -185,44 +185,40 @@ function createPages(pages, parent) {
         createPages(page.pages, pageId);
         createIndexPages(page.pages, div, pageId);
       } else {
-        div.className = "page page-lv2 " + pageId;
+        div.className = "page page-lv2 " + parent;
 
         if (parent === "web-development") {
           if (Array.isArray(page.bezel)) {
             hero = `
                 <div class="hero hero-interactive-art">
-                    <div class="bezel-container">
-                        <div class="bezel bezel-${page.bezel[0]}">
-                            <img class="img" src="assets/bezel-${page.bezel[0]}.png" />
-                            <video class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}-${page.bezel[0]}.mp4" type="video/mp4" preload="metadata"></video>
-                            <div class="overlay">
-                                <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35">
-                                    <use xlink:href="#play-btn" />
-                                </svg>
-                                <svg class="svg svg-icon svg-pause-icon" viewBox="0 0 40 35">
-                                    <use xlink:href="#pause-btn" />
-                                </svg>
-                                <svg class="svg svg-icon svg-loading" viewBox="0 0 80 80">
-                                    <use xlink:href="#spinner" />
-                                </svg>
-                            </div>
+                    <div class="bezel bezel-${page.bezel[0]}">
+                        <img class="img" src="assets/bezel-${page.bezel[0]}.png" />
+                        <video class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}-${page.bezel[0]}.mp4" type="video/mp4" preload="metadata"></video>
+                        <div class="overlay">
+                            <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35">
+                                <use xlink:href="#play-btn" />
+                            </svg>
+                            <svg class="svg svg-icon svg-pause-icon" viewBox="0 0 40 35">
+                                <use xlink:href="#pause-btn" />
+                            </svg>
+                            <svg class="svg svg-icon svg-loading" viewBox="0 0 80 80">
+                                <use xlink:href="#spinner" />
+                            </svg>
                         </div>
                     </div>
-                    <div class="bezel-container">
-                        <div class="bezel bezel-${page.bezel[1]}">
-                            <img class="img" src="assets/bezel-${page.bezel[1]}.png" />
-                            <video class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}-${page.bezel[1]}.mp4" type="video/mp4" preload="metadata"></video>
-                            <div class="overlay">
-                                <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35">
-                                    <use xlink:href="#play-btn" />
-                                </svg>
-                                <svg class="svg svg-icon svg-pause-icon" viewBox="0 0 40 35">
-                                    <use xlink:href="#pause-btn" />
-                                </svg>
-                                <svg class="svg svg-icon svg-loading" viewBox="0 0 80 80">
-                                    <use xlink:href="#spinner" />
-                                </svg>
-                            </div>
+                    <div class="bezel bezel-${page.bezel[1]}">
+                        <img class="img" src="assets/bezel-${page.bezel[1]}.png" />
+                        <video class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}-${page.bezel[1]}.mp4" type="video/mp4" preload="metadata"></video>
+                        <div class="overlay">
+                            <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35">
+                                <use xlink:href="#play-btn" />
+                            </svg>
+                            <svg class="svg svg-icon svg-pause-icon" viewBox="0 0 40 35">
+                                <use xlink:href="#pause-btn" />
+                            </svg>
+                            <svg class="svg svg-icon svg-loading" viewBox="0 0 80 80">
+                                <use xlink:href="#spinner" />
+                            </svg>
                         </div>
                     </div>
                 </div>
@@ -230,21 +226,19 @@ function createPages(pages, parent) {
           } else {
             hero = `
                 <div class="hero hero-interactive-art">
-                    <div class="bezel-container">
-                        <div class="bezel bezel-1 bezel-${page.bezel}">
-                            <img class="img" src="assets/bezel-${page.bezel}.png" />
-                            <video class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}.mp4" type="video/mp4"></video>
-                            <div class="overlay">
-                                <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35">
-                                    <use xlink:href="#play-btn" />
-                                </svg>
-                                <svg class="svg svg-icon svg-pause-icon" viewBox="0 0 40 35">
-                                    <use xlink:href="#pause-btn" />
-                                </svg>
-                                <svg class="svg svg-icon svg-loading" viewBox="0 0 80 80">
-                                    <use xlink:href="#spinner" />
-                                </svg>
-                            </div>
+                    <div class="bezel bezel-1 bezel-${page.bezel}">
+                        <img class="img" src="assets/bezel-${page.bezel}.png" />
+                        <video class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}.mp4" type="video/mp4"></video>
+                        <div class="overlay">
+                            <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35">
+                                <use xlink:href="#play-btn" />
+                            </svg>
+                            <svg class="svg svg-icon svg-pause-icon" viewBox="0 0 40 35">
+                                <use xlink:href="#pause-btn" />
+                            </svg>
+                            <svg class="svg svg-icon svg-loading" viewBox="0 0 80 80">
+                                <use xlink:href="#spinner" />
+                            </svg>
                         </div>
                     </div>
                 </div>

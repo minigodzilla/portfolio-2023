@@ -396,175 +396,6 @@ header {
         align-items: start;
         padding: 1em;
 
-        &.hero-interactive-art {
-            padding: 0 3em;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--main-bg-color);
-            background-image: linear-gradient(
-                165deg,
-                #414141,
-                var(--full-black)
-            );
-
-            .bezel-container {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                &:nth-child(1) {
-                    transform: scale(1) translate(0%, -5%);
-                }
-
-                &:nth-child(2) {
-                    transform: scale(0.75) translate(30%, 13%);
-                }
-
-                .bezel {
-                    position: relative;
-                    margin: auto;
-                    width: 90%;
-                    height: 80%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    overflow: hidden;
-
-                    .img {
-                        z-index: 1;
-                        width: 100%;
-                        height: 100%;
-                        object-fit: contain;
-                        pointer-events: none;
-                    }
-                    .screen-content {
-                        position: absolute;
-                        filter: brightness(50%) contrast(90%);
-                        transition: filter 200ms ease;
-
-                        &.playing {
-                            filter: brightness(98%) contrast(98%);
-                        }
-                    }
-                    &.bezel-4ktv .screen-content {
-                        width: 98.5%;
-                        height: 85.75%;
-                    }
-                    &.bezel-ipad-pro-2020 .screen-content {
-                        width: 98.5%;
-                        height: 85.75%;
-                    }
-                    &.bezel-iphone-11 .screen-content {
-                        width: 98.5%;
-                        height: 94.75%;
-                    }
-                    &.bezel-iphone-7-plus .screen-content {
-                        width: 98.5%;
-                        height: 79.75%;
-                    }
-                    &.bezel-macbook-pro-2016 .screen-content {
-                        width: 98.5%;
-                        height: 81.75%;
-                    }
-                    &.bezel-win-tablet .screen-content {
-                        width: 98.5%;
-                        height: 81.75%;
-                    }
-                    &.bezel-win-phone .screen-content {
-                        width: 98.5%;
-                        height: 70.75%;
-                    }
-                    .overlay {
-                        position: absolute;
-                        top: 0;
-                        right: 0;
-                        bottom: 0;
-                        left: 0;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        pointer-events: none;
-
-                        @keyframes svg-loading-anim {
-                            to {
-                                transform: rotate(360deg);
-                            }
-                        }
-
-                        .svg {
-                            position: absolute;
-                            fill: var(--main-color);
-                            width: 10%;
-                            transition: opacity 200ms ease;
-                        }
-
-                        .svg-play-icon {
-                            opacity: 1;
-                        }
-
-                        .svg-pause-icon {
-                            opacity: 0;
-                        }
-
-                        .svg-loading {
-                            animation-name: svg-loading-anim;
-                            animation-duration: 1.5s;
-                            animation-timing-function: steps(12);
-                            animation-iteration-count: infinite;
-                            opacity: 0;
-                        }
-
-                        &.loading {
-                            .svg-play-icon {
-                                opacity: 0;
-                            }
-
-                            .svg-pause-icon {
-                                opacity: 0;
-                            }
-
-                            .svg-loading {
-                                opacity: 1;
-                            }
-                        }
-
-                        &.playing {
-                            .svg-play-icon {
-                                opacity: 0;
-                            }
-
-                            .svg-pause-icon {
-                                opacity: 0;
-                            }
-
-                            .svg-loading {
-                                opacity: 0;
-                            }
-                        }
-
-                        &.paused {
-                            .svg-play-icon {
-                                opacity: 0;
-                            }
-
-                            .svg-pause-icon {
-                                opacity: 1;
-                            }
-
-                            .svg-loading {
-                                opacity: 0;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
         &::before {
             content: "";
             position: absolute;
@@ -580,6 +411,214 @@ header {
             );
             transform: translateY(0);
             pointer-events: none;
+        }
+
+        &.hero-interactive-art {
+            padding: 0 3em;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--main-bg-color);
+            background-image: linear-gradient(
+                165deg,
+                #414141,
+                var(--full-black)
+            );
+
+            .bezel {
+                position: absolute;
+                z-index: 1;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &:nth-child(2) {
+                    transform: scale(0.6) translate(150%, 25%);
+                }
+
+                &.bezel-4ktv {
+                    width: 80%;
+                    height: 87%;
+
+                    .screen-content {
+                        width: 93%;
+                        height: 86%;
+                    }
+                }
+
+                &.bezel-ipad-pro-2020 {
+                    width: 65%;
+                    height: 85%;
+
+                    .screen-content {
+                        width: 90%;
+                        height: 86%;
+                    }
+                }
+
+                &.bezel-macbook-pro-2016 {
+                    width: 75%;
+                    height: 84%;
+
+                    .screen-content {
+                        width: 79%;
+                        height: 79%;
+                    }
+                }
+
+                &.bezel-iphone-11 {
+                    width: 29%;
+                    height: 100%;
+
+                    .screen-content {
+                        width: 85%;
+                        height: 96%;
+                    }
+                    .overlay .svg {
+                        width: 25%;
+                    }
+                }
+
+                &.bezel-iphone-7-plus {
+                    width: 28%;
+                    height: 100%;
+
+                    .screen-content {
+                        width: 90%;
+                        height: 80%;
+                    }
+                    .overlay .svg {
+                        width: 25%;
+                    }
+                }
+
+                &.bezel-win-tablet {
+                    width: 70%;
+                    height: 80%;
+
+                    .screen-content {
+                        width: 88%;
+                        height: 77%;
+                    }
+                }
+
+                &.bezel-win-phone {
+                    width: 30%;
+                    height: 100%;
+
+                    .screen-content {
+                        width: 80%;
+                        height: 71%;
+                    }
+                    .overlay .svg {
+                        width: 25%;
+                    }
+                }
+
+                .img {
+                    z-index: 1;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    pointer-events: none;
+                }
+                .screen-content {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    filter: brightness(50%) contrast(90%);
+                    transition: filter 200ms ease;
+
+                    &.playing {
+                        filter: brightness(98%) contrast(98%);
+                    }
+                }
+                .overlay {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    pointer-events: none;
+
+                    @keyframes svg-loading-anim {
+                        to {
+                            transform: rotate(360deg);
+                        }
+                    }
+
+                    .svg {
+                        position: absolute;
+                        fill: var(--main-color);
+                        width: 10%;
+                        transition: opacity 200ms ease;
+                    }
+
+                    .svg-play-icon {
+                        opacity: 1;
+                    }
+
+                    .svg-pause-icon {
+                        opacity: 0;
+                    }
+
+                    .svg-loading {
+                        animation-name: svg-loading-anim;
+                        animation-duration: 1.5s;
+                        animation-timing-function: steps(12);
+                        animation-iteration-count: infinite;
+                        opacity: 0;
+                    }
+
+                    &.loading {
+                        .svg-play-icon {
+                            opacity: 0;
+                        }
+
+                        .svg-pause-icon {
+                            opacity: 0;
+                        }
+
+                        .svg-loading {
+                            opacity: 1;
+                        }
+                    }
+
+                    &.playing {
+                        .svg-play-icon {
+                            opacity: 0;
+                        }
+
+                        .svg-pause-icon {
+                            opacity: 0;
+                        }
+
+                        .svg-loading {
+                            opacity: 0;
+                        }
+                    }
+
+                    &.paused {
+                        .svg-play-icon {
+                            opacity: 0;
+                        }
+
+                        .svg-pause-icon {
+                            opacity: 1;
+                        }
+
+                        .svg-loading {
+                            opacity: 0;
+                        }
+                    }
+                }
+            }
         }
 
         > img,

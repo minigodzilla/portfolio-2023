@@ -376,6 +376,18 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) .container {
   align-items: start;
   padding: 1em;
 }
+.page .hero::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  background-image: linear-gradient(0deg, var(--main-bg-color) 50%, transparent 75%);
+  transform: translateY(0);
+  pointer-events: none;
+}
 .page .hero.hero-interactive-art {
   padding: 0 3em;
   display: flex;
@@ -385,74 +397,101 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) .container {
   background-color: var(--main-bg-color);
   background-image: linear-gradient(165deg, #414141, var(--full-black));
 }
-.page .hero.hero-interactive-art .bezel-container {
+.page .hero.hero-interactive-art .bezel {
   position: absolute;
+  z-index: 1;
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.page .hero.hero-interactive-art .bezel-container:nth-child(1) {
-  transform: scale(1) translate(0%, -5%);
+.page .hero.hero-interactive-art .bezel:nth-child(2) {
+  transform: scale(0.6) translate(150%, 25%);
 }
-.page .hero.hero-interactive-art .bezel-container:nth-child(2) {
-  transform: scale(0.75) translate(30%, 13%);
+.page .hero.hero-interactive-art .bezel.bezel-4ktv {
+  width: 80%;
+  height: 87%;
 }
-.page .hero.hero-interactive-art .bezel-container .bezel {
-  position: relative;
-  margin: auto;
+.page .hero.hero-interactive-art .bezel.bezel-4ktv .screen-content {
+  width: 93%;
+  height: 86%;
+}
+.page .hero.hero-interactive-art .bezel.bezel-ipad-pro-2020 {
+  width: 65%;
+  height: 85%;
+}
+.page .hero.hero-interactive-art .bezel.bezel-ipad-pro-2020 .screen-content {
+  width: 90%;
+  height: 86%;
+}
+.page .hero.hero-interactive-art .bezel.bezel-macbook-pro-2016 {
+  width: 75%;
+  height: 84%;
+}
+.page .hero.hero-interactive-art .bezel.bezel-macbook-pro-2016 .screen-content {
+  width: 79%;
+  height: 79%;
+}
+.page .hero.hero-interactive-art .bezel.bezel-iphone-11 {
+  width: 29%;
+  height: 100%;
+}
+.page .hero.hero-interactive-art .bezel.bezel-iphone-11 .screen-content {
+  width: 85%;
+  height: 96%;
+}
+.page .hero.hero-interactive-art .bezel.bezel-iphone-11 .overlay .svg {
+  width: 25%;
+}
+.page .hero.hero-interactive-art .bezel.bezel-iphone-7-plus {
+  width: 28%;
+  height: 100%;
+}
+.page .hero.hero-interactive-art .bezel.bezel-iphone-7-plus .screen-content {
   width: 90%;
   height: 80%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
 }
-.page .hero.hero-interactive-art .bezel-container .bezel .img {
+.page .hero.hero-interactive-art .bezel.bezel-iphone-7-plus .overlay .svg {
+  width: 25%;
+}
+.page .hero.hero-interactive-art .bezel.bezel-win-tablet {
+  width: 70%;
+  height: 80%;
+}
+.page .hero.hero-interactive-art .bezel.bezel-win-tablet .screen-content {
+  width: 88%;
+  height: 77%;
+}
+.page .hero.hero-interactive-art .bezel.bezel-win-phone {
+  width: 30%;
+  height: 100%;
+}
+.page .hero.hero-interactive-art .bezel.bezel-win-phone .screen-content {
+  width: 80%;
+  height: 71%;
+}
+.page .hero.hero-interactive-art .bezel.bezel-win-phone .overlay .svg {
+  width: 25%;
+}
+.page .hero.hero-interactive-art .bezel .img {
   z-index: 1;
   width: 100%;
   height: 100%;
   object-fit: contain;
   pointer-events: none;
 }
-.page .hero.hero-interactive-art .bezel-container .bezel .screen-content {
+.page .hero.hero-interactive-art .bezel .screen-content {
   position: absolute;
+  width: 100%;
+  height: 100%;
   filter: brightness(50%) contrast(90%);
   transition: filter 200ms ease;
 }
-.page .hero.hero-interactive-art .bezel-container .bezel .screen-content.playing {
+.page .hero.hero-interactive-art .bezel .screen-content.playing {
   filter: brightness(98%) contrast(98%);
 }
-.page .hero.hero-interactive-art .bezel-container .bezel.bezel-4ktv .screen-content {
-  width: 98.5%;
-  height: 85.75%;
-}
-.page .hero.hero-interactive-art .bezel-container .bezel.bezel-ipad-pro-2020 .screen-content {
-  width: 98.5%;
-  height: 85.75%;
-}
-.page .hero.hero-interactive-art .bezel-container .bezel.bezel-iphone-11 .screen-content {
-  width: 98.5%;
-  height: 94.75%;
-}
-.page .hero.hero-interactive-art .bezel-container .bezel.bezel-iphone-7-plus .screen-content {
-  width: 98.5%;
-  height: 79.75%;
-}
-.page .hero.hero-interactive-art .bezel-container .bezel.bezel-macbook-pro-2016 .screen-content {
-  width: 98.5%;
-  height: 81.75%;
-}
-.page .hero.hero-interactive-art .bezel-container .bezel.bezel-win-tablet .screen-content {
-  width: 98.5%;
-  height: 81.75%;
-}
-.page .hero.hero-interactive-art .bezel-container .bezel.bezel-win-phone .screen-content {
-  width: 98.5%;
-  height: 70.75%;
-}
-.page .hero.hero-interactive-art .bezel-container .bezel .overlay {
+.page .hero.hero-interactive-art .bezel .overlay {
   position: absolute;
   top: 0;
   right: 0;
@@ -468,63 +507,51 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) .container {
     transform: rotate(360deg);
   }
 }
-.page .hero.hero-interactive-art .bezel-container .bezel .overlay .svg {
+.page .hero.hero-interactive-art .bezel .overlay .svg {
   position: absolute;
   fill: var(--main-color);
   width: 10%;
   transition: opacity 200ms ease;
 }
-.page .hero.hero-interactive-art .bezel-container .bezel .overlay .svg-play-icon {
+.page .hero.hero-interactive-art .bezel .overlay .svg-play-icon {
   opacity: 1;
 }
-.page .hero.hero-interactive-art .bezel-container .bezel .overlay .svg-pause-icon {
+.page .hero.hero-interactive-art .bezel .overlay .svg-pause-icon {
   opacity: 0;
 }
-.page .hero.hero-interactive-art .bezel-container .bezel .overlay .svg-loading {
+.page .hero.hero-interactive-art .bezel .overlay .svg-loading {
   animation-name: svg-loading-anim;
   animation-duration: 1.5s;
   animation-timing-function: steps(12);
   animation-iteration-count: infinite;
   opacity: 0;
 }
-.page .hero.hero-interactive-art .bezel-container .bezel .overlay.loading .svg-play-icon {
+.page .hero.hero-interactive-art .bezel .overlay.loading .svg-play-icon {
   opacity: 0;
 }
-.page .hero.hero-interactive-art .bezel-container .bezel .overlay.loading .svg-pause-icon {
+.page .hero.hero-interactive-art .bezel .overlay.loading .svg-pause-icon {
   opacity: 0;
 }
-.page .hero.hero-interactive-art .bezel-container .bezel .overlay.loading .svg-loading {
+.page .hero.hero-interactive-art .bezel .overlay.loading .svg-loading {
   opacity: 1;
 }
-.page .hero.hero-interactive-art .bezel-container .bezel .overlay.playing .svg-play-icon {
+.page .hero.hero-interactive-art .bezel .overlay.playing .svg-play-icon {
   opacity: 0;
 }
-.page .hero.hero-interactive-art .bezel-container .bezel .overlay.playing .svg-pause-icon {
+.page .hero.hero-interactive-art .bezel .overlay.playing .svg-pause-icon {
   opacity: 0;
 }
-.page .hero.hero-interactive-art .bezel-container .bezel .overlay.playing .svg-loading {
+.page .hero.hero-interactive-art .bezel .overlay.playing .svg-loading {
   opacity: 0;
 }
-.page .hero.hero-interactive-art .bezel-container .bezel .overlay.paused .svg-play-icon {
+.page .hero.hero-interactive-art .bezel .overlay.paused .svg-play-icon {
   opacity: 0;
 }
-.page .hero.hero-interactive-art .bezel-container .bezel .overlay.paused .svg-pause-icon {
+.page .hero.hero-interactive-art .bezel .overlay.paused .svg-pause-icon {
   opacity: 1;
 }
-.page .hero.hero-interactive-art .bezel-container .bezel .overlay.paused .svg-loading {
+.page .hero.hero-interactive-art .bezel .overlay.paused .svg-loading {
   opacity: 0;
-}
-.page .hero::before {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 200%;
-  background-image: linear-gradient(0deg, var(--main-bg-color) 50%, transparent 75%);
-  transform: translateY(0);
-  pointer-events: none;
 }
 .page .hero > img,
 .page .hero > video {
