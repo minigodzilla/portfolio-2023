@@ -444,6 +444,12 @@ header {
                     }
                     .screen-content {
                         position: absolute;
+                        filter: brightness(50%) contrast(90%);
+                        transition: filter 200ms ease;
+
+                        &.playing {
+                            filter: brightness(98%) contrast(98%);
+                        }
                     }
                     &.bezel-4ktv .screen-content {
                         width: 98.5%;
@@ -481,7 +487,7 @@ header {
                         left: 0;
                         display: flex;
                         justify-content: center;
-
+                        align-items: center;
                         pointer-events: none;
 
                         @keyframes svg-loading-anim {
@@ -492,8 +498,8 @@ header {
 
                         .svg {
                             position: absolute;
-                            fill: #fff;
-                            width: 15%;
+                            fill: var(--main-color);
+                            width: 10%;
                             transition: opacity 200ms ease;
                         }
 
@@ -512,52 +518,47 @@ header {
                             animation-iteration-count: infinite;
                             opacity: 0;
                         }
-                    }
-                    // TODO: fix specificity issues here
-                    &.loading {
-                        .overlay .svg-play-icon {
-                            opacity: 0;
+
+                        &.loading {
+                            .svg-play-icon {
+                                opacity: 0;
+                            }
+
+                            .svg-pause-icon {
+                                opacity: 0;
+                            }
+
+                            .svg-loading {
+                                opacity: 1;
+                            }
                         }
 
-                        .overlay .svg-pause-icon {
-                            opacity: 0;
+                        &.playing {
+                            .svg-play-icon {
+                                opacity: 0;
+                            }
+
+                            .svg-pause-icon {
+                                opacity: 0;
+                            }
+
+                            .svg-loading {
+                                opacity: 0;
+                            }
                         }
 
-                        .overlay .svg-loading {
-                            opacity: 1;
-                        }
-                    }
+                        &.paused {
+                            .svg-play-icon {
+                                opacity: 0;
+                            }
 
-                    &.playing {
-                        .screen-content-image,
-                        .screen-content-video {
-                            filter: brightness(98%) contrast(98%);
-                        }
+                            .svg-pause-icon {
+                                opacity: 1;
+                            }
 
-                        .overlay .svg-play-icon {
-                            opacity: 0;
-                        }
-
-                        .overlay .svg-pause-icon {
-                            opacity: 0;
-                        }
-
-                        .overlay .svg-loading {
-                            opacity: 0;
-                        }
-                    }
-
-                    &.paused {
-                        .overlay .svg-play-icon {
-                            opacity: 0;
-                        }
-
-                        .overlay .svg-pause-icon {
-                            opacity: 1;
-                        }
-
-                        .overlay .svg-loading {
-                            opacity: 0;
+                            .svg-loading {
+                                opacity: 0;
+                            }
                         }
                     }
                 }

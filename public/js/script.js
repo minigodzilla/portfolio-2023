@@ -194,7 +194,7 @@ function createPages(pages, parent) {
                     <div class="bezel-container">
                         <div class="bezel bezel-${page.bezel[0]}">
                             <img class="img" src="assets/bezel-${page.bezel[0]}.png" />
-                            <video class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}-${page.bezel[0]}.mp4" type="video/mp4"></video>
+                            <video class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}-${page.bezel[0]}.mp4" type="video/mp4" preload="metadata"></video>
                             <div class="overlay">
                                 <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35">
                                     <use xlink:href="#play-btn" />
@@ -211,7 +211,7 @@ function createPages(pages, parent) {
                     <div class="bezel-container">
                         <div class="bezel bezel-${page.bezel[1]}">
                             <img class="img" src="assets/bezel-${page.bezel[1]}.png" />
-                            <video class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}-${page.bezel[1]}.mp4" type="video/mp4"></video>
+                            <video class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}-${page.bezel[1]}.mp4" type="video/mp4" preload="metadata"></video>
                             <div class="overlay">
                                 <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35">
                                     <use xlink:href="#play-btn" />
@@ -429,28 +429,23 @@ function showPage(pageId) {
 }
 
 function setupVideo(video) {
-  video.removeEventListener("click", setupVideo);
-
+  video.removeEventListener("click", function () {
+    setupVideo(video);
+  });
   video.play();
-
   video.addEventListener("click", function () {
-    let userClicked = true;
     if (video.paused) {
       console.log("play");
       video.play();
-      userClicked = false;
     } else {
       console.log("pause");
       video.pause();
-      userClicked = false;
     }
   });
-
   video.addEventListener("loadstart", function () {
     video.nextElementSibling.classList.add("loading");
     video.classList.add("loading");
   });
-
   video.addEventListener("play", function () {
     video.nextElementSibling.classList.remove("paused", "loading");
     video.nextElementSibling.classList.add("playing");
@@ -467,12 +462,17 @@ function setupVideo(video) {
 }
 
 function videoHandler() {
-  var videos = document.querySelectorAll(".screen-content-video");
+  const videos = document.querySelectorAll(".screen-content-video");
+
+  function clickHandler(event) {
+    const video = event.target;
+    console.log("first click");
+    setupVideo(video);
+    video.removeEventListener("click", clickHandler); // Remove the event listener after the first click
+  }
 
   videos.forEach(function (video) {
-    video.addEventListener("click", function () {
-      setupVideo(video);
-    });
+    video.addEventListener("click", clickHandler);
   });
 }
 

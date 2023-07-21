@@ -418,6 +418,11 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) .container {
 }
 .page .hero.hero-interactive-art .bezel-container .bezel .screen-content {
   position: absolute;
+  filter: brightness(50%) contrast(90%);
+  transition: filter 200ms ease;
+}
+.page .hero.hero-interactive-art .bezel-container .bezel .screen-content.playing {
+  filter: brightness(98%) contrast(98%);
 }
 .page .hero.hero-interactive-art .bezel-container .bezel.bezel-4ktv .screen-content {
   width: 98.5%;
@@ -455,6 +460,7 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) .container {
   left: 0;
   display: flex;
   justify-content: center;
+  align-items: center;
   pointer-events: none;
 }
 @keyframes svg-loading-anim {
@@ -464,8 +470,8 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) .container {
 }
 .page .hero.hero-interactive-art .bezel-container .bezel .overlay .svg {
   position: absolute;
-  fill: #fff;
-  width: 15%;
+  fill: var(--main-color);
+  width: 10%;
   transition: opacity 200ms ease;
 }
 .page .hero.hero-interactive-art .bezel-container .bezel .overlay .svg-play-icon {
@@ -481,35 +487,31 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) .container {
   animation-iteration-count: infinite;
   opacity: 0;
 }
-.page .hero.hero-interactive-art .bezel-container .bezel.loading .overlay .svg-play-icon {
+.page .hero.hero-interactive-art .bezel-container .bezel .overlay.loading .svg-play-icon {
   opacity: 0;
 }
-.page .hero.hero-interactive-art .bezel-container .bezel.loading .overlay .svg-pause-icon {
+.page .hero.hero-interactive-art .bezel-container .bezel .overlay.loading .svg-pause-icon {
   opacity: 0;
 }
-.page .hero.hero-interactive-art .bezel-container .bezel.loading .overlay .svg-loading {
+.page .hero.hero-interactive-art .bezel-container .bezel .overlay.loading .svg-loading {
   opacity: 1;
 }
-.page .hero.hero-interactive-art .bezel-container .bezel.playing .screen-content-image,
-.page .hero.hero-interactive-art .bezel-container .bezel.playing .screen-content-video {
-  filter: brightness(98%) contrast(98%);
-}
-.page .hero.hero-interactive-art .bezel-container .bezel.playing .overlay .svg-play-icon {
+.page .hero.hero-interactive-art .bezel-container .bezel .overlay.playing .svg-play-icon {
   opacity: 0;
 }
-.page .hero.hero-interactive-art .bezel-container .bezel.playing .overlay .svg-pause-icon {
+.page .hero.hero-interactive-art .bezel-container .bezel .overlay.playing .svg-pause-icon {
   opacity: 0;
 }
-.page .hero.hero-interactive-art .bezel-container .bezel.playing .overlay .svg-loading {
+.page .hero.hero-interactive-art .bezel-container .bezel .overlay.playing .svg-loading {
   opacity: 0;
 }
-.page .hero.hero-interactive-art .bezel-container .bezel.paused .overlay .svg-play-icon {
+.page .hero.hero-interactive-art .bezel-container .bezel .overlay.paused .svg-play-icon {
   opacity: 0;
 }
-.page .hero.hero-interactive-art .bezel-container .bezel.paused .overlay .svg-pause-icon {
+.page .hero.hero-interactive-art .bezel-container .bezel .overlay.paused .svg-pause-icon {
   opacity: 1;
 }
-.page .hero.hero-interactive-art .bezel-container .bezel.paused .overlay .svg-loading {
+.page .hero.hero-interactive-art .bezel-container .bezel .overlay.paused .svg-loading {
   opacity: 0;
 }
 .page .hero::before {
