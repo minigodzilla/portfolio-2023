@@ -429,36 +429,38 @@ function showPage(pageId) {
 }
 
 function setupVideo(video) {
-  console.log("setupVideo");
-  video.load();
-
   video.removeEventListener("click", setupVideo);
 
-  video.addEventListener("canplaythrough", function () {
-    video.play();
-  });
+  video.play();
 
   video.addEventListener("click", function () {
+    let userClicked = true;
     if (video.paused) {
+      console.log("play");
       video.play();
+      userClicked = false;
     } else {
+      console.log("pause");
       video.pause();
+      userClicked = false;
     }
   });
 
   video.addEventListener("loadstart", function () {
-    video.parentElement.classList.add("loading");
+    video.nextElementSibling.classList.add("loading");
     video.classList.add("loading");
   });
 
   video.addEventListener("play", function () {
-    video.parentElement.classList.remove("paused", "loading");
+    video.nextElementSibling.classList.remove("paused", "loading");
+    video.nextElementSibling.classList.add("playing");
     video.classList.remove("paused", "loading");
     video.classList.add("playing");
   });
 
   video.addEventListener("pause", function () {
-    video.parentElement.classList.remove("playing");
+    video.nextElementSibling.classList.remove("playing");
+    video.nextElementSibling.classList.add("paused");
     video.classList.remove("playing");
     video.classList.add("paused");
   });
@@ -468,7 +470,9 @@ function videoHandler() {
   var videos = document.querySelectorAll(".screen-content-video");
 
   videos.forEach(function (video) {
-    video.addEventListener("click", setupVideo(video));
+    video.addEventListener("click", function () {
+      setupVideo(video);
+    });
   });
 }
 
