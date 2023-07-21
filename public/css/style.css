@@ -613,12 +613,10 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) .container {
 .page .article h1 {
   position: relative;
   z-index: 2;
-  margin-top: -0.75em;
 }
 .page .article h2 {
   position: relative;
   z-index: 2;
-  margin-top: -1.25em;
   margin-left: auto;
   width: 57.5%;
   font-size: 1.5em;
@@ -630,7 +628,6 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) .container {
   color: var(--half-gray);
 }
 .page .article .year {
-  margin-top: -1.45em;
   margin-right: auto;
   margin-bottom: 1em;
   font-size: 1.25em;
@@ -777,6 +774,15 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) .container {
 .page.page-lv1.visited .hero:nth-child(8) {
   animation-delay: 700ms;
 }
+.page.page-lv2.interactive-art .article h1 {
+  margin-top: -0.75em;
+}
+.page.page-lv2.interactive-art .article h2 {
+  margin-top: -1.25em;
+}
+.page.page-lv2.interactive-art .article .year {
+  margin-top: -1.45em;
+}
 
 body.preload header h1 {
   animation-delay: 500ms;
@@ -901,15 +907,9 @@ body.ext-ref .page.page-lv1 .hero:nth-child(8) {
   }
   .page .article h1 {
     font-size: 6em;
-    width: 6em;
   }
   .page .article h2 {
     font-size: 2.5em;
-    margin-top: -2.63em;
-    width: 50%;
-  }
-  .page .article .year {
-    margin-top: -1em;
   }
   .page.page-lv1 {
     flex-direction: row;
@@ -919,8 +919,17 @@ body.ext-ref .page.page-lv1 .hero:nth-child(8) {
     width: 50%;
     height: 18.4em;
   }
-  .page.page-lv2 .hero {
+  .page.page-lv2.interactive-art .hero {
     height: 30em;
+  }
+  .page.page-lv2.interactive-art .article h1 {
+    width: 60%;
+  }
+  .page.page-lv2.interactive-art .article h2 {
+    margin-top: -2.675em;
+  }
+  .page.page-lv2.interactive-art .article .year {
+    margin-top: -1em;
   }
   .page.page-lv2.web-development .hero {
     height: 36em;
