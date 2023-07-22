@@ -92,7 +92,7 @@ const data = {
           subtitle: "A portal for past generations to speak to us",
           year: "2016",
           tags: ["projection", "microcontroller", "vintage tech"],
-          bezel: "4ktv",
+          bezel: "macbook-pro-2016",
           content:
             "<p>Infusion (now Avanade) is a global engineering, design and digital strategy firm with an emphasis on solutions built with Microsoft technologies. Their clients included retail, education, healthcare, financial services, the energy sector and others. Their projects ranged from customer-facing digital experiences to enterprise-level application software.</p><p>In 2013, their client, Richtree Natural Markets, was developing a brand-new food court concept at the Toronto Eaton Centre. Infusion was tasked with providing digital ordering touch screens, overhead menus and interactive installations for the new food court space.</p><p>With my prior experience in XAML, I was hired to develop UI for the various Windows WPF applications that powered these experiences.</p><p>Later, as Infusion was incubating a digital marketing agency within the firm, I continued as a member of their Interactive Development team, a multidisciplinary group of design-aware, marketing-savvy creative technologists, developers and designers.</p><p>In my time there, I helped produce innovative and exciting digital experiences for various clients, pitch work, rapid prototypes, UX design, front end and UI development on various platforms including: Web, Windows, Android, Samsung Gear wearables, Unity, Microsoft Hololens and more.</p><p>Working at Infusion was a wonderful experience for me, as I got to learn and play with many new technologies and to build experiences on various platforms, particularly VR/AR.</p>",
         },
@@ -189,7 +189,13 @@ function createPages(pages, parent) {
             hero = `
                 <div class="hero hero-interactive-art">
                     <div class="bezel bezel-${page.bezel[0]}">
-                        <img class="img" src="assets/bezel-${page.bezel[0]}.png" />
+                        <img 
+                          loading="lazy"
+                          class="img" 
+                          src="assets/bezel-${page.bezel[0]}-mobile.png" 
+                          widths="90vw"
+                          srcset="assets/bezel-${page.bezel[0]}-mobile.png 768w,
+                                  assets/bezel-${page.bezel[0]}-desktop.png 1024w"/>
                         <video class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}-${page.bezel[0]}.mp4" type="video/mp4" preload="metadata"></video>
                         <div class="overlay">
                             <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35">
@@ -204,7 +210,13 @@ function createPages(pages, parent) {
                         </div>
                     </div>
                     <div class="bezel bezel-${page.bezel[1]}">
-                        <img class="img" src="assets/bezel-${page.bezel[1]}.png" />
+                        <img 
+                          loading="lazy"
+                          class="img" 
+                          src="assets/bezel-${page.bezel[1]}-mobile.png" 
+                          widths="90vw"
+                          srcset="assets/bezel-${page.bezel[1]}-mobile.png 768w,
+                                  assets/bezel-${page.bezel[1]}-desktop.png 1024w"/>
                         <video class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}-${page.bezel[1]}.mp4" type="video/mp4" preload="metadata"></video>
                         <div class="overlay">
                             <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35">
@@ -224,7 +236,13 @@ function createPages(pages, parent) {
             hero = `
                 <div class="hero hero-interactive-art">
                     <div class="bezel bezel-1 bezel-${page.bezel}">
-                        <img class="img" src="assets/bezel-${page.bezel}.png" />
+                        <img 
+                          loading="lazy"
+                          class="img" 
+                          src="assets/bezel-${page.bezel}-mobile.png" 
+                          widths="90vw"
+                          srcset="assets/bezel-${page.bezel}-mobile.png 768w,
+                                  assets/bezel-${page.bezel}-desktop.png 1024w"/>
                         <video class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}.mp4" type="video/mp4"></video>
                         <div class="overlay">
                             <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35">

@@ -602,7 +602,7 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) .container {
   text-transform: none;
 }
 .page.page-lv2.web-development .hero {
-  height: 20em;
+  height: 14.5em;
 }
 .page.page-lv2.web-development .hero::before {
   z-index: 1;
