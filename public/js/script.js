@@ -152,6 +152,7 @@ function createIndexPages(pages, container, parent) {
       label.className = "label";
 
       img.setAttribute("src", "assets/" + parent + "/" + pageId + ".jpg");
+      img.setAttribute("loading", "lazy");
       year.innerText = page.year;
       label.innerHTML = page.title;
 
@@ -196,7 +197,7 @@ function createPages(pages, parent) {
                           widths="90vw"
                           srcset="assets/bezel-${page.bezel[0]}-mobile.png 768w,
                                   assets/bezel-${page.bezel[0]}-desktop.png 1024w"/>
-                        <video class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}-${page.bezel[0]}.mp4" type="video/mp4" preload="metadata"></video>
+                        <video preload="none" class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}-${page.bezel[0]}.mp4" poster="assets/web-development/${pageId}-${page.bezel[0]}.jpg" type="video/mp4"></video>
                         <div class="overlay">
                             <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35">
                                 <use xlink:href="#play-btn" />
@@ -217,7 +218,7 @@ function createPages(pages, parent) {
                           widths="90vw"
                           srcset="assets/bezel-${page.bezel[1]}-mobile.png 768w,
                                   assets/bezel-${page.bezel[1]}-desktop.png 1024w"/>
-                        <video class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}-${page.bezel[1]}.mp4" type="video/mp4" preload="metadata"></video>
+                        <video preload="none" class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}-${page.bezel[1]}.mp4" poster="assets/web-development/${pageId}-${page.bezel[1]}.jpg" type="video/mp4"></video>
                         <div class="overlay">
                             <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35">
                                 <use xlink:href="#play-btn" />
@@ -243,7 +244,7 @@ function createPages(pages, parent) {
                           widths="90vw"
                           srcset="assets/bezel-${page.bezel}-mobile.png 768w,
                                   assets/bezel-${page.bezel}-desktop.png 1024w"/>
-                        <video class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}.mp4" type="video/mp4"></video>
+                        <video preload="none" class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}-${page.bezel}.mp4" poster="assets/web-development/${pageId}-${page.bezel}.jpg" type="video/mp4"></video>
                         <div class="overlay">
                             <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35">
                                 <use xlink:href="#play-btn" />
@@ -279,14 +280,14 @@ function createPages(pages, parent) {
           if (page.heroVideo) {
             hero = `
             <div class="hero">
-              <video class="img mobile" src="assets/${parent}/${pageId}-mobile.mp4" muted autoplay loop playsinline></video>
-              <video class="img desktop" src="assets/${parent}/${pageId}-desktop.mp4" muted autoplay loop playsinline></video>
+              <video preload="none" class="img mobile" src="assets/${parent}/${pageId}-mobile.mp4" poster="assets/${parent}/${pageId}-mobile.jpg" muted loop playsinline></video>
+              <video preload="none" class="img desktop" src="assets/${parent}/${pageId}-desktop.mp4" poster="assets/${parent}/${pageId}-desktop.jpg" muted loop playsinline></video>
             </div>
             `;
           } else {
             hero = `
             <div class="hero">
-              <img class="img mobile desktop" src="assets/${parent}/${pageId}.jpg" />
+              <img loading="lazy" class="img mobile desktop" src="assets/${parent}/${pageId}.jpg" />
             </div>
             `;
           }

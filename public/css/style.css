@@ -351,6 +351,7 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) .container {
   animation-duration: 500ms;
   animation-delay: 0ms;
   animation-fill-mode: forwards;
+  display: none;
 }
 .page::before {
   content: "";
@@ -653,6 +654,7 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) .container {
   margin-bottom: 1em;
 }
 .page.active {
+  display: block;
   overflow-y: auto;
   height: auto;
   animation-name: show-page;

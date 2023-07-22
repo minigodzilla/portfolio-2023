@@ -368,6 +368,7 @@ header {
     animation-duration: 500ms;
     animation-delay: 0ms;
     animation-fill-mode: forwards;
+    display: none;
 
     &::before {
         content: "";
@@ -729,6 +730,7 @@ header {
     }
 
     &.active {
+        display: block;
         overflow-y: auto;
         height: auto;
         animation-name: show-page;
