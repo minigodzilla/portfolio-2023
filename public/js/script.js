@@ -407,6 +407,7 @@ function urlCheck() {
     nav.classList.add("show-" + lv1Page);
     main.classList.add("show-lv2");
     document.querySelector("#" + hash).classList.add("active");
+    gtag("send", "pageview", thisPage);
   }
 }
 
@@ -480,6 +481,7 @@ function showPage(pageId) {
     backBtn.setAttribute("href", "#");
   }
   thisPageElement.classList.add("active");
+  gtag("send", "pageview", pageId);
 }
 
 function setupVideo(video) {
