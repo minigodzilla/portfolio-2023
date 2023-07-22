@@ -604,6 +604,9 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) .container {
 .page.page-lv2.web-development .hero {
   height: 20em;
 }
+.page.page-lv2.web-development .hero::before {
+  z-index: 1;
+}
 .page .article {
   padding: 1em;
   display: flex;

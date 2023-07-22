@@ -674,6 +674,10 @@ header {
 
     &.page-lv2.web-development .hero {
         height: 20em;
+
+        &::before {
+            z-index: 1;
+        }
     }
 
     .article {

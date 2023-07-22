@@ -423,7 +423,7 @@ function findMatchingPage(pages, hash) {
     return;
   }
   // 404 condition
-  console.log("404");
+  console.log("404: " + hash);
   return;
 }
 
