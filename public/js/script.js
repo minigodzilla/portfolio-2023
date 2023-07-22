@@ -29,7 +29,7 @@ const data = {
             "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
         },
         "indigital-arcade": {
-          title: "inDigital Arcade",
+          title: "<span>inDigital</span> Arcade",
           subtitle: "A portal for past generations to speak to us",
           year: "2021",
           tags: ["retro gaming", "indigenous"],
@@ -161,10 +161,7 @@ function createIndexPages(pages, container, parent) {
       a.appendChild(year);
       a.appendChild(label);
       a.addEventListener("click", (e) => {
-        //e.preventDefault();
         userClicked = true;
-        //const pageId = a.getAttribute("href").slice(1);
-        //window.location.hash = pageId;
       });
 
       container.appendChild(a);
@@ -375,8 +372,10 @@ function urlCheck() {
       );
       backBtn.setAttribute("href", "#" + lastPage);
       lastPageElement.classList.add("visited");
-      thisPageElement.addEventListener("scroll", handlePageScroll);
-      window.addEventListener("scroll", handleWindowScroll);
+      if (lastPage === "interactive-art") {
+        thisPageElement.addEventListener("scroll", handlePageScroll);
+        window.addEventListener("scroll", handleWindowScroll);
+      }
     }
 
     const nextURL = "/" + hash;
@@ -434,7 +433,7 @@ function showPage(pageId) {
     thisPageElement.classList.remove("active");
     thisPageElement.classList.add("visited");
     thisPageElement.removeEventListener("scroll", handlePageScroll);
-    thisPageElement.removeEventListener("scroll", handleWindowScroll);
+    window.removeEventListener("scroll", handleWindowScroll);
   }
 
   findMatchingPage(pages, pageId);
@@ -452,8 +451,10 @@ function showPage(pageId) {
     main.classList.remove("show-lv1");
     main.classList.add("show-lv2");
     backBtn.setAttribute("href", "#" + lastPage);
-    thisPageElement.addEventListener("scroll", handlePageScroll);
-    window.addEventListener("scroll", handleWindowScroll);
+    if (lastPage === "interactive-art") {
+      thisPageElement.addEventListener("scroll", handlePageScroll);
+      window.addEventListener("scroll", handleWindowScroll);
+    }
   } else {
     main.classList.remove("show-lv2");
     main.classList.add("show-lv1");

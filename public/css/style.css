@@ -153,7 +153,6 @@ body {
 }
 
 h1 {
-  text-transform: lowercase;
   font-size: 3.5em;
   font-weight: 600;
   letter-spacing: -0.05em;
@@ -776,6 +775,10 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) .container {
 }
 .page.page-lv2.interactive-art .article h1 {
   margin-top: -0.75em;
+  text-transform: lowercase;
+}
+.page.page-lv2.interactive-art .article h1 span {
+  text-transform: none;
 }
 .page.page-lv2.interactive-art .article h2 {
   margin-top: -1.25em;
