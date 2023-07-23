@@ -137,18 +137,6 @@ let lv2Page = "";
 let thisPage = "";
 let lastPage = "";
 
-function convertToTitleCase(str) {
-  // Step 1: Convert all hyphens to spaces
-  const stringWithSpaces = str.replace(/-/g, " ");
-
-  // Step 2: Convert to title case
-  const titleCaseString = stringWithSpaces.replace(/\b\w/g, (match) =>
-    match.toUpperCase()
-  );
-
-  return titleCaseString;
-}
-
 // creates index pages
 function createIndexPages(pages, container, parent) {
   for (const pageId in pages) {
@@ -410,16 +398,16 @@ function urlCheck() {
     }
 
     const nextURL = "/" + hash;
-    const nextTitle = convertToTitleCase(hash) + " - Steve Diabo";
+    const nextTitle = "";
     const nextState = {};
 
-    document.title = nextTitle;
     window.history.replaceState(nextState, nextTitle, nextURL);
 
     header.classList.add("navigated");
     nav.classList.add("show-" + lv1Page);
     main.classList.add("show-lv2");
     document.querySelector("#" + hash).classList.add("active");
+    gtag("send", "pageview", { page_title: thisPage });
   }
 }
 
@@ -493,6 +481,7 @@ function showPage(pageId) {
     backBtn.setAttribute("href", "#");
   }
   thisPageElement.classList.add("active");
+  gtag("send", "pageview", { page_title: thisPage });
 }
 
 function setupVideo(video) {
@@ -587,12 +576,10 @@ function handleHashChange() {
   pageId = window.location.hash.slice(1);
 
   const nextURL = "/" + pageId;
-  const nextTitle = convertToTitleCase(pageId) + " - Steve Diabo";
+  const nextTitle = "";
   const nextState = {};
 
-  document.title = nextTitle;
   window.history.replaceState(nextState, nextTitle, nextURL);
-
   if (pageId) {
     showPage(pageId);
   } else {
