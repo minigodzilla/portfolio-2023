@@ -113,13 +113,32 @@ const data = {
     },
     "game-development": {
       title: "Game Development",
-      content:
-        "<p>Onénhsto, or &quot;Corn Soup&quot;, is a fun game that teaches Kanien'kéha language, culture and traditions by replicating elder, family and community teaching experiences.</p><p>In this game, you are cast into the role of a young Mohawk boy, spending time with his To'ta (Grandmother). Around her house, and in the garden, are all the ingredients necessary to make her famous corn soup. Forage and collect all of the ingredients, and don't forget to find the recipe book too!</p><p>As you explore the level, you will come across corn and beans in the garden, wild strawberries in the woods, and much more. As you approach these items, the word for the item appears in Kanien'kéha.</p><p>By collecting all of the ingredients and the recipe book, you can learn how to make Mohawk corn soup, based on traditional recipes handed down over generations. Additional items found in the level, like strawberries, can unlock additional surprises!</p><p>The vision for this game was conceived during ImagineNATIVE's Land Jam game hackathon in June 2022. Myself and a team of others all happened to have roots in different Mohawk communities, which led us to think about ways to propagate and teach our language, culture and traditions to other Mohawks displaced from communities, especially children. The idea to create an educational children's adventure game was born.</p><p>I undertook a lot of learning to leverage my web development skill set for the new task of building a 3D game. This involved code review, tutorial consumption, experimentation and prototyping. What I couldn't fully develop on my own, I broke down into manageable tasks and enlisted help from some Unity developer friends and colleagues. In turn, I gleaned additional learning from reviewing the approaches they took and the code they wrote. I reached out to my partner Jenn to create some art for the characters and items in the game.</p><p>For more information or to download a demo of Onénhsto, visit the <a target='_blank' href='https://onenhsto.com/''>official website</a>.</p>",
+      pages: {
+        onenhsto: {
+          title: "Onénhsto",
+          subtitle: "A portal for past generations to speak to us",
+          year: "2021",
+          tags: ["retro gaming", "indigenous"],
+          bezel: "ipad-pro-2020",
+          content:
+            "<p>Onénhsto, or &quot;Corn Soup&quot;, is a fun game that teaches Kanien'kéha language, culture and traditions by replicating elder, family and community teaching experiences.</p><p>In this game, you are cast into the role of a young Mohawk boy, spending time with his To'ta (Grandmother). Around her house, and in the garden, are all the ingredients necessary to make her famous corn soup. Forage and collect all of the ingredients, and don't forget to find the recipe book too!</p><p>As you explore the level, you will come across corn and beans in the garden, wild strawberries in the woods, and much more. As you approach these items, the word for the item appears in Kanien'kéha.</p><p>By collecting all of the ingredients and the recipe book, you can learn how to make Mohawk corn soup, based on traditional recipes handed down over generations. Additional items found in the level, like strawberries, can unlock additional surprises!</p><p>The vision for this game was conceived during ImagineNATIVE's Land Jam game hackathon in June 2022. Myself and a team of others all happened to have roots in different Mohawk communities, which led us to think about ways to propagate and teach our language, culture and traditions to other Mohawks displaced from communities, especially children. The idea to create an educational children's adventure game was born.</p><p>I undertook a lot of learning to leverage my web development skill set for the new task of building a 3D game. This involved code review, tutorial consumption, experimentation and prototyping. What I couldn't fully develop on my own, I broke down into manageable tasks and enlisted help from some Unity developer friends and colleagues. In turn, I gleaned additional learning from reviewing the approaches they took and the code they wrote. I reached out to my partner Jenn to create some art for the characters and items in the game.</p><p>For more information or to download a demo of Onénhsto, visit the <a target='_blank' href='https://onenhsto.com/''>official website</a>.</p>",
+        },
+      },
     },
     "workshops-and-education": {
       title: "Workshops + Education",
-      content:
-        "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
+      pages: {
+        "dancing-light-lanterns-workshop": {
+          title: "Dancing Light Lanterns",
+          formattedTitle: "Dancing Light<br/>Lanterns",
+          subtitle: "An interactive maker<br/>workshop for families",
+          year: "2022",
+          tags: ["microcontroller", "workshop", "education", "indigenous"],
+          heroVideo: false,
+          content:
+            "<p>A maker workshop designed for the ImagineNATIVE Film + Media Arts Festival’s Maker Masterclass, Dancing Light Lanterns invited family-centred teams to design, program and build their own customized jar lanterns, with multicoloured LED lights.</p><p>Each lantern kit came with an <a href='https://learn.adafruit.com/introducing-circuit-playground/overview' target='_blank'>Adafruit Circuit Playground</a>, a battery pack and a USB cable. A central table in the room was stocked with craft materials, reflective surfaces, tinselly objects and other things that would react interestingly with the LED light.</p><p>The first half of the workshop was a group programming session, where I explained what programmable microcontrollers like the Circuit Playground are and what they can be used for, how to connect the Circuit Playground to a laptop, and how to write code for it.</p><p>The second half of the workshop involved the teams constructing their lanterns using the Circuit Playground, an ImagineNATIVE-branded jar, and the physical crafting materials.</p><p>We had about 10 teams participating in the workshop, and the results speak for themselves &mdash; everyone had a great time, novices did some of their very first computer programming, and each lantern turned out completely unique and beautiful.</p>",
+        },
+      },
     },
   },
 };
@@ -141,8 +160,6 @@ for (const pageId in data.pages) {
     }
   }
 }
-
-// TODO: simplify how userClicked is used, create one event listener for all a tags
 
 // DOM elements
 const body = document.querySelector("body");
@@ -239,7 +256,10 @@ function createPages(pages, parent) {
             <div class="content">${content}</div>
           </div>`;
 
-        if (parent === "web-development") {
+        let hero;
+        let article;
+
+        if (parent === "web-development" || parent === "game-development") {
           if (Array.isArray(page.bezel)) {
             hero = `
               <div class="hero hero-interactive-art">
@@ -257,7 +277,10 @@ function createPages(pages, parent) {
             tags,
             page.content
           );
-        } else if (parent === "interactive-art") {
+        } else if (
+          parent === "interactive-art" ||
+          parent === "workshops-and-education"
+        ) {
           if (page.heroVideo) {
             hero = createHeroWithVideo(pageId);
           } else {
