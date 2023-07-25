@@ -6,7 +6,8 @@ const data = {
       pages: {
         "ancestors-gate": {
           title: "Ancestors’ Gate",
-          subtitle: "A portal for past generations to speak to us",
+          formattedTitle: "Ancestors’<br/>Gate",
+          subtitle: "A portal<br/>for past generations<br/>to speak to us",
           year: "2023",
           tags: [
             "crt",
@@ -21,15 +22,17 @@ const data = {
         },
         "dancing-light-lanterns": {
           title: "Dancing Light Lanterns",
-          subtitle: "A portal for past generations to speak to us",
+          formattedTitle: "Dancing Light<br/>Lanterns",
+          subtitle: "An interactive maker<br/>workshop for families",
           year: "2022",
-          tags: ["microcontroller", "indigenous"],
+          tags: ["microcontroller", "workshop", "education", "indigenous"],
           heroVideo: false,
           content:
-            "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
+            "<p>A maker workshop designed for the ImagineNATIVE Film + Media Arts Festival’s Maker Masterclass, Dancing Light Lanterns invited family-centred teams to design, program and build their own customized jar lanterns, with multicoloured LED lights.</p><p>Each lantern kit came with an <a href='https://learn.adafruit.com/introducing-circuit-playground/overview' target='_blank'>Adafruit Circuit Playground</a>, a battery pack and a USB cable. A central table in the room was stocked with craft materials, reflective surfaces, tinselly objects and other things that would react interestingly with the LED light.</p><p>The first half of the workshop was a group programming session, where I explained what programmable microcontrollers like the Circuit Playground are and what they can be used for, how to connect the Circuit Playground to a laptop, and how to write code for it.</p><p>The second half of the workshop involved the teams constructing their lanterns using the Circuit Playground, an ImagineNATIVE-branded jar, and the physical crafting materials.</p><p>We had about 10 teams participating in the workshop, and the results speak for themselves &mdash; everyone had a great time, novices did some of their very first computer programming, and each lantern turned out completely unique and beautiful.</p>",
         },
         "indigital-arcade": {
-          title: "<span>inDigital</span> Arcade",
+          title: "inDigital Arcade",
+          formattedTitle: "<span>inDigital</span><br/>Arcade",
           subtitle: "A portal for past generations to speak to us",
           year: "2021",
           tags: ["retro gaming", "indigenous"],
@@ -39,9 +42,10 @@ const data = {
         },
         "trivia-phone": {
           title: "Trivia Phone",
-          subtitle: "A portal for past generations to speak to us",
+          formattedTitle: "Trivia<br/>Phone",
+          subtitle: "An Arduino phone that<br/>plays games with you",
           year: "2021",
-          tags: ["projection", "microcontroller", "vintage tech"],
+          tags: ["microcontroller", "vintage tech"],
           heroVideo: false,
           content:
             "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
@@ -175,167 +179,102 @@ function createPages(pages, parent) {
     if (pages.hasOwnProperty(pageId)) {
       const page = pages[pageId];
       const div = document.createElement("div");
-
       div.id = pageId;
+      let hero, article, tags;
+
+      if (page.tags) {
+        tags = page.tags.map((tag) => `<div class="tag">${tag}</div>`);
+        tags = tags.join("");
+      }
 
       if (page.pages) {
-        div.className = "page page-lv1 " + pageId;
+        div.className = `page page-lv1 ${pageId}`;
         createPages(page.pages, pageId);
         createIndexPages(page.pages, div, pageId);
       } else {
-        div.className = "page page-lv2 " + parent;
+        div.className = `page page-lv2 ${parent}`;
+
+        const createBezel = (bezelName) => `
+          <div class="bezel bezel-${bezelName}">
+            <img loading="lazy" class="img" src="assets/bezel-${bezelName}-mobile.png" widths="90vw" srcset="assets/bezel-${bezelName}-mobile.png 768w,assets/bezel-${bezelName}-desktop.png 1024w"/>
+            <video preload="none" class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}-${bezelName}.mp4" poster="assets/web-development/${pageId}-${bezelName}.jpg" type="video/mp4"></video>
+            <div class="overlay">
+              <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35"><use xlink:href="#play-btn" /></svg>
+              <svg class="svg svg-icon svg-pause-icon" viewBox="0 0 40 35"><use xlink:href="#pause-btn" /></svg>
+              <svg class="svg svg-icon svg-loading" viewBox="0 0 80 80"><use xlink:href="#spinner" /></svg>
+            </div>
+          </div>`;
+
+        const createHeroWithVideo = (id) => `
+          <div class="hero">
+            <video preload="none" class="img mobile" src="assets/${parent}/${id}-mobile.mp4" poster="assets/${parent}/${id}-mobile.jpg" muted loop playsinline></video>
+            <video preload="none" class="img desktop" src="assets/${parent}/${id}-desktop.mp4" poster="assets/${parent}/${id}-desktop.jpg" muted loop playsinline></video>
+          </div>`;
+
+        const createHeroWithImg = (src, classes) => `
+          <div class="hero">
+            <img loading="lazy" class="${classes}" src="${src}" />
+          </div>`;
+
+        const createArticle = (title, subtitle, year, tags, content) => `
+          <div class="article">
+            <h1>${title}</h1>
+            ${subtitle ? `<h2><span>${subtitle}</span></h2>` : ""}
+            <div class="year">${year}</div>
+            <div class="tags">${tags}</div>
+            <div class="content">${content}</div>
+          </div>`;
 
         if (parent === "web-development") {
           if (Array.isArray(page.bezel)) {
             hero = `
-                <div class="hero hero-interactive-art">
-                    <div class="bezel bezel-${page.bezel[0]}">
-                        <img 
-                          loading="lazy"
-                          class="img" 
-                          src="assets/bezel-${page.bezel[0]}-mobile.png" 
-                          widths="90vw"
-                          srcset="assets/bezel-${page.bezel[0]}-mobile.png 768w,
-                                  assets/bezel-${page.bezel[0]}-desktop.png 1024w"/>
-                        <video preload="none" class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}-${page.bezel[0]}.mp4" poster="assets/web-development/${pageId}-${page.bezel[0]}.jpg" type="video/mp4"></video>
-                        <div class="overlay">
-                            <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35">
-                                <use xlink:href="#play-btn" />
-                            </svg>
-                            <svg class="svg svg-icon svg-pause-icon" viewBox="0 0 40 35">
-                                <use xlink:href="#pause-btn" />
-                            </svg>
-                            <svg class="svg svg-icon svg-loading" viewBox="0 0 80 80">
-                                <use xlink:href="#spinner" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="bezel bezel-${page.bezel[1]}">
-                        <img 
-                          loading="lazy"
-                          class="img" 
-                          src="assets/bezel-${page.bezel[1]}-mobile.png" 
-                          widths="90vw"
-                          srcset="assets/bezel-${page.bezel[1]}-mobile.png 768w,
-                                  assets/bezel-${page.bezel[1]}-desktop.png 1024w"/>
-                        <video preload="none" class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}-${page.bezel[1]}.mp4" poster="assets/web-development/${pageId}-${page.bezel[1]}.jpg" type="video/mp4"></video>
-                        <div class="overlay">
-                            <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35">
-                                <use xlink:href="#play-btn" />
-                            </svg>
-                            <svg class="svg svg-icon svg-pause-icon" viewBox="0 0 40 35">
-                                <use xlink:href="#pause-btn" />
-                            </svg>
-                            <svg class="svg svg-icon svg-loading" viewBox="0 0 80 80">
-                                <use xlink:href="#spinner" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            `;
+              <div class="hero hero-interactive-art">
+                ${page.bezel.map((bezel) => createBezel(bezel)).join("")}
+              </div>`;
           } else {
-            hero = `
-                <div class="hero hero-interactive-art">
-                    <div class="bezel bezel-1 bezel-${page.bezel}">
-                        <img 
-                          loading="lazy"
-                          class="img" 
-                          src="assets/bezel-${page.bezel}-mobile.png" 
-                          widths="90vw"
-                          srcset="assets/bezel-${page.bezel}-mobile.png 768w,
-                                  assets/bezel-${page.bezel}-desktop.png 1024w"/>
-                        <video preload="none" class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}-${page.bezel}.mp4" poster="assets/web-development/${pageId}-${page.bezel}.jpg" type="video/mp4"></video>
-                        <div class="overlay">
-                            <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35">
-                                <use xlink:href="#play-btn" />
-                            </svg>
-                            <svg class="svg svg-icon svg-pause-icon" viewBox="0 0 40 35">
-                                <use xlink:href="#pause-btn" />
-                            </svg>
-                            <svg class="svg svg-icon svg-loading" viewBox="0 0 80 80">
-                                <use xlink:href="#spinner" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-            `;
+            hero = `<div class="hero hero-interactive-art">${createBezel(
+              page.bezel
+            )}</div>`;
           }
-          article = `
-            <div class="article">
-              <h1>${page.title}</h1>
-              <div class="year">${page.year}</div>
-              <div class="tags">
-                <span class="tag">crt</span>
-                <span class="tag">projector</span>
-                <span class="tag">microcontroller</span>
-                <span class="tag">vintage tech</span>
-                <span class="tag">indigenous</span>
-              </div>
-              <div class="content">
-                ${page.content}
-              </div>
-            </div>
-          `;
+          article = createArticle(
+            page.title,
+            null,
+            page.year,
+            tags,
+            page.content
+          );
         } else if (parent === "interactive-art") {
           if (page.heroVideo) {
-            hero = `
-            <div class="hero">
-              <video preload="none" class="img mobile" src="assets/${parent}/${pageId}-mobile.mp4" poster="assets/${parent}/${pageId}-mobile.jpg" muted loop playsinline></video>
-              <video preload="none" class="img desktop" src="assets/${parent}/${pageId}-desktop.mp4" poster="assets/${parent}/${pageId}-desktop.jpg" muted loop playsinline></video>
-            </div>
-            `;
+            hero = createHeroWithVideo(pageId);
           } else {
-            hero = `
-            <div class="hero">
-              <img loading="lazy" class="img mobile desktop" src="assets/${parent}/${pageId}.jpg" />
-            </div>
-            `;
+            hero = createHeroWithImg(
+              `assets/${parent}/${pageId}.jpg`,
+              "img mobile desktop"
+            );
           }
-          article = `
-            <div class="article">
-              <h1>${page.title}</h1>
-              <h2>${page.subtitle}</h2>
-              <div class="year">${page.year}</div>
-              <div class="tags">
-                <span class="tag">crt</span>
-                <span class="tag">projector</span>
-                <span class="tag">microcontroller</span>
-                <span class="tag">vintage tech</span>
-                <span class="tag">indigenous</span>
-              </div>
-              <div class="content">
-                ${page.content}
-              </div>
-            </div>
-          `;
+          article = createArticle(
+            page.formattedTitle,
+            page.subtitle,
+            page.year,
+            tags,
+            page.content
+          );
         } else {
-          hero = `
-          <div class="hero">
-            <img class="img mobile desktop" src="assets/${parent}/${pageId}.jpg" />
-          </div>
-          `;
-          article = `
-            <div class="article">
-              <h1>${page.title}</h1>
-              <div class="year">${page.year}</div>
-              <div class="tags">
-                <span class="tag">crt</span>
-                <span class="tag">projector</span>
-                <span class="tag">microcontroller</span>
-                <span class="tag">vintage tech</span>
-                <span class="tag">indigenous</span>
-              </div>
-              <div class="content">
-                ${page.content}
-              </div>
-            </div>
-          `;
+          hero = createHeroWithImg(
+            `assets/${parent}/${pageId}.jpg`,
+            "img mobile desktop"
+          );
+          article = createArticle(
+            page.title,
+            null,
+            page.year,
+            tags,
+            page.content
+          );
         }
 
-        div.insertAdjacentHTML("afterbegin", hero);
-        div.insertAdjacentHTML("beforeend", article);
+        div.innerHTML += hero + article;
       }
-
       main.appendChild(div);
     }
   }
