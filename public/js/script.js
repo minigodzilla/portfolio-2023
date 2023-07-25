@@ -145,7 +145,6 @@ for (const pageId in data.pages) {
 // TODO: simplify how userClicked is used, create one event listener for all a tags
 
 // DOM elements
-const pages = data.pages;
 const body = document.querySelector("body");
 const header = document.querySelector("header");
 const nav = document.querySelector("nav");
@@ -196,7 +195,6 @@ function createPages(pages, parent) {
       const page = pages[pageId];
       const div = document.createElement("div");
       div.id = pageId;
-      let hero, article, tags;
 
       if (page.tags) {
         tags = page.tags.map((tag) => `<div class="tag">${tag}</div>`);
@@ -298,9 +296,9 @@ function createPages(pages, parent) {
 
 function createNav() {
   // for each lv1 page, create a nav item
-  for (const pageId in pages) {
-    if (pages.hasOwnProperty(pageId)) {
-      const page = pages[pageId];
+  for (const pageId in data.pages) {
+    if (data.pages.hasOwnProperty(pageId)) {
+      const page = data.pages[pageId];
       const div = document.createElement("div");
       const container = document.createElement("div");
       const label = document.createElement("a");
@@ -390,7 +388,7 @@ function findMatchingPage(pages, hash) {
 
   // if hash is a lv2 page, return that page
   if (lv2Array.includes(hash)) {
-    for (const key in pages) {
+    for (const key in data.pages) {
       const page = pages[key];
       if (typeof page === "object" && page.pages) {
         if (page.pages.hasOwnProperty(hash)) {
@@ -438,7 +436,7 @@ function showPage(pageId) {
     window.removeEventListener("scroll", handleWindowScroll);
   }
 
-  findMatchingPage(pages, pageId);
+  findMatchingPage(data.pages, pageId);
 
   const thisPageElement = document.querySelector("#" + thisPage);
   const backBtn = document.querySelector(".nav-item." + lv1Page + " .back-btn");
@@ -473,10 +471,8 @@ function setupVideo(video) {
   video.play();
   video.addEventListener("click", function () {
     if (video.paused) {
-      console.log("play");
       video.play();
     } else {
-      console.log("pause");
       video.pause();
     }
   });
@@ -504,13 +500,12 @@ function videoHandler() {
 
   function clickHandler(event) {
     const video = event.target;
-    console.log("first click");
     setupVideo(video);
-    video.removeEventListener("click", clickHandler); // Remove the event listener after the first click
+    video.removeEventListener("click", clickHandler);
   }
 
-  videos.forEach(function (video) {
-    video.addEventListener("click", clickHandler);
+  videos.forEach((video) => {
+    video.addEventListener("click", clickHandler, { once: true });
   });
 }
 
@@ -543,7 +538,7 @@ function backToHome() {
     nav.classList.add("from-" + lv1Page);
   }
 
-  findMatchingPage(pages, pageId);
+  findMatchingPage(data.pages, pageId);
 
   header.classList.remove("navigated");
   main.className = "";
