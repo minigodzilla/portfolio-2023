@@ -124,7 +124,24 @@ const data = {
   },
 };
 
-// TODO: move data functions up here, use lv1Array and lv2Array to create pages and nav, as well as for findMatchingPage
+// create an array of all level 1 page names
+const lv1Array = Object.keys(data.pages);
+
+// create an array of all level 2 page names
+const lv2Array = [];
+for (const pageId in data.pages) {
+  if (data.pages.hasOwnProperty(pageId)) {
+    const page = data.pages[pageId];
+    if (page.pages) {
+      for (const pageId in page.pages) {
+        if (page.pages.hasOwnProperty(pageId)) {
+          lv2Array.push(pageId);
+        }
+      }
+    }
+  }
+}
+
 // TODO: simplify how userClicked is used, create one event listener for all a tags
 
 // DOM elements
@@ -141,7 +158,6 @@ let lv2Page = "";
 let thisPage = "";
 let lastPage = "";
 
-// creates index pages
 function createIndexPages(pages, container, parent) {
   for (const pageId in pages) {
     if (pages.hasOwnProperty(pageId)) {
@@ -281,6 +297,7 @@ function createPages(pages, parent) {
 }
 
 function createNav() {
+  // for each lv1 page, create a nav item
   for (const pageId in pages) {
     if (pages.hasOwnProperty(pageId)) {
       const page = pages[pageId];
@@ -351,39 +368,65 @@ function urlCheck() {
 }
 
 function findMatchingPage(pages, hash) {
-  if (pages.hasOwnProperty(hash)) {
-    lv1Page = hash;
-    lv2Page = "";
-    thisPage = lv1Page;
-    lastPage = "";
-    return;
-  }
-
-  for (const key in pages) {
-    const page = pages[key];
-    if (typeof page === "object" && page.pages) {
-      if (page.pages.hasOwnProperty(hash)) {
-        lv1Page = key;
-        lv2Page = hash;
-        thisPage = lv2Page;
-        lastPage = lv1Page;
-        return;
-      }
-
-      findMatchingPage(page.pages, hash, key);
-    }
-  }
+  // if hash is empty, return to home page
   if (!hash) {
-    // home page
     lv1Page = "";
     lv2Page = "";
     thisPage = "";
     lastPage = "";
+    updatePageTitle();
     return;
   }
-  // 404 condition
+
+  // if hash is a lv1 page, return that page
+  if (lv1Array.includes(hash)) {
+    lv1Page = hash;
+    lv2Page = "";
+    thisPage = lv1Page;
+    lastPage = "";
+    updatePageTitle(pages[hash].title);
+    return;
+  }
+
+  // if hash is a lv2 page, return that page
+  if (lv2Array.includes(hash)) {
+    for (const key in pages) {
+      const page = pages[key];
+      if (typeof page === "object" && page.pages) {
+        if (page.pages.hasOwnProperty(hash)) {
+          lv1Page = key;
+          lv2Page = hash;
+          thisPage = lv2Page;
+          lastPage = lv1Page;
+          updatePageTitle(page.pages[hash].title);
+          return;
+        }
+
+        findMatchingPage(page.pages, hash, key);
+      }
+    }
+  }
+
+  // if hash is not a lv1 or lv2 page, return 404
+  if (hash) {
+    lv1Page = "";
+    lv2Page = "";
+    thisPage = "";
+    lastPage = "";
+    updatePageTitle();
+    return;
+  }
   console.log("404: " + hash);
   return;
+}
+
+function updatePageTitle(title) {
+  if (title) {
+    formattedTitle = `${title} - Steve Diabo`;
+  } else {
+    formattedTitle = "Steve Diabo - Interactive Artist + Creative Technologist";
+  }
+  document.querySelector("title").innerText = formattedTitle;
 }
 
 function showPage(pageId) {
