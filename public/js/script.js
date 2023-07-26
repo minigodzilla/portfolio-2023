@@ -18,7 +18,7 @@ const data = {
           ],
           heroVideo: true,
           content:
-            "<p>The story of Indigenous language and cultural near-extinction, and later renaissance, has played out in parallel among Indigenous tribes, nations and peoples in North and South America, Australia and the Pacific, and elsewhere around the world. We can all point to a past generation of our respective peoples, within memory, who spoke our languages maternally.</p><p>Imagine yourself as one of the people of that generation -- perhaps someone in your own family who you knew, or know about, or someone in the Native community where you're from, or even their ancestors beyond that.</p><p>Imagine you're gifted with a time portal they can use to send something through to this generation. A way to communicate directly with us.</p><p>What kind of story, song, message or knowledge would you send?</p>",
+            "<p>The story of Indigenous language and cultural near-extinction, and later renaissance, has played out in parallel among the Indigenous peoples in North and South America, Australia and the Pacific, and elsewhere around the world. We can all point to a past generation of our respective peoples, within memory, who spoke our languages maternally.</p><p>Imagine yourself as one of the people of that generation -- perhaps someone in your own family who you knew, or know about, or someone in the Native community where you're from, or even their ancestors beyond that.</p><p>Imagine you're gifted with a time portal you can use to send something through to our generation. A way to communicate directly with us.</p><p>What kind of story, song, message or knowledge would you send to us?</p><p>My new art installation, Ancestors' Gate, will be this bridge across generations. It will be an exercise in immersion using vintage technology. It will be a new way to share Indigenous language, culture and storytelling using technology and interactive art -- a way which is meant to leave a lasting impression.</p><p>I will be collecting old recordings of storytelling, folk songs, spoken word, and the like from past generations of First Nations and Indigenous peoples worldwide, with the collaboration of co-researchers from those communities. I'm also collecting old photos, film footage, and other visuals.</p><p>I'm combining these vintage audio and visuals together artistically, and creating video clips of 1-3 mins length. I anticipate creating from 6 to 20 of these videos, depending on budget considerations.</p><p>The videos will be presented at random on a vintage CRT TV, when someone picks up a vintage telephone placed in front of it. After a short countdown, kaleidoscopic time-travel effects are projection-mapped all around the TV, creating a sense of awe and scale. Audio then plays through the receiver, exclusively for the listener, while the video plays on the TV.</p><p>At the end of the video, the listener is left with a writeup explaining what they just saw and heard, and a QR code they can scan to research further.</p><p>The scope of this art installation, particularly the research, is ambitious. Most of the time and effort will be spent working with co-researchers in other Indigenous communities, to create a compilation of folklore and knowledge which most people have never heard or seen before.</p><p>Ancestors' Gate is already slated to be exhibited at the ImagineNATIVE Festival in October 2023, as well as the Honolulu Museum of Art in November 2024. This version will be an initial presentation of the work, but the work will extend into 2024 and beyond with additional co-research and video production.</p><p>In an earlier phase of this project I completed the software build, produced one short video, and began the co-researching phase.</p>",
         },
         "dancing-light-lanterns": {
           title: "Dancing Light Lanterns",
@@ -38,7 +38,7 @@ const data = {
           tags: ["creative technologist", "retro gaming", "indigenous"],
           heroVideo: false,
           content:
-            "<p>I was commissioned to build 5 arcade cabinets for ImagineNATIVE and the Indigenous Youth Collective (iYC). These cabinets were to be used for the inDigital Arcade, a travelling arcade that would be set up at various events and locations, and would feature games made by Indigenous youth and other Indigenous game developers.</p><p>Each arcade cabinet features a Lenovo ThinkCentre all-in-one PC, hidden behind a plexiglass bezel.",
+            "<p>In late 2022 was commissioned to build 5 arcade cabinets for ImagineNATIVE and the Indigenous Youth Collective (iYC). These cabinets were to be used for the inDigital Arcade, a travelling arcade that would be set up at various events and locations, and would feature games made by Indigenous youth and other Indigenous game developers.</p><p>Each arcade cabinet features a Lenovo ThinkCentre all-in-one PC, hidden behind a plexiglass bezel. The system boots into a custom menu interface where you can select a game.</p><p>All of the games were created in the Bitsy engine by participants in the iYC.</p><p>It was an honour to help create a platform to host these games and to support young Indigneous developers.</p>",
         },
         "trivia-phone": {
           title: "Trivia Phone",
@@ -48,7 +48,7 @@ const data = {
           tags: ["microcontroller", "vintage tech"],
           heroVideo: false,
           content:
-            "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
+            "<p>Arduino was the first maker-friendly programmable microcontroller platform to hit the market in 2014. Since then, many other platforms have been introduced, like Teensy and Adafruit Feather.</p><p>This 1950s vintage Model 500 rotary telephone features an Arduino, with an audio shield.</p><p>When someone picks up the phone, an announcer tells them over the receiver that they're about to play Trivia Phone.</p><p>Trivia Phone is a 5-question quiz with numerical answers you can enter using the rotary dial.</p><p>After answering all 5 questions, Trivia Phone will tell you your score.</p><p>I originally built Trivia Phone for our wedding in 2021. The 5 questions were all related to knowledge of the couple.</p><p>People had a blast playing Trivia Phone at our wedding, and it was especially fun to see younger children figuring out the rotary dial.</p>",
         },
       },
     },
@@ -58,7 +58,7 @@ const data = {
         "red-nucleus": {
           title: "Red Nucleus",
           year: "2022",
-          tags: ["vue", "react", "team lead"],
+          tags: ["vue", "react", "team lead", "web dev", "touch screen"],
           bezel: "4ktv",
           content:
             "<p>Red Nucleus is a healthcare communication and medical education company. They work with pharmaceutical, biotechnology, and medical device companies to create interactive educational and marketing experiences and materials for healthcare professionals, patients, and the general public.</p><p>As the Senior Developer Team Lead in their Toronto office, I oversaw projects, produced estimates, onboarded and trained new developers, helped establish new dev ops infrastructure, mentored junior developers, and developed experiences for touch screen and web.</p>",
@@ -66,15 +66,15 @@ const data = {
         "klick-health": {
           title: "Klick Health",
           year: "2021",
-          tags: ["retro gaming", "indigenous"],
+          tags: ["web dev", "GSAP", "jQuery"],
           bezel: "ipad-pro-2020",
           content:
-            "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
+            "<p>Klick Health is a medical communications company that works with pharmaceutical, biotechnology and life sciences companies for their digital marketing and educational materials needs.</p><p>As a Senior Front End Developer, I developed websites, digital experiences and emails, helping coordinate the design and dev effort.</p><p>I wrote documentation for development, testing and deployment processes. I also trained designers and developers in the GSAP library, and how to cohesively design and develop animated websites.</p>",
         },
         stackadapt: {
           title: "StackAdapt",
           year: "2019",
-          tags: ["projection", "microcontroller", "vintage tech"],
+          tags: ["GSAP", "jQuery", "web dev", "crm", "marketing"],
           bezel: ["macbook-pro-2016", "iphone-11"],
           content:
             "<p>StackAdapt is one of the fastest-growing tech startups in Toronto, with an innovative native advertising platform that enables brands to accelerate customer engagement and acquisition.</p><p>At their rate of growth, they saw a need to build a digital marketing team and elevate their online presence. In 2017, they hired me as a Front End Engineer to give much-needed focus to their homepage and blog.</p><p>I worked closely with the newly-created Design and Marketing teams to revamp the company homepage, introduce new product pages and industry pages tailored to specific verticals, an interactive Ad Format Showcase, and make many other additions and tweaks along the way.</p><p>I overhauled their lead generation form at the bottom of each page, enabling A/B testing with measurable performance comparison, adding new layers of in-browser validation and anti-spam measures, and improving the integration with Slack API and Pardot that powers their pipeline from user signup to lead qualification and live product demo.</p><p>I set up a new WordPress installation, migrated their old blog posts, and developed a custom WordPress theme that integrates seamlessly with their homepage.</p><p>StackAdapt's rapid market growth over my time there was the product of a cross-team effort&mdash;but the projects I executed to expand their online reach, and the technical capacity gained by having a developer like myself on their marketing team, helped to deliver tangible results.</p>",
@@ -82,7 +82,7 @@ const data = {
         diply: {
           title: "Diply",
           year: "2017",
-          tags: ["projection", "microcontroller", "vintage tech"],
+          tags: ["jQuery", "web dev", "prototyping"],
           bezel: ["macbook-pro-2016", "iphone-7-plus"],
           content:
             "<p>Diply was one of the leading social news/entertainment websites in the world and among the top 20 most visited websites in Canada, publishing articles on internet culture, food, fashion, celebrity news, user-generated content and much more.</p><p>In 2016, they were in the early stages of creating self-publishing tools and user dashboard web applications, and experimenting with new designs for their homepage. In addition, they were growing their staff and opening a new Toronto office. They were growing and scaling, and betting big on a new design-focused direction for their products.</p><p>I was hired as a design technologist to augment their growing Design team. One of my first tasks was to work closely with the designers to develop rapid prototypes, which we used for user and stakeholder testing, internal demos and design review. A few of these prototypes are shown here.</p><p>Using a lightweight Node/SASS/JS tech stack, I produced high-fidelity prototypes to help realize a new look and feel for Diply's homepage, on both mobile and desktop, and helped refine the user flows and experience for their new self-publishing tools. I continued working on these interfaces and tools in the production environment, building and styling components in Angular for the final product.</p><p>Diply's new rapid iteration and prototype-driven design process enabled them to move quickly on experimental UI and evaluation, collecting feedback early in the process, and reducing the need for changes during development. Their newfound agility resulted in a more up-to-date user experience across all of their online offerings.</p>",
@@ -90,7 +90,13 @@ const data = {
         infusion: {
           title: "Infusion",
           year: "2016",
-          tags: ["projection", "microcontroller", "vintage tech"],
+          tags: [
+            "jQuery",
+            "Angular",
+            "creative technologist",
+            "touch screen",
+            "web dev",
+          ],
           bezel: "macbook-pro-2016",
           content:
             "<p>Infusion (now Avanade) is a global engineering, design and digital strategy firm with an emphasis on solutions built with Microsoft technologies. Their clients included retail, education, healthcare, financial services, the energy sector and others. Their projects ranged from customer-facing digital experiences to enterprise-level application software.</p><p>In 2013, their client, Richtree Natural Markets, was developing a brand-new food court concept at the Toronto Eaton Centre. Infusion was tasked with providing digital ordering touch screens, overhead menus and interactive installations for the new food court space.</p><p>With my prior experience in XAML, I was hired to develop UI for the various Windows WPF applications that powered these experiences.</p><p>Later, as Infusion was incubating a digital marketing agency within the firm, I continued as a member of their Interactive Development team, a multidisciplinary group of design-aware, marketing-savvy creative technologists, developers and designers.</p><p>In my time there, I helped produce innovative and exciting digital experiences for various clients, pitch work, rapid prototypes, UX design, front end and UI development on various platforms including: Web, Windows, Android, Samsung Gear wearables, Unity, Microsoft Hololens and more.</p><p>Working at Infusion was a wonderful experience for me, as I got to learn and play with many new technologies and to build experiences on various platforms, particularly VR/AR.</p>",
@@ -98,7 +104,7 @@ const data = {
         nventive: {
           title: "nventive",
           year: "2013",
-          tags: ["projection", "microcontroller", "vintage tech"],
+          tags: ["windows", "windows phone", "XAML"],
           bezel: ["win-tablet", "win-phone"],
           content:
             "<p>nventive is an agile mobile and web application studio, which in 2012-2013 was designing and building apps on Windows Phone and Windows 8 devices.</p><p>At the time I started there, Microsoft was investing heavily in the Windows Phone app ecosystem, and nventive was one of the studios that produced full-featured Windows Phone and Windows 8 apps for clients such as ABC News, AllRecipes, Bloomberg, Expedia and others.</p><p>Their need for a Windows XAML front end developer was so urgent, and the hiring pool so small, that they hired me based on my skill level with HTML/CSS and started training me on XAML development on the first day.</p><p>After two weeks, I was competent enough to work on production codebases, and with the rest of my time there, I learned much more.</p><p>I introduced a practice of producing app-level style guides early in the design process, which outlined colour resources, font sizes and styles, etc. helping the Design and Development teams work together more effectively.</p>",
