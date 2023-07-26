@@ -119,7 +119,7 @@ const data = {
           subtitle: "A portal for past generations to speak to us",
           year: "2022",
           tags: ["educational", "indigenous", "gaming"],
-          bezel: "ipad-pro-2020",
+          bezel: "tablet",
           content:
             "<p>Onénhsto, or &quot;Corn Soup&quot;, is a fun game that teaches Kanien'kéha language, culture and traditions by replicating elder, family and community teaching experiences.</p><p>In this game, you are cast into the role of a young Mohawk boy, spending time with his To'ta (Grandmother). Around her house, and in the garden, are all the ingredients necessary to make her famous corn soup. Forage and collect all of the ingredients, and don't forget to find the recipe book too!</p><p>As you explore the level, you will come across corn and beans in the garden, wild strawberries in the woods, and much more. As you approach these items, the word for the item appears in Kanien'kéha.</p><p>By collecting all of the ingredients and the recipe book, you can learn how to make Mohawk corn soup, based on traditional recipes handed down over generations. Additional items found in the level, like strawberries, can unlock additional surprises!</p><p>The vision for this game was conceived during ImagineNATIVE's Land Jam game hackathon in June 2022. Myself and a team of others all happened to have roots in different Mohawk communities, which led us to think about ways to propagate and teach our language, culture and traditions to other Mohawks displaced from communities, especially children. The idea to create an educational children's adventure game was born.</p><p>I undertook a lot of learning to leverage my web development skill set for the new task of building a 3D game. This involved code review, tutorial consumption, experimentation and prototyping. What I couldn't fully develop on my own, I broke down into manageable tasks and enlisted help from some Unity developer friends and colleagues. In turn, I gleaned additional learning from reviewing the approaches they took and the code they wrote. I reached out to my partner Jenn to create some art for the characters and items in the game.</p><p>For more information or to download a demo of Onénhsto, visit the <a target='_blank' href='https://onenhsto.com/''>official website</a>.</p>",
         },
@@ -228,7 +228,7 @@ function createPages(pages, parent) {
         const createBezel = (bezelName) => `
           <div class="bezel bezel-${bezelName}">
             <img loading="lazy" class="img" src="assets/bezel-${bezelName}-mobile.png" widths="90vw" srcset="assets/bezel-${bezelName}-mobile.png 768w,assets/bezel-${bezelName}-desktop.png 1024w"/>
-            <video preload="none" class="screen-content screen-content-video" muted loop playsinline src="assets/web-development/${pageId}-${bezelName}.mp4" poster="assets/web-development/${pageId}-${bezelName}.jpg" type="video/mp4"></video>
+            <video preload="none" class="screen-content screen-content-video" muted loop playsinline src="assets/${parent}/${pageId}-${bezelName}.mp4" poster="assets/${parent}/${pageId}-${bezelName}.jpg" type="video/mp4"></video>
             <div class="overlay">
               <svg class="svg svg-icon svg-play-icon" viewBox="0 0 40 35"><use xlink:href="#play-btn" /></svg>
               <svg class="svg svg-icon svg-pause-icon" viewBox="0 0 40 35"><use xlink:href="#pause-btn" /></svg>

@@ -467,11 +467,11 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) .container {
 .page .hero.hero-interactive-art .bezel.bezel-iphone-7-plus .overlay .svg {
   width: 25%;
 }
-.page .hero.hero-interactive-art .bezel.bezel-win-tablet {
+.page .hero.hero-interactive-art .bezel.bezel-win-tablet, .page .hero.hero-interactive-art .bezel.bezel-tablet {
   width: 70%;
   height: 80%;
 }
-.page .hero.hero-interactive-art .bezel.bezel-win-tablet .screen-content {
+.page .hero.hero-interactive-art .bezel.bezel-win-tablet .screen-content, .page .hero.hero-interactive-art .bezel.bezel-tablet .screen-content {
   width: 88%;
   height: 77%;
 }
@@ -754,6 +754,18 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) .container {
 .page.active.page-lv2 .content p:nth-child(8) {
   animation-delay: 1500ms;
 }
+.page.active.page-lv2 .content p:nth-child(9) {
+  animation-delay: 1600ms;
+}
+.page.active.page-lv2 .content p:nth-child(10) {
+  animation-delay: 1700ms;
+}
+.page.active.page-lv2 .content p:nth-child(11) {
+  animation-delay: 1800ms;
+}
+.page.active.page-lv2 .content p:nth-child(12) {
+  animation-delay: 1900ms;
+}
 .page.page-lv1.active {
   animation-delay: 1000ms;
   animation-duration: 0ms;
@@ -793,12 +805,17 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) .container {
   text-transform: none;
 }
 .page.page-lv2.interactive-art .article h2, .page.page-lv2.workshops-and-education .article h2 {
-  margin-top: -1.25em;
+  margin-top: 0.5em;
 }
 .page.page-lv2.interactive-art .article .year, .page.page-lv2.workshops-and-education .article .year {
+  margin-top: 0.5em;
+}
+.page.page-lv2#ancestors-gate .article h2 {
+  margin-top: -1.25em;
+}
+.page.page-lv2#ancestors-gate .article .year {
   margin-top: -1.45em;
 }
-
 body.preload header h1 {
   animation-delay: 500ms;
 }

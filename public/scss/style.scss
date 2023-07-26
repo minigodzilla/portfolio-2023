@@ -507,7 +507,8 @@ header {
                     }
                 }
 
-                &.bezel-win-tablet {
+                &.bezel-win-tablet,
+                &.bezel-tablet {
                     width: 70%;
                     height: 80%;
 
@@ -793,7 +794,7 @@ header {
                 animation-delay: 700ms;
             }
             .content {
-                @for $i from 1 through 8 {
+                @for $i from 1 through 12 {
                     p:nth-child(#{$i}) {
                         animation-delay: #{800 + (($i - 1) * 100)}ms;
                     }
@@ -825,11 +826,21 @@ header {
             }
         }
         h2 {
+            margin-top: 0.5em;
+        }
+        .year {
+            margin-top: 0.5em;
+        }
+    }
+    &.page-lv2#ancestors-gate .article {
+        h2 {
             margin-top: -1.25em;
         }
         .year {
             margin-top: -1.45em;
         }
+    }
+    &.page-lv2#dancing-light-lanterns .article {
     }
 }
 body.preload {
