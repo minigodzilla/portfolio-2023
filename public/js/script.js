@@ -57,16 +57,14 @@ const data = {
       pages: {
         "red-nucleus": {
           title: "Red Nucleus",
-          subtitle: "A portal for past generations to speak to us",
           year: "2022",
-          tags: ["microcontroller", "indigenous"],
+          tags: ["vue", "react", "team lead"],
           bezel: "4ktv",
           content:
-            "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
+            "<p>Red Nucleus is a healthcare communication and medical education company. They work with pharmaceutical, biotechnology, and medical device companies to create interactive educational and marketing experiences and materials for healthcare professionals, patients, and the general public.</p><p>As the Senior Developer Team Lead in their Toronto office, I oversaw projects, produced estimates, onboarded and trained new developers, helped establish new dev ops infrastructure, mentored junior developers, and developed experiences for touch screen and web.</p>",
         },
         "klick-health": {
           title: "Klick Health",
-          subtitle: "A portal for past generations to speak to us",
           year: "2021",
           tags: ["retro gaming", "indigenous"],
           bezel: "ipad-pro-2020",
@@ -75,7 +73,6 @@ const data = {
         },
         stackadapt: {
           title: "StackAdapt",
-          subtitle: "A portal for past generations to speak to us",
           year: "2019",
           tags: ["projection", "microcontroller", "vintage tech"],
           bezel: ["macbook-pro-2016", "iphone-11"],
@@ -84,7 +81,6 @@ const data = {
         },
         diply: {
           title: "Diply",
-          subtitle: "A portal for past generations to speak to us",
           year: "2017",
           tags: ["projection", "microcontroller", "vintage tech"],
           bezel: ["macbook-pro-2016", "iphone-7-plus"],
@@ -93,7 +89,6 @@ const data = {
         },
         infusion: {
           title: "Infusion",
-          subtitle: "A portal for past generations to speak to us",
           year: "2016",
           tags: ["projection", "microcontroller", "vintage tech"],
           bezel: "macbook-pro-2016",
@@ -102,7 +97,6 @@ const data = {
         },
         nventive: {
           title: "nventive",
-          subtitle: "A portal for past generations to speak to us",
           year: "2013",
           tags: ["projection", "microcontroller", "vintage tech"],
           bezel: ["win-tablet", "win-phone"],

@@ -683,7 +683,8 @@ header {
         transform: scale(1.05);
     }
 
-    &.page-lv2.web-development .hero {
+    &.page-lv2.web-development .hero,
+    &.page-lv2.game-development .hero {
         height: 14.5em;
 
         &::before {
@@ -813,7 +814,8 @@ header {
             }
         }
     }
-    &.page-lv2.interactive-art .article {
+    &.page-lv2.interactive-art .article,
+    &.page-lv2.workshops-and-education .article {
         h1 {
             margin-top: -0.75em;
             text-transform: lowercase;
@@ -962,7 +964,8 @@ body.ext-ref {
                 height: 18.4em;
             }
         }
-        &.page-lv2.interactive-art {
+        &.page-lv2.interactive-art,
+        &.page-lv2.workshops-and-education {
             .hero {
                 height: 30em;
             }
@@ -983,7 +986,8 @@ body.ext-ref {
                 }
             }
         }
-        &.page-lv2.web-development {
+        &.page-lv2.web-development,
+        &.page-lv2.game-development {
             .hero {
                 height: 36em;
             }
