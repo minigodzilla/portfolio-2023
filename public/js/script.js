@@ -33,12 +33,12 @@ const data = {
         "indigital-arcade": {
           title: "inDigital Arcade",
           formattedTitle: "<span>inDigital</span><br/>Arcade",
-          subtitle: "A portal for past generations to speak to us",
-          year: "2021",
-          tags: ["retro gaming", "indigenous"],
+          subtitle: "A whole arcade<br/>with an Indigenous twist",
+          year: "2022",
+          tags: ["creative technologist", "retro gaming", "indigenous"],
           heroVideo: false,
           content:
-            "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique dignissimos itaque labore optio nulla qui laboriosam, reprehenderit a deserunt! Eius nesciunt fugit ad neque assumenda doloribus voluptatum vitae praesentium dolorem.</p>",
+            "<p>I was commissioned to build 5 arcade cabinets for ImagineNATIVE and the Indigenous Youth Collective (iYC). These cabinets were to be used for the inDigital Arcade, a travelling arcade that would be set up at various events and locations, and would feature games made by Indigenous youth and other Indigenous game developers.</p><p>Each arcade cabinet features a Lenovo ThinkCentre all-in-one PC, hidden behind a plexiglass bezel.",
         },
         "trivia-phone": {
           title: "Trivia Phone",
@@ -117,8 +117,8 @@ const data = {
         onenhsto: {
           title: "Onénhsto",
           subtitle: "A portal for past generations to speak to us",
-          year: "2021",
-          tags: ["retro gaming", "indigenous"],
+          year: "2022",
+          tags: ["educational", "indigenous", "gaming"],
           bezel: "ipad-pro-2020",
           content:
             "<p>Onénhsto, or &quot;Corn Soup&quot;, is a fun game that teaches Kanien'kéha language, culture and traditions by replicating elder, family and community teaching experiences.</p><p>In this game, you are cast into the role of a young Mohawk boy, spending time with his To'ta (Grandmother). Around her house, and in the garden, are all the ingredients necessary to make her famous corn soup. Forage and collect all of the ingredients, and don't forget to find the recipe book too!</p><p>As you explore the level, you will come across corn and beans in the garden, wild strawberries in the woods, and much more. As you approach these items, the word for the item appears in Kanien'kéha.</p><p>By collecting all of the ingredients and the recipe book, you can learn how to make Mohawk corn soup, based on traditional recipes handed down over generations. Additional items found in the level, like strawberries, can unlock additional surprises!</p><p>The vision for this game was conceived during ImagineNATIVE's Land Jam game hackathon in June 2022. Myself and a team of others all happened to have roots in different Mohawk communities, which led us to think about ways to propagate and teach our language, culture and traditions to other Mohawks displaced from communities, especially children. The idea to create an educational children's adventure game was born.</p><p>I undertook a lot of learning to leverage my web development skill set for the new task of building a 3D game. This involved code review, tutorial consumption, experimentation and prototyping. What I couldn't fully develop on my own, I broke down into manageable tasks and enlisted help from some Unity developer friends and colleagues. In turn, I gleaned additional learning from reviewing the approaches they took and the code they wrote. I reached out to my partner Jenn to create some art for the characters and items in the game.</p><p>For more information or to download a demo of Onénhsto, visit the <a target='_blank' href='https://onenhsto.com/''>official website</a>.</p>",
@@ -238,8 +238,8 @@ function createPages(pages, parent) {
 
         const createHeroWithVideo = (id) => `
           <div class="hero">
-            <video preload="none" class="img mobile" src="assets/${parent}/${id}-mobile.mp4" poster="assets/${parent}/${id}-mobile.jpg" muted loop playsinline></video>
-            <video preload="none" class="img desktop" src="assets/${parent}/${id}-desktop.mp4" poster="assets/${parent}/${id}-desktop.jpg" muted loop playsinline></video>
+            <video preload="none" class="img mobile" src="assets/${parent}/${id}-mobile.mp4" poster="assets/${parent}/${id}-mobile.jpg" muted loop playsinline autoplay></video>
+            <video preload="none" class="img desktop" src="assets/${parent}/${id}-desktop.mp4" poster="assets/${parent}/${id}-desktop.jpg" muted loop playsinline autoplay></video>
           </div>`;
 
         const createHeroWithImg = (src, classes) => `

@@ -128,7 +128,7 @@ a {
   text-decoration: none;
 }
 
-main a {
+.content a {
   text-decoration: underline;
 }
 
@@ -604,6 +604,12 @@ header nav.from-workshops-and-education .nav-item:nth-child(4) .container {
 }
 .page .hero .label span {
   text-transform: none;
+}
+.page.page.page-lv1 .hero > img {
+  transition: transform 400ms ease;
+}
+.page.page.page-lv1 .hero:hover > img {
+  transform: scale(1.05);
 }
 .page.page-lv2.web-development .hero {
   height: 14.5em;

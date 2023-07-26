@@ -129,7 +129,7 @@ a {
     color: inherit;
     text-decoration: none;
 }
-main a {
+.content a {
     text-decoration: underline;
 }
 
@@ -673,6 +673,14 @@ header {
                 text-transform: none;
             }
         }
+    }
+
+    &.page.page-lv1 .hero > img {
+        transition: transform 400ms ease;
+    }
+
+    &.page.page-lv1 .hero:hover > img {
+        transform: scale(1.05);
     }
 
     &.page-lv2.web-development .hero {
