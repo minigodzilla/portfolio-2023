@@ -97,7 +97,7 @@ const data = {
             "touch screen",
             "web dev",
           ],
-          bezel: "macbook-pro-2016",
+          bezel: "4ktv",
           content:
             "<p>Infusion (now Avanade) is a global engineering, design and digital strategy firm with an emphasis on solutions built with Microsoft technologies. Their clients included retail, education, healthcare, financial services, the energy sector and others. Their projects ranged from customer-facing digital experiences to enterprise-level application software.</p><p>In 2013, their client, Richtree Natural Markets, was developing a brand-new food court concept at the Toronto Eaton Centre. Infusion was tasked with providing digital ordering touch screens, overhead menus and interactive installations for the new food court space.</p><p>With my prior experience in XAML, I was hired to develop UI for the various Windows WPF applications that powered these experiences.</p><p>Later, as Infusion was incubating a digital marketing agency within the firm, I continued as a member of their Interactive Development team, a multidisciplinary group of design-aware, marketing-savvy creative technologists, developers and designers.</p><p>In my time there, I helped produce innovative and exciting digital experiences for various clients, pitch work, rapid prototypes, UX design, front end and UI development on various platforms including: Web, Windows, Android, Samsung Gear wearables, Unity, Microsoft Hololens and more.</p><p>Working at Infusion was a wonderful experience for me, as I got to learn and play with many new technologies and to build experiences on various platforms, particularly VR/AR.</p>",
         },
