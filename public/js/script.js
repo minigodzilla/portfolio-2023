@@ -38,7 +38,7 @@ const data = {
           tags: ["creative technologist", "retro gaming", "indigenous"],
           heroVideo: false,
           content:
-            "<p>In late 2022 was commissioned to build 5 arcade cabinets for ImagineNATIVE and the Indigenous Youth Collective (iYC). These cabinets were to be used for the inDigital Arcade, a travelling arcade that would be set up at various events and locations, and would feature games made by Indigenous youth and other Indigenous game developers.</p><p>Each arcade cabinet features a Lenovo ThinkCentre all-in-one PC, hidden behind a plexiglass bezel. The system boots into a custom menu interface where you can select a game.</p><p>All of the games were created in the Bitsy engine by participants in the iYC.</p><p>It was an honour to help create a platform to host these games and to support young Indigneous developers.</p>",
+            "<p>In late 2022 was commissioned to build 5 arcade cabinets for ImagineNATIVE and the iNDigital Youth Collective (iYC). These cabinets were to be used for the inDigital Arcade, a travelling arcade that would be set up at various events and locations, and would feature games made by Indigenous youth and other Indigenous game developers.</p><p>Each arcade cabinet features a Lenovo ThinkCentre all-in-one PC, hidden behind a plexiglass bezel. The system boots into a custom menu interface where you can select a game.</p><p>All of the games were created in the Bitsy engine by participants in the iYC.</p><p>It was an honour to help create a platform to host these games and to support young Indigneous developers.</p>",
         },
         "trivia-phone": {
           title: "Trivia Phone",
@@ -128,6 +128,23 @@ const data = {
     "workshops-and-education": {
       title: "Workshops + Education",
       pages: {
+        "iyc-bitsy-games-workshop": {
+          title: "iYC Bitsy Games Workshop",
+          formattedTitle: "<span>iYC</span><br/>Bitsy Games<br/>Workshop",
+          subtitle: "A game dev workshop<br/>to make tiny games",
+          year: "2023",
+          tags: [
+            "bitsy",
+            "retro gaming",
+            "game dev",
+            "workshop",
+            "education",
+            "indigenous",
+          ],
+          heroVideo: true,
+          content:
+            "<p><a href='https://bitsy.org/' target='_blank'>Bitsy</a> is a browser-based tool for making little narrative games in a pixel art style.</p><p>Members of the iNDigital Youth Collective (iYC) gathered together on a Discord server for a series of workshops run by myself and Pōhaikealoha Panoke. In 5 workshops, we introduced them to the Bitsy engine, taught them the essentials of narrative storytelling and game design, and how to build their own game top-to-bottom in Bitsy.</p><p>At the end of the workshop, participants exported their games as HTML files so that others could download and play them on their browsers.</p><p>It was a delightful experience mentoring and teaching these inspiring young First Nations community members to create their first games.</p><p>This October 2023 at the ImagineNATIVE iNDigital Space, the iYC cohort’s completed Bitsy games will be showcased on the <a href='/indigital-arcade'>iNDigital Arcade</a>, another one of my build projects, for the public to enjoy.</p>",
+        },
         "dancing-light-lanterns-workshop": {
           title: "Dancing Light Lanterns",
           formattedTitle: "Dancing Light<br/>Lanterns",
