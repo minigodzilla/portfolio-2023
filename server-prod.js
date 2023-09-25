@@ -19,7 +19,8 @@ app.get("*", (req, res) => {
   }
 
   const rewrittenUrl = `/#${req.url.substring(1)}`;
-  res.redirect(rewrittenUrl);
+  const betterRewrittenUrl = rewrittenUrl.split("?")[0];
+  res.redirect(betterRewrittenUrl);
 });
 
 app.get("/", (req, res) => {
